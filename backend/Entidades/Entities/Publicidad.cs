@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades.Entities
 {
-    internal class Publicidad
+    public class Publicidad
     {
         public string? id { get; set; }
         public byte[]? imagen { get; set; }

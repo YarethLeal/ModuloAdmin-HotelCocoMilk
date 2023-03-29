@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades.Entities
 {
-    internal class TipoPagina
+    public class TipoPagina
     {
         public int? id { get; set; }
         public string? tipo { get; set; }
