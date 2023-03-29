@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Admin-HotelCocoMilk", "Admin-HotelCocoMilk.csproj", "{B3B6E3F6-C3EF-4967-AAC2-4DA3383F769A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Admin-HotelCocoMilk", "Admin-HotelCocoMilk.csproj", "{B3B6E3F6-C3EF-4967-AAC2-4DA3383F769A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AccesoADatos", "..\AccesoADatos\AccesoADatos.csproj", "{91C9F90C-AAA8-40AA-9579-C74CDAFB038F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entidades", "..\Entidades\Entidades.csproj", "{A027F98F-09DA-4CCE-8B68-0E9E36B419CD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{B3B6E3F6-C3EF-4967-AAC2-4DA3383F769A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3B6E3F6-C3EF-4967-AAC2-4DA3383F769A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3B6E3F6-C3EF-4967-AAC2-4DA3383F769A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91C9F90C-AAA8-40AA-9579-C74CDAFB038F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91C9F90C-AAA8-40AA-9579-C74CDAFB038F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91C9F90C-AAA8-40AA-9579-C74CDAFB038F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91C9F90C-AAA8-40AA-9579-C74CDAFB038F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A027F98F-09DA-4CCE-8B68-0E9E36B419CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A027F98F-09DA-4CCE-8B68-0E9E36B419CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A027F98F-09DA-4CCE-8B68-0E9E36B419CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A027F98F-09DA-4CCE-8B68-0E9E36B419CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
