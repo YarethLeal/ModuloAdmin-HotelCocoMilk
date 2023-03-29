@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades.Entities
 {
-    internal class TipoHabitacion
+    public class TipoHabitacion
     {
         public int? id { get; set; }
         public byte[]? imagen { get; set; }

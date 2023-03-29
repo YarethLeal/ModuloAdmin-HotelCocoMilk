@@ -10,3 +10,6 @@ C:\Users\hp\Documents\Github\ModuloAdmin-HotelCocoMilk\backend\AccesoADatos\obj\
 C:\Users\hp\Documents\Github\ModuloAdmin-HotelCocoMilk\backend\AccesoADatos\obj\Debug\net6.0\refint\AccesoADatos.dll
 C:\Users\hp\Documents\Github\ModuloAdmin-HotelCocoMilk\backend\AccesoADatos\obj\Debug\net6.0\AccesoADatos.pdb
 C:\Users\hp\Documents\Github\ModuloAdmin-HotelCocoMilk\backend\AccesoADatos\obj\Debug\net6.0\ref\AccesoADatos.dll
+C:\Users\hp\Documents\Github\ModuloAdmin-HotelCocoMilk\backend\AccesoADatos\bin\Debug\net6.0\Entidades.dll
+C:\Users\hp\Documents\Github\ModuloAdmin-HotelCocoMilk\backend\AccesoADatos\bin\Debug\net6.0\Entidades.pdb
+C:\Users\hp\Documents\Github\ModuloAdmin-HotelCocoMilk\backend\AccesoADatos\obj\Debug\net6.0\AccesoADatos.csproj.CopyComplete
