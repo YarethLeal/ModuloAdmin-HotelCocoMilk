@@ -1,0 +1,12 @@
+C:\Users\hp\Documents\Github\ModuloAdmin-HotelCocoMilk\backend\AccesoADatos\bin\Debug\net6.0\AccesoADatos.deps.json
+C:\Users\hp\Documents\Github\ModuloAdmin-HotelCocoMilk\backend\AccesoADatos\bin\Debug\net6.0\AccesoADatos.dll
+C:\Users\hp\Documents\Github\ModuloAdmin-HotelCocoMilk\backend\AccesoADatos\bin\Debug\net6.0\AccesoADatos.pdb
+C:\Users\hp\Documents\Github\ModuloAdmin-HotelCocoMilk\backend\AccesoADatos\obj\Debug\net6.0\AccesoADatos.csproj.AssemblyReference.cache
+C:\Users\hp\Documents\Github\ModuloAdmin-HotelCocoMilk\backend\AccesoADatos\obj\Debug\net6.0\AccesoADatos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hp\Documents\Github\ModuloAdmin-HotelCocoMilk\backend\AccesoADatos\obj\Debug\net6.0\AccesoADatos.AssemblyInfoInputs.cache
+C:\Users\hp\Documents\Github\ModuloAdmin-HotelCocoMilk\backend\AccesoADatos\obj\Debug\net6.0\AccesoADatos.AssemblyInfo.cs
+C:\Users\hp\Documents\Github\ModuloAdmin-HotelCocoMilk\backend\AccesoADatos\obj\Debug\net6.0\AccesoADatos.csproj.CoreCompileInputs.cache
+C:\Users\hp\Documents\Github\ModuloAdmin-HotelCocoMilk\backend\AccesoADatos\obj\Debug\net6.0\AccesoADatos.dll
+C:\Users\hp\Documents\Github\ModuloAdmin-HotelCocoMilk\backend\AccesoADatos\obj\Debug\net6.0\refint\AccesoADatos.dll
+C:\Users\hp\Documents\Github\ModuloAdmin-HotelCocoMilk\backend\AccesoADatos\obj\Debug\net6.0\AccesoADatos.pdb
+C:\Users\hp\Documents\Github\ModuloAdmin-HotelCocoMilk\backend\AccesoADatos\obj\Debug\net6.0\ref\AccesoADatos.dll
