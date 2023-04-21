@@ -11,6 +11,7 @@ namespace AccesoADatos.Context
 
         public virtual DbSet<Cliente> cliente { get; set; }
         public virtual DbSet<Habitacion> habitacion { get; set; }
+        public virtual DbSet<Usuario> usuario { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {

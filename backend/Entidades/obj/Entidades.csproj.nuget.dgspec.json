@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hp\\Documents\\Github\\ModuloAdmin-HotelCocoMilk\\backend\\Entidades\\Entidades.csproj": {}
+    "C:\\Users\\Usuario\\Desktop\\REPOSITORIOS\\ModuloAdmin-HotelCocoMilk\\backend\\Entidades\\Entidades.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hp\\Documents\\Github\\ModuloAdmin-HotelCocoMilk\\backend\\Entidades\\Entidades.csproj": {
+    "C:\\Users\\Usuario\\Desktop\\REPOSITORIOS\\ModuloAdmin-HotelCocoMilk\\backend\\Entidades\\Entidades.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hp\\Documents\\Github\\ModuloAdmin-HotelCocoMilk\\backend\\Entidades\\Entidades.csproj",
+        "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\REPOSITORIOS\\ModuloAdmin-HotelCocoMilk\\backend\\Entidades\\Entidades.csproj",
         "projectName": "Entidades",
-        "projectPath": "C:\\Users\\hp\\Documents\\Github\\ModuloAdmin-HotelCocoMilk\\backend\\Entidades\\Entidades.csproj",
-        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hp\\Documents\\Github\\ModuloAdmin-HotelCocoMilk\\backend\\Entidades\\obj\\",
+        "projectPath": "C:\\Users\\Usuario\\Desktop\\REPOSITORIOS\\ModuloAdmin-HotelCocoMilk\\backend\\Entidades\\Entidades.csproj",
+        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Usuario\\Desktop\\REPOSITORIOS\\ModuloAdmin-HotelCocoMilk\\backend\\Entidades\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
