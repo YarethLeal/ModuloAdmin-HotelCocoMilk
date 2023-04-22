@@ -1,0 +1,27 @@
+header {
+  background: rgb(255, 255, 255);
+  border-bottom: solid;
+  display: block;
+}
+.navbar-toggler {
+  padding: .25rem .75rem;
+  font-size: 1.25rem;
+  line-height: 1;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+}
+.navbar .navbar-brand{
+  color:#0f1521;
+}
+
+@media (min-width:700px) {
+  #navHamburger{
+    display: none;
+  }
+}
+@media (max-width:400px) {
+  .navbar .navbar-brand strong{
+    display: none;
+  }
+}
