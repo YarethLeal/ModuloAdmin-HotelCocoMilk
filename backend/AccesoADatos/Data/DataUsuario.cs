@@ -13,7 +13,7 @@ namespace AccesoADatos.Data
             using (var _context = new DBContext())
              {
               var usuario = new Usuario();
-              var  usuarioTemp = await _context.usuario.Where(x => x.nombre.Contains(nombre) && x.contrasena.Contains(contrasenna)).FirstOrDefaultAsync();
+              var  usuarioTemp = await _context.usuario.Where(x => x.nombre == nombre && x.contrasena == contrasenna).FirstOrDefaultAsync();
                 if (usuarioTemp == null)
                 {
                     usuario.id_usuario = null;
