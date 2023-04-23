@@ -1,23 +1,39 @@
+
 <body>
-	<div class="login">
-		<div class="login-screen">
-			<div class="app-title">
-				<h1>Login</h1>
-			</div>
 
-			<div class="login-form">
-				<div class="control-group">
-				<input type="text" [(ngModel)]="nombre" class="login-field" value="" placeholder="username" >
-				<label class="login-field-icon fui-user" for="login-name"></label>
-				</div>
+<div class="box-form">
+	<div class="left">
+		<div class="overlay">
+		<h1>Hotel CocoMilk</h1>
+			<p>El módulo de administración de nuestro hotel es una herramienta integral que permite <br>
+				a los gerentes supervisar todas las operaciones diarias del hotel.</p>
 
-				<div class="control-group">
-				<input type="password" [(ngModel)]="contra" class="login-field" value="" placeholder="password">
-				<label class="login-field-icon fui-lock" for="login-pass"></label>
-				</div>
-
-				<a class="btn btn-primary btn-large btn-block" href="#" (click)="buttonInicioSesion()" >login</a>
-			</div>
 		</div>
 	</div>
+	
+	
+		<div class="right">
+						<div class="titulo">
+							<h5>Login</h5>
+						</div>
+						<div>
+							<p>El acceso a esta área está restringido únicamente para los administradores del sistema. <br>
+								Si requieres acceso a estos recursos, por favor comunícate con la administración.</p>
+						</div>
+
+					<div class="inputs">
+						<input type="text" [(ngModel)]="nombre" placeholder="Nombre de usuario">
+						<br>
+						<input type="password" [(ngModel)]="contra" placeholder="Contraseña">
+					</div>
+						
+						<br><br>
+
+						<br>
+						<button (click)="buttonInicioSesion()">Ingresar</button>
+	</div>
+	
+</div>
+
+  
 </body>
