@@ -34,16 +34,16 @@ export class LoginComponent implements OnInit {
         if(dataLogin.id_usuario!=null){
           localStorage.setItem('id',dataLogin.id_usuario.toString());
           localStorage.setItem('usuario', dataLogin.nombre);
-          this.router.navigate(["home"]);
+          this.router.navigate(["home/bienvenida"]);
         }
         console.log(dataLogin);
-        
+
       });
-      
+
     }
     else {
       console.log("Buscar" + nombre.length);
-      
+
     }
   }
 
