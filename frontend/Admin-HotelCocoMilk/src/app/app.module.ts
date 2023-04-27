@@ -9,6 +9,14 @@ import { FooterComponent } from './core/componentes/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './paginas/home/home/home.component';
+import { MenuComponent } from './core/componentes/menu/menu.component';
+import { PaginaComponent } from './paginas/pagina/pagina.component';
+import { ReservacionComponent } from './paginas/reservacion/reservacion.component';
+import { AdminHabitacionComponent } from './paginas/admin-habitacion/admin-habitacion.component';
+import { PublicidadComponent } from './paginas/publicidad/publicidad.component';
+import { EstadoHotelComponent } from './paginas/estado-hotel/estado-hotel.component';
+import { DisponibilidadHabitacionComponent } from './paginas/disponibilidad-habitacion/disponibilidad-habitacion.component';
+import { BienvenidaHomeComponent } from './paginas/bienvenida-home/bienvenida-home.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +24,15 @@ import { HomeComponent } from './paginas/home/home/home.component';
     LoginComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    MenuComponent,
+    PaginaComponent,
+    ReservacionComponent,
+    AdminHabitacionComponent,
+    PublicidadComponent,
+    EstadoHotelComponent,
+    DisponibilidadHabitacionComponent,
+    BienvenidaHomeComponent
   ],
   imports: [
     BrowserModule,
