@@ -21,7 +21,7 @@ const routes: Routes = [
     {path:'disponibilidad_habitacion', component: DisponibilidadHabitacionComponent},
     {path:'publicidad', component: PublicidadComponent}
   ]},
-  { path: '**', redirectTo: 'home' }
+  { path: '**', redirectTo: ''}
 ];
 
 @NgModule({
