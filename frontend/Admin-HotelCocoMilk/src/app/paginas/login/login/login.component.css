@@ -171,3 +171,8 @@
       margin-bottom: 20%;
       margin-top: 10%;
     }
+
+    .spanError{
+      color: red;
+      font-size: 15px;
+    }

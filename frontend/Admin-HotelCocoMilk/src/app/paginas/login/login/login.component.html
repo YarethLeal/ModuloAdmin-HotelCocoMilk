@@ -20,17 +20,17 @@
 							<p>El acceso a esta área está restringido únicamente para los administradores del sistema. <br>
 								Si requieres acceso a estos recursos, por favor comunícate con la administración.</p>
 						</div>
-
-					<div class="inputs">
-						<input type="text" [(ngModel)]="nombre" placeholder="Nombre de usuario">
-						<br>
-						<input type="password" [(ngModel)]="contra" placeholder="Contraseña">
-					</div>
-
-						<br><br>
-
-						<br>
-						<button (click)="buttonInicioSesion()">Ingresar</button>
+							<form ngNativeValidate id="request" class="main_form" (ngSubmit)="buttonInicioSesion()" #contactForm="ngForm">
+							<div class="inputs">
+							  <input type="text" name="nombre" [(ngModel)]="nombre" placeholder="Nombre de Usuario" required>
+							  <br>
+							  <input type="password" name="contra" [(ngModel)]="contra" placeholder="Contraseña" required>
+							</div>
+							<br>
+							<span *ngIf="error" class="spanError">El nombre de usuario o la contraseña son incorrectos.</span>
+							<br><br>
+							<button type="submit">Ingresar</button>
+						  </form>
 	</div>
 
 </div>
