@@ -13,6 +13,7 @@ let dataLogin: Login;
 export class LoginComponent implements OnInit {
   public nombre: string;
   public contra: string;
+  error: boolean = false;
 
 
   constructor(private loginService: LoginService, private router:Router ) {
@@ -35,6 +36,8 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('id',dataLogin.id_usuario.toString());
           localStorage.setItem('usuario', dataLogin.nombre);
           this.router.navigate(["home/bienvenida"]);
+        }else{
+          this.error = true;
         }
         console.log(dataLogin);
 
