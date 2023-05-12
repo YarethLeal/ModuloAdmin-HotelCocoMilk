@@ -9,9 +9,15 @@ namespace AccesoADatos.Context
         {
         }
 
-        public virtual DbSet<Cliente> cliente { get; set; }
-        public virtual DbSet<Habitacion> habitacion { get; set; }
         public virtual DbSet<Usuario> usuario { get; set; }
+        public virtual DbSet<Cliente> cliente { get; set; }
+        public virtual DbSet<Pagina> pagina { get; set; }
+        public virtual DbSet<TipoPagina> tipo_pagina { get; set; }
+        public virtual DbSet<Publicidad> publicidad { get; set; }
+        public virtual DbSet<Habitacion> habitacion { get; set; }
+        public virtual DbSet<TipoHabitacion> tipo_habitacion { get; set; }
+        public virtual DbSet<Reserva> reserva { get; set; }
+        public virtual DbSet<Temporadas> temporadas { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {

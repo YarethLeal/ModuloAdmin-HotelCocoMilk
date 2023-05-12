@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Entidades.Entities
 {
     public class TipoHabitacion
     {
-        public int? id { get; set; }
-        public byte[]? imagen { get; set; }
+        [Key]
+        public int? id_tipo_habitacion { get; set; }
         public string? tipo { get; set; }
         public string? informacion { get; set; }
+        public string? imagen { get; set; }
         public int? tarifa { get; set; }
-
     }
 }
