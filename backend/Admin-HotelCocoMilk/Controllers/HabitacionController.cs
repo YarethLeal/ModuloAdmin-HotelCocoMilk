@@ -12,5 +12,12 @@ namespace Admin_HotelCocoMilk.Controllers
         {
             return await (new DataHabitacion().disponibilidadHabitaciones(fechaLlegada, fechaSalida, tipoHabitacion));
         }
+
+        [HttpGet]
+        [Route("listarEstadoHabitaciones")]
+        public async Task<List<HabitacionEstado>> listarEstadoHabitaciones()
+        {
+            return await (new DataHabitacion().listarEstadoHabitaciones());
+        }
     }
 }

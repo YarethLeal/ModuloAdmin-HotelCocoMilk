@@ -1,5 +1,6 @@
 ﻿using AccesoADatos.Context;
 using Entidades.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace AccesoADatos.Data
 {
@@ -108,6 +109,27 @@ namespace AccesoADatos.Data
 
                 return await Task.FromResult(listaHabitacionDisponible);
             
+            }
+        }
+
+
+        public async Task<List<HabitacionEstado>> listarEstadoHabitaciones()
+        {
+            using (var _context = new DBContext())
+            {
+
+                var listahabitaciones = (from h in _context.habitacion
+                                         join th in _context.tipo_habitacion on h.id_tipo_habitacion equals th.id_tipo_habitacion
+                                         orderby h.numero_id
+                                         select new HabitacionEstado
+                                         {
+                                             numero_habitacion = h.numero_id,
+                                             tipo = th.tipo,
+                                             estado = h.estado,
+
+                                         });
+
+                return await listahabitaciones.ToListAsync();
             }
         }
     }
