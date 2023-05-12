@@ -10,4 +10,12 @@ namespace Entidades.Entities
         public bool? activa { get; set; }
         public string? estado { get; set; }
     }
+
+    public class HabitacionEstado
+    {
+        [Key]
+        public int? numero_habitacion { get; set; }
+        public string? tipo { get; set; }
+        public string? estado { get; set; }
+    }
 }
