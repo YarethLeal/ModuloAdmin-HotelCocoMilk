@@ -1,6 +1,7 @@
 import { Component, OnInit  } from '@angular/core';
 import { Router } from '@angular/router';
 import { Login } from 'src/app/core/modelos/login.model';
+import { HabitacionService } from 'src/app/core/servicios/habitacion.service';
 import { LoginService } from 'src/app/core/servicios/login.service';
 
 let dataLogin: Login;
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit {
   error: boolean = false;
 
 
-  constructor(private loginService: LoginService, private router:Router ) {
+  constructor(private loginService: LoginService, private habitacionService: HabitacionService,private router:Router ) {
     this.nombre = '';
     this.contra = '';
     dataLogin;
@@ -25,6 +26,12 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     localStorage.removeItem('id');
     localStorage.removeItem('usuario');
+  }
+
+  actualizarEstados(){
+      this.habitacionService.actualizarEstados().subscribe((respuesta: string) => {
+        console.log(respuesta);
+      });
   }
 
   buscarUsuario(nombre: string, contrasenna:string) {
@@ -36,6 +43,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('id',dataLogin.id_usuario.toString());
           localStorage.setItem('usuario', dataLogin.nombre);
           this.router.navigate(["home/bienvenida"]);
+          this.actualizarEstados();
         }else{
           this.error = true;
         }

@@ -138,6 +138,7 @@ namespace AccesoADatos.Data
         {
             using (var _context = new DBContext())
             {
+
                 DateTime fechaActual = DateTime.Today;
                 List<Habitacion> listaHabitaciones = _context.habitacion.ToList();
 
@@ -155,16 +156,21 @@ namespace AccesoADatos.Data
                             {
                                 
                                 listaHabitaciones[x].estado = "OCUPADA";
-                            }
-                            if (listaReservas[i].fecha_salida == fechaActual)
-                            {
                                 
-                                listaHabitaciones[x].estado = "DISPONIBLE";
                             }
+                            
                             if (listaReservas[i].fecha_entrada < fechaActual && listaReservas[i].fecha_salida > fechaActual)
                             {
                                 listaHabitaciones[x].estado = "RESERVADA";
+                               
                             }
+
+                            if (listaReservas[i].fecha_salida == fechaActual)
+                            {
+                                listaHabitaciones[x].estado = "DISPONIBLE";
+                            }
+
+                            break;
                         }
                         else {
                             listaHabitaciones[x].estado = "DISPONIBLE";

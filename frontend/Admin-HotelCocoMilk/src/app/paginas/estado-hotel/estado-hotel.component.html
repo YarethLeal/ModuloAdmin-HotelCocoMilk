@@ -1,3 +1,33 @@
 <div class="title">
   <h2 style="color: white; padding-top: 5px;"> Estado del Hotel Hoy</h2>
 </div>
+
+<div class="fecha">
+  <h2>Fecha: {{fechaActual}}</h2>
+</div>
+
+<table class="table" id="dataTable">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Numero de habitacion</th>
+      <th scope="col">Tipo</th>
+      <th scope="col">Estado</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let habitacion of dataHabitacion">
+    <tr>
+      <td>{{habitacion.numero_habitacion}}</td>
+      <td>{{habitacion.tipo}}</td>
+      <td>{{habitacion.estado}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div>
+  <button class="boton" (click)="openPDF()">
+    <img class="imagen" src="assets/images/print.png">
+  </button>
+</div>
+
+
+
