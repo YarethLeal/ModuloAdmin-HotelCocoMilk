@@ -4,3 +4,24 @@
   padding-bottom: 0.1rem;
   width: 100%;
 }
+
+.fecha {
+text-align: center;
+margin-top: 3%;
+}
+.table {
+  width: 50%;
+  margin-left: 25%;
+  margin-top: 3%;
+}
+
+.boton{
+  width:60px;
+  height:60px;
+  margin-left: 48%;
+  margin-top: 3%;
+}
+
+.imagen{
+  width: 100%;
+}
