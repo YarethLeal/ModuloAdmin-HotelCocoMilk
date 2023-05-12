@@ -19,5 +19,12 @@ namespace Admin_HotelCocoMilk.Controllers
         {
             return await (new DataHabitacion().listarEstadoHabitaciones());
         }
+
+        [HttpGet]
+        [Route("actualizarEstados")]
+        public async Task<String> actualizarEstados()
+        {
+            return await (new DataHabitacion().actualizarEstados());
+        }
     }
 }

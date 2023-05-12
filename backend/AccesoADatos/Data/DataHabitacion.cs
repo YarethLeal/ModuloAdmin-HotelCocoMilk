@@ -132,6 +132,57 @@ namespace AccesoADatos.Data
                 return await listahabitaciones.ToListAsync();
             }
         }
+
+
+        public async Task<String> actualizarEstados()
+        {
+            using (var _context = new DBContext())
+            {
+                DateTime fechaActual = DateTime.Today;
+                List<Habitacion> listaHabitaciones = _context.habitacion.ToList();
+
+                //Se obtiene una lista de todas las reservas actuales.
+                List<Reserva> listaReservas = _context.reserva.Where(r => r.eliminado == false).OrderBy(x => x.fecha_entrada).ToList();
+
+                for (int i = 0; i < listaReservas.Count(); i++)
+                {
+                    for (int x = 0; x < listaHabitaciones.Count(); x++)
+                    {
+                        // Si el número de habitación se encuentra en la lista de reservas entonces se debe validar la disponibilidad
+                        if (listaHabitaciones[x].numero_id == listaReservas[i].id_habitacion)
+                        {
+                            if (listaReservas[i].fecha_entrada == fechaActual)
+                            {
+                                
+                                listaHabitaciones[x].estado = "OCUPADA";
+                            }
+                            if (listaReservas[i].fecha_salida == fechaActual)
+                            {
+                                
+                                listaHabitaciones[x].estado = "DISPONIBLE";
+                            }
+                            if (listaReservas[i].fecha_entrada < fechaActual && listaReservas[i].fecha_salida > fechaActual)
+                            {
+                                listaHabitaciones[x].estado = "RESERVADA";
+                            }
+                        }
+                        else {
+                            listaHabitaciones[x].estado = "DISPONIBLE";
+                        }
+
+                    } // Fin for
+                } // Fin for
+
+                for (int x = 0; x < listaHabitaciones.Count(); x++)
+                {
+                    _context.Entry(listaHabitaciones[x]).State = EntityState.Modified;
+                    await _context.SaveChangesAsync();
+                }
+
+                return "Estados actualizados";
+            }
+        }
+
     }
 }
 
