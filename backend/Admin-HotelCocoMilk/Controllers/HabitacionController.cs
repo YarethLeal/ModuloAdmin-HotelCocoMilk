@@ -26,5 +26,34 @@ namespace Admin_HotelCocoMilk.Controllers
         {
             return await (new DataHabitacion().actualizarEstados());
         }
+
+        [HttpGet]
+        [Route("listarHabitaciones")]
+        public async Task<List<Habitacion>> listarHabitaciones()
+        {
+            return await (new DataHabitacion().listarHabitaciones());
+        }
+
+        [HttpPost]
+        [Route("registrarHabitacion")]
+        public async Task<String> registarHabitacion(Habitacion habitacion) 
+        {
+            return await (new DataHabitacion().registarHabitacion(habitacion));
+        }
+
+        [HttpPost]
+        [Route("modificarHabitacion")]
+        public async Task<String> modificarHabitación(Habitacion habitacion)
+        { 
+            return await( new DataHabitacion().modificarHabitación(habitacion) );
+        }
+
+        [HttpPost]
+        [Route("eliminarHabitacion")]
+        public async Task<String> eliminarHabitacion(Habitacion habitacion) 
+        {
+            return await (new DataHabitacion().eliminarHabitacion(habitacion));
+        }
+
     }
 }
