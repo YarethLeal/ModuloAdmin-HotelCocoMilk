@@ -1,13 +1,52 @@
 <div class="title">
   <h2 style="color: white; padding-top: 5px;"> Administrar Habitación</h2>
 </div>
-<div class="list-habitacion">
-  <table class="tabla-habitacion">
-    <thead>
-      <tr>
-        <!-- <th *ngFor="let example of examples">{{example}}</th> -->
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
+<div>
+  <select name="tipo" id="tipo">
+    <option value="1">Standard</option>
+    <option value="2">Junior</option>
+  </select>
+  <button type="button">Agregar</button>
+</div>
+<div class="habitaciones mt-4">
+  <div class="habitacion-standard ml-1">
+    <h3>Standard</h3>
+    <table class="table" id="dataTable">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Numero de habitacion</th>
+          <th scope="col">Activo</th>
+          <th scope="col">Estado</th>
+          <th scope="col">Aciones</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let habitacion of dataHabitacionStandard">
+        <tr>
+          <td>{{habitacion.numero_id}}</td>
+          <td>{{habitacion.activa}}</td>
+          <td>{{habitacion.estado}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="habitacion-junior ml-2">
+    <h3>Junior</h3>
+    <table class="table" id="dataTable">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Numero de habitacion</th>
+          <th scope="col">Activo</th>
+          <th scope="col">Estado</th>
+          <th scope="col">Aciones</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let habitacion of dataHabitacionJunior">
+        <tr>
+          <td>{{habitacion.numero_id}}</td>
+          <td>{{habitacion.activa}}</td>
+          <td>{{habitacion.estado}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
