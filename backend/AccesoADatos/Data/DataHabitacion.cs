@@ -189,6 +189,78 @@ namespace AccesoADatos.Data
             }
         }
 
+        public async Task<List<Habitacion>> listarHabitaciones()
+        {
+            using (var _context = new DBContext())
+            {
+                return await _context.habitacion.ToListAsync();
+            }
+        }
+
+        public async Task<String> registarHabitacion(Habitacion habitacion)
+        {
+            try
+            {
+                using (var _context = new DBContext())
+                {
+                    _context.habitacion.Add(habitacion);
+                    await _context.SaveChangesAsync();
+
+                }
+            }
+            catch (DbUpdateException /* ex */)
+            {
+
+                return "No se pueden guardar los cambios. " +
+                         "Vuelve a intentarlo y, si el problema persiste, " +
+                         "consulte con el administrador del sistema.";
+            }
+            return "Habitación Registrada";
+
+        }
+
+        public async Task<String> modificarHabitación(Habitacion habitacion)
+        {
+
+            try
+            {
+                using (var _context = new DBContext())
+                {
+                    _context.Entry(habitacion).State = EntityState.Modified;
+                    await _context.SaveChangesAsync();
+                }
+            }
+            catch (DbUpdateException /* ex */)
+            {
+
+                return "No se pueden guardar los cambios. " +
+                    "Vuelve a intentarlo y, si el problema persiste, " +
+                    "consulte con el administrador del sistema.";
+            }
+            return "Habitación Actualizada";
+
+        }
+
+        public async Task<String> eliminarHabitacion(Habitacion habitacion)
+        {
+            using (var _context = new DBContext())
+            {
+
+                try
+                {
+                    _context.habitacion.Remove(habitacion);
+                    await _context.SaveChangesAsync();
+
+                }
+                catch (DbUpdateException /* ex */)
+                {
+                    return "No se puede eliminar. " +
+                         "Vuelve a intentarlo y, si el problema persiste, " +
+                         "consulte con el administrador del sistema.";
+                }
+                return "Habitación Eliminada";
+            }
+        }
     }
 }
 
