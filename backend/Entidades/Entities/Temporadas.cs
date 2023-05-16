@@ -11,4 +11,14 @@ namespace Entidades.Entities
         public DateTime fecha_final { get; set; }
         public int oferta { get; set; }
     }
+
+    public class TemporadasTipoHabitacion
+    {
+        [Key]
+        public int id_temporada { get; set; }
+        public string? tipo { get; set; }
+        public DateTime fecha_inicio { get; set; }
+        public DateTime fecha_final { get; set; }
+        public int oferta { get; set; }
+    }
 }

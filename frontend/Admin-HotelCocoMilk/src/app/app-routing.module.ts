@@ -10,6 +10,7 @@ import { EstadoHotelComponent } from './paginas/estado-hotel/estado-hotel.compon
 import { DisponibilidadHabitacionComponent } from './paginas/disponibilidad-habitacion/disponibilidad-habitacion.component';
 import { PublicidadComponent } from './paginas/publicidad/publicidad.component';
 import { BienvenidaHomeComponent } from './paginas/bienvenida-home/bienvenida-home.component';
+import { TemporadasComponent } from './paginas/temporadas/temporadas.component';
 const routes: Routes = [
   {path:'', component: LoginComponent },
   {path:'home', component: HomeComponent, canActivate: [PermissionsGuard], children:[
@@ -19,6 +20,7 @@ const routes: Routes = [
     {path:'admin_habitacion', component: AdminHabitacionComponent},
     {path:'estado_hotel', component: EstadoHotelComponent},
     {path:'disponibilidad_habitacion', component: DisponibilidadHabitacionComponent},
+    {path:'temporadas', component: TemporadasComponent},
     {path:'publicidad', component: PublicidadComponent}
   ]},
   { path: '**', redirectTo: ''}
