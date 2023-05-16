@@ -4,3 +4,6 @@
   padding-bottom: 0.1rem;
   width: 100%;
 }
+.habitaciones{
+  display: flex;
+}

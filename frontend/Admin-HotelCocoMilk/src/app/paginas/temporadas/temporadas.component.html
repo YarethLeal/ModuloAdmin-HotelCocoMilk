@@ -1,0 +1,153 @@
+<div class="title">
+    <h2 style="color: white; padding-top: 5px;"> Temporadas y Ofertas</h2>
+  </div>
+
+  <section>
+   <!-- <div class="row row1">
+        <div class="col-md-2 combobox"> 
+            <div class="row">
+                <div class="col-md-12 combobox-item">
+                  <label for="start">Tipo de Habitación:</label>
+                </div>
+                <div class="col-md-12 combobox-item">
+                    <select [(ngModel)]="tipoSeleccionado">
+                        <option disabled selected hidden value="">Tipo de Habitación</option>
+                        <option *ngFor="let tipoHabitacion of dataTipoHabitacion">{{tipoHabitacion.tipo}}</option>
+                    </select>
+                </div>
+              </div>
+        </div>
+        <div class="col-md-2 combobox">
+          <div class="row">
+            <div class="col-md-12 combobox-item">
+              <label for="start">Fecha de llegada:</label>
+            </div>
+            <div class="col-md-12 combobox-item">
+              <input type="date" id="start" [(ngModel)]="fechaInicio">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2 combobox">
+          <div class="row">
+            <div class="col-md-12 ">
+              <label for="end">Fecha de salida:</label>
+            </div>
+            <div class="col-md-12 ">
+              <input type="date" id="end" [(ngModel)]="fechaFinal" min="{{fechaInicio}}">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2 combobox">
+            <div class="row">
+              <div class="col-md-12 ">
+                <label for="oferta">Oferta:</label>
+              </div>
+              <div class="col-md-12 ">
+                <input type="text" id="oferta" style="width: 75%;" [(ngModel)]="oferta">
+              </div>
+            </div>
+        </div>
+        <div class="col-md-2 content">
+          <button class="read_more" type="button" (click)="registartemporadas(tipoSeleccionado,fechaInicio,fechaFinal,oferta)">Aceptar</button>
+        </div>
+      </div>-->
+      
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-2 combobox"> 
+
+                </div>
+
+            <div class="col-md-2 combobox"> 
+                <div class="row">
+                    <div class="col-md-12">
+                      <label>Escoja una opcion:</label>
+                    </div>
+                    <div class="col-md-12">
+                        <select [(ngModel)]="tipoSeleccionado">
+                            <option disabled selected hidden value="">Tipo de Habitación</option>
+                            <option *ngFor="let tipoHabitacion of dataTipoHabitacion">{{tipoHabitacion.tipo}}</option>
+                        </select>
+                    </div>
+                  </div>
+            </div>
+
+
+            <div class="col-md-2 combobox"> 
+                <div class="row">
+                    <div class="col-md-12">
+                      <label for="start">Fecha de llegada:</label>
+                    </div>
+                    <div class="col-md-12">
+                      <input type="date" id="start" [(ngModel)]="fechaInicio">
+                    </div>
+                  </div>
+            </div>
+
+
+            <div class="col-md-2 combobox"> 
+                <div class="row">
+                    <div class="col-md-12 ">
+                      <label for="end">Fecha de salida:</label>
+                    </div>
+                    <div class="col-md-12 ">
+                      <input type="date" id="end" [(ngModel)]="fechaFinal" min="{{fechaInicio}}">
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-2 combobox"> 
+                <div class="row">
+                    <div class="col-md-12 ">
+                      <label for="oferta">Oferta:</label>
+                    </div>
+                    <div class="col-md-12 ">
+                      <input type="text" id="oferta" style="width: 75%;" [(ngModel)]="oferta">
+                    </div>
+                  </div>
+            </div>
+
+            <div class="col-md-2 combobox"> 
+            
+            </div>
+            
+        </div>
+        <div class="col-md-12" style="text-align: center;">
+          
+                <button class="read_more" type="button" (click)="registartemporadas(tipoSeleccionado,fechaInicio,fechaFinal,oferta)">Aceptar</button>
+           
+        </div>
+        </div>
+
+      
+
+
+  </section>
+
+  <table class="table" id="dataTable">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Tipo de habitacion</th>
+        <th scope="col">Fecha de inicio</th>
+        <th scope="col">Fecha final</th>
+        <th scope="col">Oferta</th>
+        <th scope="col">Actualizar</th>
+        <th scope="col">Eliminar</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let temporadas of dataTemporadas">
+      <tr>
+        <td>{{temporadas.id_temporada}}</td>
+        <td>{{temporadas.tipo}}</td>
+        <td>{{temporadas.fecha_inicio | date:'dd/MM/yyyy' }}</td>
+        <td>{{temporadas.fecha_final | date:'dd/MM/yyyy'  }}</td>
+        <td>{{temporadas.oferta}} %</td>
+        <td> <button class="btn btn; mdi mdi-update updateTabla" ></button> </td>
+        <td> <button class="btn btn; mdi mdi-delete deleteTabla" ></button> </td>
+
+      </tr>
+    </tbody>
+  </table>
+  

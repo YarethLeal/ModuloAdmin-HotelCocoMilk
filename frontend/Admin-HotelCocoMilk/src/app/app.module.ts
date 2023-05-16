@@ -17,6 +17,8 @@ import { PublicidadComponent } from './paginas/publicidad/publicidad.component';
 import { EstadoHotelComponent } from './paginas/estado-hotel/estado-hotel.component';
 import { DisponibilidadHabitacionComponent } from './paginas/disponibilidad-habitacion/disponibilidad-habitacion.component';
 import { BienvenidaHomeComponent } from './paginas/bienvenida-home/bienvenida-home.component';
+import { TemporadasComponent } from './paginas/temporadas/temporadas.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { BienvenidaHomeComponent } from './paginas/bienvenida-home/bienvenida-ho
     PublicidadComponent,
     EstadoHotelComponent,
     DisponibilidadHabitacionComponent,
-    BienvenidaHomeComponent
+    BienvenidaHomeComponent,
+    TemporadasComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,7 @@ import { BienvenidaHomeComponent } from './paginas/bienvenida-home/bienvenida-ho
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

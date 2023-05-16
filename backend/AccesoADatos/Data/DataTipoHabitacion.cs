@@ -7,5 +7,12 @@ namespace AccesoADatos.Data
 {
     public class DataTipoHabitacion
     {
+        public async Task<List<TipoHabitacion>> listarTipoHabitacion()
+        {
+            using (var _context = new DBContext())
+            {
+                return await _context.tipo_habitacion.ToListAsync();
+            }
+        }
     }
 }
