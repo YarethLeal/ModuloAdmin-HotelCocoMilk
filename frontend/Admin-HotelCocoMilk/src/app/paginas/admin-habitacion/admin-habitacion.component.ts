@@ -11,7 +11,8 @@ import { HabitacionService } from 'src/app/core/servicios/habitacion.service';
 
 export class AdminHabitacionComponent implements OnInit{
 
-  datahabitacion: Habitacion[]=[];
+  dataHabitacionStandard: Habitacion[]=[];
+  dataHabitacionJunior: Habitacion[]=[];
   constructor(private habitacionService: HabitacionService){
 
   }
@@ -22,7 +23,14 @@ export class AdminHabitacionComponent implements OnInit{
 
   listaHabitacion(){
     return this.habitacionService.listarHabitaciones().subscribe((data: Habitacion[])=>{
-      this.datahabitacion= data;
+      data.forEach(element => {
+        if(element.id_tipo_habitacion ==1){
+          this.dataHabitacionStandard.push(element);
+        }
+        else{
+          this.dataHabitacionJunior.push(element);
+        }
+      });
     })
   }
 }
