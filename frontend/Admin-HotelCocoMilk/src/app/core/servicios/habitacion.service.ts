@@ -4,7 +4,7 @@ import { Observable } from "rxjs";
 import { Login } from "../modelos/login.model";
 import { environment } from "src/environments/environment.prod";
 import { Utils } from "../utilidades/util";
-import { HabitacionEstado} from "../modelos/habitacion.model";
+import { Habitacion, HabitacionEstado} from "../modelos/habitacion.model";
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ export class HabitacionService {
     console.log('Servicio HTTP');
   }
 
-  
+
   //respuesta tipo string
   httpOptions1 = {
     headers: new HttpHeaders({
@@ -43,5 +43,20 @@ export class HabitacionService {
     return this.http.get(this.urlModulo + 'actualizarEstados', this.httpOptions1);
   }
 
+  listarHabitaciones(): Observable<Habitacion[]> {
+    return this.http.get<Habitacion[]>(this.urlModulo + "listarHabitaciones", this.httpOptions2
+    );
+  }
 
-} 
+  registrarHabitacion(data: Habitacion): Observable<any> {
+    return this.http.post(this.urlModulo + 'registrarHabitacion', Utils.getFormData(data), this.httpOptions1);
+  }
+
+  modificarHabitacion(data: Habitacion): Observable<any> {
+    return this.http.post(this.urlModulo + 'modificarHabitacion', Utils.getFormData(data), this.httpOptions1);
+  }
+  eliminarHabitacion(data: Habitacion): Observable<any> {
+    return this.http.post(this.urlModulo + 'eliminarHabitacion', Utils.getFormData(data), this.httpOptions1);
+  }
+
+}
