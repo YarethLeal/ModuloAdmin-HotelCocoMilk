@@ -12,11 +12,25 @@ namespace AccesoADatos.Data
     public class DataTemporadas
     {
 
-        public async Task<List<Temporadas>> listarTemporadas()
+        public async Task<List<TemporadasTipoHabitacion>> listarTemporadas()
         {
             using (var _context = new DBContext())
             {
-                return await _context.temporadas.ToListAsync();
+                
+
+                var listaTemporadas = (from t in _context.temporadas
+                                   join th in _context.tipo_habitacion on t.id_tipo_habitacion equals th.id_tipo_habitacion
+                                   select new TemporadasTipoHabitacion
+                                   {
+
+                                       id_temporada = t.id_temporada,
+                                       tipo = th.tipo,
+                                       fecha_inicio = t.fecha_inicio,
+                                       fecha_final = t.fecha_final,
+                                       oferta = t.oferta
+                                   });
+
+                return await listaTemporadas.ToListAsync();
             }
         }
 

@@ -8,7 +8,7 @@ namespace Admin_HotelCocoMilk.Controllers
     {
         [HttpGet]
         [Route("listarTemporadas")]
-        public async Task<List<Temporadas>> listarTemporadas()
+        public async Task<List<TemporadasTipoHabitacion>> listarTemporadas()
         {
             return await (new DataTemporadas().listarTemporadas());
         }
