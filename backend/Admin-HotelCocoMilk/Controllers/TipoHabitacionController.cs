@@ -12,5 +12,12 @@ namespace Admin_HotelCocoMilk.Controllers
         {
             return await (new DataTipoHabitacion().listarTipoHabitacion());
         }
+
+        [HttpPost]
+        [Route("modificarTipoHabitacion")]
+        public async Task<String> modificarTipoHabitacion(TipoHabitacion tipoHabitacion)
+        {
+            return await (new DataTipoHabitacion().modificarTipoHabitacion(tipoHabitacion));
+        }
     }
 }

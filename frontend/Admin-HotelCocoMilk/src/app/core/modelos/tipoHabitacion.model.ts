@@ -1,5 +1,5 @@
 export interface TipoHabitacion {
-    id_habitacion: number;
+    id_tipo_habitacion: number;
     imagen: string;
     tipo: string;
     informacion: string;
@@ -8,9 +8,9 @@ export interface TipoHabitacion {
 
   export class TipoHabitacion implements TipoHabitacion {
 
-    constructor(public id_habitacion: number) {
+    constructor() {
     };
-  
-  
+
+
   }
 

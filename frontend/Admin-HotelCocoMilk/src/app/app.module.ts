@@ -19,6 +19,7 @@ import { DisponibilidadHabitacionComponent } from './paginas/disponibilidad-habi
 import { BienvenidaHomeComponent } from './paginas/bienvenida-home/bienvenida-home.component';
 import { TemporadasComponent } from './paginas/temporadas/temporadas.component';
 import { DatePipe } from '@angular/common';
+import { ModificarHabitacionComponent } from './core/componentes/modificar-habitacion/modificar-habitacion.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { DatePipe } from '@angular/common';
     EstadoHotelComponent,
     DisponibilidadHabitacionComponent,
     BienvenidaHomeComponent,
-    TemporadasComponent
+    TemporadasComponent,
+    ModificarHabitacionComponent
   ],
   imports: [
     BrowserModule,
