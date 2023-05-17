@@ -20,6 +20,18 @@ namespace Admin_HotelCocoMilk.Controllers
             return await (new DataTemporadas().registartemporadas(temporadas));
         }
 
+        [HttpPost]
+        [Route("modificarTemporadas")]
+        public async Task<String> modificarTemporadas(Temporadas temporadas)
+        {
+            return await (new DataTemporadas().modificarTemporadas(temporadas));
+        }
 
+        [HttpPost]
+        [Route("eliminarTemporadas")]
+        public async Task<String> eliminarTemporadas(Temporadas temporadas)
+        {
+            return await (new DataTemporadas().eliminartemporadas(temporadas));
+        }
     }
 }
