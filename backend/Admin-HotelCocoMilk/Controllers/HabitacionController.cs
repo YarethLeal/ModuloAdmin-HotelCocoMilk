@@ -45,7 +45,7 @@ namespace Admin_HotelCocoMilk.Controllers
         [Route("modificarHabitacion")]
         public async Task<String> modificarHabitación(Habitacion habitacion)
         { 
-            return await( new DataHabitacion().modificarHabitación(habitacion) );
+            return await( new DataHabitacion().modificarHabitacion(habitacion) );
         }
 
         [HttpPost]

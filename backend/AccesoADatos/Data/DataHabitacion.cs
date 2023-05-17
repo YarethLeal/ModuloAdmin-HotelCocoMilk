@@ -219,7 +219,7 @@ namespace AccesoADatos.Data
 
         }
 
-        public async Task<String> modificarHabitación(Habitacion habitacion)
+        public async Task<String> modificarHabitacion(Habitacion habitacion)
         {
 
             try
