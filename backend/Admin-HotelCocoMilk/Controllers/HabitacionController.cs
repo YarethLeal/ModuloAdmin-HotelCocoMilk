@@ -8,9 +8,9 @@ namespace Admin_HotelCocoMilk.Controllers
     {
         [HttpPost]
         [Route("disponibilidadHabitaciones")]
-        public async Task<List<ReservacionDisponible>> disponibilidadHabitaciones(DateTime fechaLlegada, DateTime fechaSalida, string tipoHabitacion)
+        public async Task<List<ReservacionDisponible>> disponibilidadHabitaciones(HabitacionDisponible habitacionDisponible)
         {
-            return await (new DataHabitacion().disponibilidadHabitaciones(fechaLlegada, fechaSalida, tipoHabitacion));
+            return await (new DataHabitacion().disponibilidadHabitaciones(habitacionDisponible));
         }
 
         [HttpGet]

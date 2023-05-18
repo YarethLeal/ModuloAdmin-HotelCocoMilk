@@ -1,10 +1,7 @@
-import { Component, Injectable, Input, OnChanges } from '@angular/core';
+import { Component, Injectable, Input } from '@angular/core';
 import { Temporadas } from '../../modelos/temporadas.model';
-import { NgForm } from '@angular/forms';
-import { TemporadasService } from '../../servicios/temporadas.service';
 
 declare let $: any;
-
 @Injectable({
   providedIn: "root"
 })
@@ -13,32 +10,19 @@ declare let $: any;
   templateUrl: './modificar-temporadas.component.html',
   styleUrls: ['./modificar-temporadas.component.css']
 })
-export class ModificarTemporadasComponent implements OnChanges{
-  @Input() temporadas:Temporadas;
+export class ModificarTemporadasComponent {
+  @Input() temporadas:Temporadas = new Temporadas(0, 0, 0, null, 10);
 
-  constructor(private temporadasService: TemporadasService) 
-  { 
-    this.temporadas = new Temporadas(0,0,0,0,0);
-    this.temporadas.oferta = 10;
-  }
- 
-  ngOnChanges() {}
-
-  modificarTipoHabitacion(paramTemporadas: Temporadas){
-    
-    this.temporadas.oferta = paramTemporadas.oferta;
-    console.log(this.temporadas.oferta);
-    this.ok();
+  modificarTemporadasModal(paramTemporadas: Temporadas){
+    this.temporadas = paramTemporadas;
+    console.log(this.temporadas);
+    $('#modal-modificar').modal('show');    
   }
 
-  ok (){
-    $('#modal-modificar').modal('show');
-  }
-
-  modificarTemporadas() {
+  /*modificarTemporadas() {
     return this.temporadasService.modificarTemporadas(this.temporadas).subscribe((respuesta:string)=>{
       console.log(respuesta);
       //this.refrescar();
     })
-  }
+  }*/
 }

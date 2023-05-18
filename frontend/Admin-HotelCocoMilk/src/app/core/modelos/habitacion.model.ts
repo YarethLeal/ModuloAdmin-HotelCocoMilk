@@ -5,16 +5,28 @@ export interface Habitacion {
     estado: string;
   }
 
-  export interface HabitacionEstado {
-    numero_habitacion : number;
-    tipo: string;
-    estado: string;
-  }
+export class Habitacion implements Habitacion {
+  constructor() {};
+}
 
-  export class Habitacion implements Habitacion {
+export interface HabitacionEstado {
+  numero_habitacion : number;
+  tipo: string;
+  estado: string;
+}
 
-    constructor() {
-      };
+export interface HabitacionDisponible {
+  fechaLlegada: Date,
+  fechaSalida: Date,
+  tipoHabitacion: string
+}
 
+export class HabitacionDisponible implements HabitacionDisponible {
+  constructor(fechaLlegada: any, fechaSalida: any, tipoHabitacion: string) 
+  {
+    this.fechaLlegada = fechaLlegada;
+    this.fechaSalida = fechaSalida;
+    this.tipoHabitacion = tipoHabitacion;
+  };
+}
 
-  }

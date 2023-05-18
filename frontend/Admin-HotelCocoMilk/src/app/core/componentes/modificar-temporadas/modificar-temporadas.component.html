@@ -9,7 +9,7 @@
           </div>
 
           <div class="modal-body">
-            <form ngNativeValidate class="needs-validation" id="request" #contactForm="ngForm" (ngSubmit)="modificarTemporadas()">
+            <form ngNativeValidate class="needs-validation" id="request" #contactForm="ngForm"> <!--(ngSubmit)="modificarTemporadas()-->
               <div class="row">
                 <div class="col-md-6">
                   <input [(ngModel)]="temporadas.oferta+' '+temporadas.oferta" type="text"

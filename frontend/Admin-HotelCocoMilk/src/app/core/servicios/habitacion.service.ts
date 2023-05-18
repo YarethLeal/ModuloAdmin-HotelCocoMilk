@@ -4,7 +4,8 @@ import { Observable } from "rxjs";
 import { Login } from "../modelos/login.model";
 import { environment } from "src/environments/environment.prod";
 import { Utils } from "../utilidades/util";
-import { Habitacion, HabitacionEstado} from "../modelos/habitacion.model";
+import { Habitacion, HabitacionDisponible, HabitacionEstado} from "../modelos/habitacion.model";
+import { ReservaDisponible } from "../modelos/reservaDisponible";
 
 @Injectable({
   providedIn: 'root'
@@ -44,8 +45,7 @@ export class HabitacionService {
   }
 
   listarHabitaciones(): Observable<Habitacion[]> {
-    return this.http.get<Habitacion[]>(this.urlModulo + "listarHabitaciones", this.httpOptions2
-    );
+    return this.http.get<Habitacion[]>(this.urlModulo + "listarHabitaciones", this.httpOptions2);
   }
 
   registrarHabitacion(data: Habitacion): Observable<any> {
@@ -55,8 +55,12 @@ export class HabitacionService {
   modificarHabitacion(data: Habitacion): Observable<any> {
     return this.http.post(this.urlModulo + 'modificarHabitacion', Utils.getFormData(data), this.httpOptions1);
   }
+
   eliminarHabitacion(data: Habitacion): Observable<any> {
     return this.http.post(this.urlModulo + 'eliminarHabitacion', Utils.getFormData(data), this.httpOptions1);
   }
 
+  disponibilidadHabitaciones(data: HabitacionDisponible): Observable<ReservaDisponible[]> {
+    return this.http.post<ReservaDisponible[]>(this.urlModulo + 'disponibilidadHabitaciones', Utils.getFormData(data), this.httpOptions2);
+  }
 }

@@ -6,11 +6,7 @@ export interface TipoHabitacion {
     tarifa: number;
   }
 
-  export class TipoHabitacion implements TipoHabitacion {
-
-    constructor() {
-    };
-
-
-  }
+export class TipoHabitacion implements TipoHabitacion {
+  constructor() {};
+}
 

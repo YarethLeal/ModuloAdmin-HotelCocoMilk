@@ -18,4 +18,11 @@ namespace Entidades.Entities
         public string? tipo { get; set; }
         public string? estado { get; set; }
     }
+
+    public class HabitacionDisponible
+    {
+        public DateTime? fechaLlegada { get; set; }
+        public DateTime? fechaSalida { get; set; }
+        public string? tipoHabitacion { get; set; }
+    }
 }

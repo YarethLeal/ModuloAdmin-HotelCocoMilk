@@ -1,3 +1,72 @@
 <div class="title">
   <h2 style="color: white; padding-top: 5px;"> Disponibilidad de Habitaciones</h2>
 </div>
+
+<section>
+  <app-modificar-temporadas></app-modificar-temporadas>
+  <div class="col-md-12">
+      <div class="row">
+          <div class="col-md-2 combobox"></div>
+
+          <div class="col-md-2 combobox"> 
+              <div class="row">
+                  <div class="col-md-12">
+                    <label>Escoja una opción:</label>
+                  </div>
+                  <div class="col-md-12">
+                      <select [(ngModel)]="tipoSeleccionado">
+                          <option disabled selected hidden value="">Tipo de Habitación</option>
+                          <option *ngFor="let tipoHabitacion of dataTipoHabitacion">{{tipoHabitacion.tipo}}</option>
+                      </select>
+                  </div>
+                </div>
+            </div>
+
+            <div class="col-md-2 combobox"> 
+                <div class="row">
+                    <div class="col-md-12">
+                      <label for="start">Fecha de llegada:</label>
+                    </div>
+                    <div class="col-md-12">
+                      <input type="date" id="start" [(ngModel)]="fechaInicio">
+                    </div>
+                  </div>
+            </div>
+
+            <div class="col-md-2 combobox"> 
+                <div class="row">
+                    <div class="col-md-12 ">
+                      <label for="end">Fecha de salida:</label>
+                    </div>
+                    <div class="col-md-12 ">
+                      <input type="date" id="end" [(ngModel)]="fechaFinal" min="{{fechaInicio}}">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-2 combobox"> </div>  
+      </div>
+
+      <div class="col-md-12" style="text-align: center;">
+        <button class="read_more" type="button" (click)="disponibilidadHabitaciones(fechaInicio,fechaFinal, tipoSeleccionado)">Consultar</button> 
+      </div>
+  </div>
+</section>
+
+<table class="table" id="dataTable">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Número de habitación</th>
+      <th scope="col">Tipo de habitación</th>
+      <th scope="col">Costo Estadía</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let reservaHabitacion of dataHabitacion">
+    <tr>
+      <td>{{reservaHabitacion.numero_habitacion }}</td>
+      <td>{{reservaHabitacion.tipo }}</td>
+      <td>{{reservaHabitacion.tarifa }}</td>
+      </tr>
+  </tbody>
+</table>
+  

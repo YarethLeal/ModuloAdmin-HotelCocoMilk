@@ -1,10 +1,11 @@
 import { DatePipe } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, Injectable, OnInit } from '@angular/core';
 import { TipoHabitacion } from 'src/app/core/modelos/tipoHabitacion.model';
 import { TemporadasService } from 'src/app/core/servicios/temporadas.service';
 import { TipoHabitacionService } from 'src/app/core/servicios/tipoHabitacion.service';
 import { Temporadas } from 'src/app/core/modelos/temporadas.model';
 import { ModificarTemporadasComponent } from 'src/app/core/componentes/modificar-temporadas/modificar-temporadas.component';
+
 
 @Component({
   selector: 'app-temporadas',
@@ -20,7 +21,7 @@ export class TemporadasComponent implements OnInit {
 
   constructor(private modificarTemporadas: ModificarTemporadasComponent, private temporadasService: TemporadasService, private tipoHabitacionService: TipoHabitacionService, private datePipe: DatePipe) {
     this.tipoSeleccionado = "";
-    this.oferta = 0;
+    this.oferta = 0; 
     this.fechaInicio = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
     this.fechaFinal = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
   }
@@ -36,7 +37,7 @@ export class TemporadasComponent implements OnInit {
     this.temporadasService.listarTemporadas().subscribe((data: any) => {
       this.dataTemporadas = data;
     });
-}
+  }
 
   listarTipoHabitacion() {
     this.tipoHabitacionService.listarTipoHabitacion().subscribe((data: TipoHabitacion[]) => {
@@ -70,8 +71,7 @@ export class TemporadasComponent implements OnInit {
       }
     }
 
-    this.modificarTemporadas.modificarTipoHabitacion(new Temporadas(id_temporada, idTipoHabitacion, fecha_inicio, fecha_final, oferta));
-   
+    this.modificarTemporadas.modificarTemporadasModal(new Temporadas(id_temporada, idTipoHabitacion, fecha_inicio, fecha_final, oferta));
   }
 
   eliminarTemporadas(temporada: Temporadas) {

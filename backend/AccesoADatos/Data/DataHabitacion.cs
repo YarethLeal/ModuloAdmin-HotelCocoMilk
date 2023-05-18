@@ -6,13 +6,13 @@ namespace AccesoADatos.Data
 {
     public class DataHabitacion
     {
-        public async Task<List<ReservacionDisponible>> disponibilidadHabitaciones(DateTime fechaLlegada, DateTime fechaSalida, string tipoHabitacion)
+        public async Task<List<ReservacionDisponible>> disponibilidadHabitaciones(HabitacionDisponible habitacionDisponible)
         {
             using (var _context = new DBContext())
             {
                 
                 //Se obtiene el id del tipo de habitación.
-                TipoHabitacion tipo_habitacion = _context.tipo_habitacion.Where(tp => tp.tipo == tipoHabitacion).First();
+                TipoHabitacion tipo_habitacion = _context.tipo_habitacion.Where(tp => tp.tipo == habitacionDisponible.tipoHabitacion).First();
 
                 //Se obtiene una lista con las habitaciones que son del tipo especificado.
                 List<Habitacion> listaHabitaciones = _context.habitacion.Where(h => h.id_tipo_habitacion == tipo_habitacion.id_tipo_habitacion).OrderBy(x => x.numero_id).ToList();
@@ -34,8 +34,8 @@ namespace AccesoADatos.Data
                     {
                         for (int i = 0; i < listaReservas.Count(); i++)
                         {
-                            if ((fechaLlegada >= listaReservas[i].fecha_entrada && fechaLlegada <= listaReservas[i].fecha_salida)
-                                || (fechaSalida >= listaReservas[i].fecha_entrada && fechaSalida <= listaReservas[i].fecha_salida))   // Habitacion ocupada
+                            if ((habitacionDisponible.fechaLlegada >= listaReservas[i].fecha_entrada && habitacionDisponible.fechaLlegada <= listaReservas[i].fecha_salida)
+                                || (habitacionDisponible.fechaSalida >= listaReservas[i].fecha_entrada && habitacionDisponible.fechaSalida <= listaReservas[i].fecha_salida))   // Habitacion ocupada
                             {
                                 reservaDisponible.numero_habitacion = null;
                                 reservaDisponible.id_tipo_habitacion = null;
@@ -45,10 +45,10 @@ namespace AccesoADatos.Data
                                 reservaDisponible.tarifa = null;
 
                             }
-                            else if (((listaReservas[i].fecha_entrada < fechaLlegada && listaReservas[i].fecha_entrada < fechaSalida)  // La fecha de llegada es antes de la fecha de llegada y salida de dicha habitación reservada y
-                                && (listaReservas[i].fecha_salida < fechaLlegada && listaReservas[i].fecha_salida < fechaSalida)) // la fecha de salida es antes de la fecha de llegada y salida de dicha habitación reservada, por lo tanto, está disponible.
-                                || ((listaReservas[i].fecha_entrada > fechaLlegada && listaReservas[i].fecha_entrada > fechaSalida) // La fecha de llegada es después de la fecha de llegada y salida de dicha habitación reservada y
-                                && (listaReservas[i].fecha_salida > fechaLlegada && listaReservas[i].fecha_salida > fechaSalida)))  // la fecha de salida es antes de la fecha de llegada y salida de dicha habitación reservada, por lo tanto, está disponible.
+                            else if (((listaReservas[i].fecha_entrada < habitacionDisponible.fechaLlegada && listaReservas[i].fecha_entrada < habitacionDisponible.fechaSalida)  // La fecha de llegada es antes de la fecha de llegada y salida de dicha habitación reservada y
+                                && (listaReservas[i].fecha_salida < habitacionDisponible.fechaLlegada && listaReservas[i].fecha_salida < habitacionDisponible.fechaSalida)) // la fecha de salida es antes de la fecha de llegada y salida de dicha habitación reservada, por lo tanto, está disponible.
+                                || ((listaReservas[i].fecha_entrada > habitacionDisponible.fechaLlegada && listaReservas[i].fecha_entrada > habitacionDisponible.fechaSalida) // La fecha de llegada es después de la fecha de llegada y salida de dicha habitación reservada y
+                                && (listaReservas[i].fecha_salida > habitacionDisponible.fechaLlegada && listaReservas[i].fecha_salida > habitacionDisponible.fechaSalida)))  // la fecha de salida es antes de la fecha de llegada y salida de dicha habitación reservada, por lo tanto, está disponible.
                             {
                                 reservaDisponible.numero_habitacion = listaHabitaciones[x].numero_id;
                                 reservaDisponible.id_tipo_habitacion = tipo_habitacion.id_tipo_habitacion;
@@ -81,16 +81,16 @@ namespace AccesoADatos.Data
 
                         int? numero_h = reservaDisponible.numero_habitacion;
                         int? tarifa_h = reservaDisponible.tarifa;
-                        string? tipo_h = reservaDisponible.tipo;
-
+                        
                         reservaDisponible2.numero_habitacion = numero_h;
+                        reservaDisponible2.id_tipo_habitacion = tipo_habitacion.id_tipo_habitacion;
                         reservaDisponible2.tarifa = tarifa_h;
 
                         List<Temporadas> listaTemporadas = _context.temporadas.Where(h => h.id_tipo_habitacion == tipo_habitacion.id_tipo_habitacion).OrderBy(x => x.id_temporada).ToList();
 
                          for (int k = 0; k < listaTemporadas.Count(); k++)
                          {
-                             if (fechaLlegada >= listaTemporadas[k].fecha_inicio && fechaSalida <= listaTemporadas[k].fecha_final)
+                             if (habitacionDisponible.fechaLlegada >= listaTemporadas[k].fecha_inicio && habitacionDisponible.fechaSalida <= listaTemporadas[k].fecha_final)
                              {
                                  double descuentoPorcentaje = listaTemporadas[k].oferta / 100.00;
                                  int descuento = (int)(descuentoPorcentaje * reservaDisponible2.tarifa);

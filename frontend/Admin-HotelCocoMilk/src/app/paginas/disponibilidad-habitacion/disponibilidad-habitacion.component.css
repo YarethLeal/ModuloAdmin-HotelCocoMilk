@@ -4,3 +4,104 @@
   padding-bottom: 0.1rem;
   width: 100%;
 }
+
+.table {
+  width: 75%;
+  margin-left: 10%;
+  margin-top: 3%;
+}
+
+.combobox {
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.combobox-item {
+  text-align: left;
+}
+
+.content {
+  margin-bottom: 2%;
+  margin-top: 4%;
+  margin-left: 0%;
+  text-align: left;
+}
+.row1{
+margin: 0%;
+display: inline-flex;
+}
+.read_more {
+  font-size: 17px;
+  background-color: #0f1521;
+  color: #fff;
+  padding: 8px 0px;
+  width: 100%;
+  max-width: 144px;
+  text-align: center;
+  display: inline-block;
+  transition: ease-in all 0.5s;
+  font-weight: 500;
+  border-radius: 30px;
+}
+
+.read_more:hover {
+  background: #1ddd7d;
+  color: #fff;
+  transition: ease-in all 0.5s;
+}
+.cancel:hover {
+background: #fe0000;
+color: #fff;
+transition: ease-in all 0.5s;
+}
+
+.main_form .formulario {
+border: #fff solid 1px;
+padding: 0 15px;
+margin-bottom: 25px;
+width: 100%;
+height: 58px;
+background: #fff;
+color: gray;
+font-size: 18px;
+font-weight: normal;
+box-shadow: 2px 0px 6px rgba(16, 11, 80, 0.2);
+}
+
+#request *::placeholder {
+color: gray;
+opacity: 1;
+}
+
+.about {
+background-color: #fff;
+padding-top: 25px;
+margin-right: 2rem;
+}
+
+.about .titlepage {
+text-align: justify;
+padding-bottom: 0;
+width: 100%;
+}
+
+.about .titlepage h2 {
+margin-bottom: 35px;
+}
+
+.about .titlepage p {
+font-weight: 400;
+font-size: 17px;
+line-height: 28px;
+padding-bottom: 20px;
+}
+
+.deleteTabla{
+  font-size: 24px;
+  color: #fe0000;
+}
+
+.updateTabla{
+  font-size: 24px;
+  color: blue;
+}

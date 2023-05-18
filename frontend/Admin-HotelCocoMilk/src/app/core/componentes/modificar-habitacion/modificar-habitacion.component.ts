@@ -18,7 +18,6 @@ modificarTipoHabitacion(tipohabitacion:TipoHabitacion ){
 
 }
 
-
 obtenerNombreArchivo() {
   var file = $("input[type=file]");
   this.tipoHabitacion.imagen=file[0].files[0]["name"];
