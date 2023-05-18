@@ -13,10 +13,14 @@ export class ModificarHabitacionComponent {
 
 modificarTipoHabitacion(tipohabitacion:TipoHabitacion ){
   this.tipoHabitacion= tipohabitacion;
-  console.log(this.tipoHabitacion)
+  console.log(this.tipoHabitacion);
   $('#modal-modificar').modal('show');
 
 }
 
 
+obtenerNombreArchivo() {
+  var file = $("input[type=file]");
+  this.tipoHabitacion.imagen=file[0].files[0]["name"];
+ }
 }
