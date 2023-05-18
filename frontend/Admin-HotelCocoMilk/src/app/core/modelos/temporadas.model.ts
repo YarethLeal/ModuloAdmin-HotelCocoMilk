@@ -6,10 +6,10 @@ export interface Temporadas {
     oferta: number;
   }
   
-  export class Temporadas implements Temporadas {
-  
-    constructor(public id_tipo_habitacion: number, public fecha_inicio: any, public fecha_final: any, public oferta:number) {
-  
-    };
-
+export class Temporadas implements Temporadas {
+  constructor(public id_temporada: number, public id_tipo_habitacion: number, public fecha_inicio: any, public fecha_final: any, public oferta:number) {
+  };
 }
+
+
+  

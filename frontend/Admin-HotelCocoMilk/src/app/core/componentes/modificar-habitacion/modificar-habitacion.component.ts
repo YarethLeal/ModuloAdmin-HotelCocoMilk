@@ -19,6 +19,4 @@ modificarTipoHabitacion(tipohabitacion:TipoHabitacion ){
 }
 
 
-
-
 }

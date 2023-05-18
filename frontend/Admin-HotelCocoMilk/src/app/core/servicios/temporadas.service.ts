@@ -43,5 +43,13 @@ export class TemporadasService {
   registartemporadas(data: Temporadas): Observable<any> {
     return this.http.post(this.urlModulo + 'registartemporadas', Utils.getFormData(data), this.httpOptions1);
   }
+  
+  modificarTemporadas(data: Temporadas): Observable<any> {
+    return this.http.post(this.urlModulo + 'modificarTemporadas', Utils.getFormData(data), this.httpOptions1);
+  }
+
+  eliminarTemporadas(data: Temporadas): Observable<any> {
+    return this.http.post(this.urlModulo + 'eliminarTemporadas', Utils.getFormData(data), this.httpOptions1);
+  }
 
 }

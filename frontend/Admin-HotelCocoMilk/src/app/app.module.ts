@@ -7,7 +7,7 @@ import { LoginComponent } from './paginas/login/login/login.component';
 import { HeaderComponent } from './core/componentes/header/header.component';
 import { FooterComponent } from './core/componentes/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './paginas/home/home/home.component';
 import { MenuComponent } from './core/componentes/menu/menu.component';
 import { PaginaComponent } from './paginas/pagina/pagina.component';
@@ -20,6 +20,7 @@ import { BienvenidaHomeComponent } from './paginas/bienvenida-home/bienvenida-ho
 import { TemporadasComponent } from './paginas/temporadas/temporadas.component';
 import { DatePipe } from '@angular/common';
 import { ModificarHabitacionComponent } from './core/componentes/modificar-habitacion/modificar-habitacion.component';
+import { ModificarTemporadasComponent } from './core/componentes/modificar-temporadas/modificar-temporadas.component';
 
 @NgModule({
   declarations: [
@@ -37,13 +38,15 @@ import { ModificarHabitacionComponent } from './core/componentes/modificar-habit
     DisponibilidadHabitacionComponent,
     BienvenidaHomeComponent,
     TemporadasComponent,
-    ModificarHabitacionComponent
+    ModificarHabitacionComponent,
+    ModificarTemporadasComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
