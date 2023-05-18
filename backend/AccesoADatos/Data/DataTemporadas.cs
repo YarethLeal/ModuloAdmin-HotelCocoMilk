@@ -20,6 +20,7 @@ namespace AccesoADatos.Data
 
                 var listaTemporadas = (from t in _context.temporadas
                                    join th in _context.tipo_habitacion on t.id_tipo_habitacion equals th.id_tipo_habitacion
+                                   orderby t.id_temporada
                                    select new TemporadasTipoHabitacion
                                    {
 
@@ -36,23 +37,46 @@ namespace AccesoADatos.Data
 
         public async Task<String> registartemporadas(Temporadas temporadas)
         {
+            var permitirRegistrar = true;
             try
             {
                 using (var _context = new DBContext())
                 {
 
-                    temporadas.fecha_inicio = new DateTime(temporadas.fecha_inicio.Year,
-                       temporadas.fecha_inicio.Month, temporadas.fecha_inicio.Day,
-                       temporadas.fecha_inicio.Hour, temporadas.fecha_inicio.Minute,
-                       temporadas.fecha_inicio.Second, DateTimeKind.Utc);
-                    temporadas.fecha_final = new DateTime(temporadas.fecha_final.Year,
-                       temporadas.fecha_final.Month, temporadas.fecha_final.Day,
-                       temporadas.fecha_final.Hour, temporadas.fecha_final.Minute,
-                       temporadas.fecha_final.Second, DateTimeKind.Utc);
+                    List<Temporadas> listaTemporadas = await _context.temporadas.ToListAsync();
 
-                    _context.temporadas.Add(temporadas);
-                    await _context.SaveChangesAsync();
+                    for (int i = 0; i < listaTemporadas.Count; i++)
+                    {
+                        if (listaTemporadas[i].id_tipo_habitacion == temporadas.id_tipo_habitacion) {
+                            if ((listaTemporadas[i].fecha_inicio == temporadas.fecha_inicio && listaTemporadas[i].fecha_final == temporadas.fecha_final) ||
+                                (listaTemporadas[i].fecha_inicio >= temporadas.fecha_inicio && listaTemporadas[i].fecha_inicio <= temporadas.fecha_final) ||
+                                (listaTemporadas[i].fecha_final >= temporadas.fecha_inicio && listaTemporadas[i].fecha_final <= temporadas.fecha_final)
+                                )
+                            {
+                                permitirRegistrar = false;
+                            }
+                        } 
+                    }
 
+                    if (permitirRegistrar == true)
+                    {
+                        temporadas.fecha_inicio = new DateTime(temporadas.fecha_inicio.Year,
+                           temporadas.fecha_inicio.Month, temporadas.fecha_inicio.Day,
+                           temporadas.fecha_inicio.Hour, temporadas.fecha_inicio.Minute,
+                           temporadas.fecha_inicio.Second, DateTimeKind.Utc);
+                        temporadas.fecha_final = new DateTime(temporadas.fecha_final.Year,
+                           temporadas.fecha_final.Month, temporadas.fecha_final.Day,
+                           temporadas.fecha_final.Hour, temporadas.fecha_final.Minute,
+                           temporadas.fecha_final.Second, DateTimeKind.Utc);
+
+
+
+                        _context.temporadas.Add(temporadas);
+                        await _context.SaveChangesAsync();
+                    }
+                    else {
+                        return "Esas fechas no estan disponibles";
+                    }
                 }
             }
             catch (DbUpdateException /* ex */)

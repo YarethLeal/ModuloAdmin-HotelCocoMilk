@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\ModuloAdmin-HotelCocoMilk\\backend\\Entidades\\Entidades.csproj",
+      "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\REPOSITORIOS\\ModuloAdmin-HotelCocoMilk\\backend\\Entidades\\Entidades.csproj",
       "projectName": "Entidades",
-      "projectPath": "C:\\Users\\Usuario\\Desktop\\ModuloAdmin-HotelCocoMilk\\backend\\Entidades\\Entidades.csproj",
+      "projectPath": "C:\\Users\\Usuario\\Desktop\\REPOSITORIOS\\ModuloAdmin-HotelCocoMilk\\backend\\Entidades\\Entidades.csproj",
       "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Usuario\\Desktop\\ModuloAdmin-HotelCocoMilk\\backend\\Entidades\\obj\\",
+      "outputPath": "C:\\Users\\Usuario\\Desktop\\REPOSITORIOS\\ModuloAdmin-HotelCocoMilk\\backend\\Entidades\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -61,7 +61,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }
