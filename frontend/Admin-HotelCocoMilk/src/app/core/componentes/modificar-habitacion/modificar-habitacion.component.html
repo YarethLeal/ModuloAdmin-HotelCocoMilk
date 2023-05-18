@@ -1,5 +1,5 @@
 <div class="modal"  id="modal-modificar">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Modificar Habitcion</h5>
@@ -8,11 +8,24 @@
                 </button>
               </div>
               <div class="modal-body">
-                <p>Oaaa!! {{tipoHabitacion. informacion}}</p>
+                <div class="habitacion">
+                  <label>{{tipoHabitacion.tipo}}</label>
+                  <label class="ml-5" for="tarifa">Tarifa Diaria:</label>
+                  <input id="tarifa" type="number" [(ngModel)]="tipoHabitacion.tarifa" />
+                </div>
+                <div class="form-group mt-3">
+                  <textarea class="form-control pb-5" [(ngModel)]="tipoHabitacion.informacion"></textarea>
+                </div>
+                <div class="d-flex flex-row">
+                  <figure><img [src]="'assets/images/' + tipoHabitacion.imagen" alt="#" width="100" height="100"/></figure>
+                  <input class="form-control form-control-lg ml-2 mt-4" id="formFileLg" (change)="obtenerNombreArchivo()"
+                  type="file" accept="image/png, .jpeg, .jpg, image/gif" />
+               </div>
+
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                 <button type="button" class="btn">Guardar</button>
+                 <button type="button" class="btn cancel" data-dismiss="modal">Cancelar</button>
               </div>
         </div>
     </div>
