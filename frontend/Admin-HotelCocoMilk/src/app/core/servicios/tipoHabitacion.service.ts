@@ -37,5 +37,8 @@ export class TipoHabitacionService {
   listarTipoHabitacion(): Observable<TipoHabitacion[]> {
     return this.http.post<TipoHabitacion[]>(this.urlAPI + 'listarTipoHabitacion', this.httpOptions2);
   }
+  modificarTipoHabitacion(data: TipoHabitacion): Observable<any> {
+      return this.http.post(this.urlAPI + 'modificarTipoHabitacion', Utils.getFormData(data), this.httpOptions1);
+  }
 
 }

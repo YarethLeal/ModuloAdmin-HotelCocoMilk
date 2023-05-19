@@ -4,6 +4,7 @@ import { HabitacionService } from 'src/app/core/servicios/habitacion.service';
 import { TipoHabitacionService } from 'src/app/core/servicios/tipoHabitacion.service';
 import { TipoHabitacion } from 'src/app/core/modelos/tipoHabitacion.model';
 import { ModificarHabitacionComponent } from 'src/app/core/componentes/modificar-habitacion/modificar-habitacion.component';
+import { NotificacionDialogComponent } from 'src/app/core/componentes/notificacion-dialog/notificacion-dialog.component';
 
 @Component({
   selector: 'app-admin-habitacion',
@@ -18,9 +19,11 @@ export class AdminHabitacionComponent implements OnInit{
   dataTipoHabitacion: any[] = [];
   public tipoSeleccionado: number;
   tipoHabitacionModificar:TipoHabitacion= new TipoHabitacion();
+  respuesta:string;
 
   constructor(private habitacionService: HabitacionService,private tipoHabitacionService: TipoHabitacionService){
   this.tipoSeleccionado = 0;
+  this.respuesta="";
   }
 
   ngOnInit(): void {
@@ -56,22 +59,30 @@ export class AdminHabitacionComponent implements OnInit{
    habitacion.activa=true;
    habitacion.estado="DISPONIBLE"
    return this.habitacionService.registrarHabitacion(habitacion).subscribe((respuesta:string)=>{
-    console.log(respuesta);
+    console.log(respuesta)
+    this.respuesta=respuesta;
+    NotificacionDialogComponent.prototype.notificar(this.respuesta);
     this.listaHabitacion();
    })
   }
   eliminarHabitacion(habitacion:Habitacion){
     console.log(habitacion);
     return this.habitacionService.eliminarHabitacion(habitacion).subscribe((respuesta:string)=>{
-      console.log(respuesta);
+     console.log(respuesta)
+      this.respuesta=respuesta;
+      NotificacionDialogComponent.prototype.notificar(this.respuesta);
       this.listaHabitacion();
     })
   }
   actualizarHabitacion(habitacion:Habitacion){
     habitacion.activa = !habitacion.activa;
-    console.log(habitacion);
     return this.habitacionService.modificarHabitacion(habitacion).subscribe((respuesta:string)=>{
       console.log(respuesta);
+
+      this.respuesta=respuesta;
+      console.log(this.respuesta);
+
+      NotificacionDialogComponent.prototype.notificar(this.respuesta);
       this.listaHabitacion();
     })
   }
