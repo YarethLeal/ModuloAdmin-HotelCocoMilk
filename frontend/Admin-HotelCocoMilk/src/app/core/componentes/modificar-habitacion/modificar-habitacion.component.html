@@ -1,9 +1,9 @@
-<div class="modal"  id="modal-modificar">
+<div class="modal"  id="modal-modificar" data-backdrop="static" >
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Modificar Habitación</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" (click)="cerrar()" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
@@ -21,12 +21,16 @@
                   <input class="form-control form-control-lg ml-2 mt-4" id="formFileLg" (change)="obtenerNombreArchivo()"
                   type="file" accept="image/png, .jpeg, .jpg, image/gif" />
                </div>
-
+               <div class="alert alert-light" role="alert">
+                {{respuesta}}
+              </div>
               </div>
               <div class="modal-footer">
-                 <button type="button" class="btn">Guardar</button>
-                 <button type="button" class="btn cancel" data-dismiss="modal">Cancelar</button>
+                 <button type="button" class="btn" (click)="guardarModificacion()">Guardar</button>
+                 <button type="button" class="btn cancel" (click)="cerrar()">Cancelar</button>
               </div>
         </div>
     </div>
 </div>
+
+

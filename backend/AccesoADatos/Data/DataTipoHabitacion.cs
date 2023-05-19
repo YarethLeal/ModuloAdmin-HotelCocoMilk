@@ -33,7 +33,7 @@ namespace AccesoADatos.Data
                     "Vuelve a intentarlo y, si el problema persiste, " +
                     "consulte con el administrador del sistema.";
             }
-            return "Tipo habitación Actualizada";
+            return "Tipo Habitación Actualizada";
 
         }
     }
