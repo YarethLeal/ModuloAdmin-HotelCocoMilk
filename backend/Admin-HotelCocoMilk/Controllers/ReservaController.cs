@@ -20,5 +20,12 @@ namespace Admin_HotelCocoMilk.Controllers
         {
             return await (new DataReserva().eliminarReserva(id));
         }
+
+        [HttpGet]
+        [Route("listarReservaCliente")]
+        public async Task<List<ReservaCliente>> listaReservaCliente()
+        {
+            return await (new DataReserva().listaReservaCliente());
+        }
     }
 }

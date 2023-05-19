@@ -22,6 +22,7 @@ import { DatePipe } from '@angular/common';
 import { ModificarHabitacionComponent } from './core/componentes/modificar-habitacion/modificar-habitacion.component';
 import { ModificarTemporadasComponent } from './core/componentes/modificar-temporadas/modificar-temporadas.component';
 import { NotificacionDialogComponent } from './core/componentes/notificacion-dialog/notificacion-dialog.component';
+import { ReservaInformacionComponent } from './core/componentes/reserva-informacion/reserva-informacion.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { NotificacionDialogComponent } from './core/componentes/notificacion-dia
     TemporadasComponent,
     ModificarHabitacionComponent,
     ModificarTemporadasComponent,
-    NotificacionDialogComponent
+    NotificacionDialogComponent,
+    ReservaInformacionComponent
   ],
   imports: [
     BrowserModule,

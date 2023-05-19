@@ -14,6 +14,33 @@ namespace AccesoADatos.Data
                 return await _context.reserva.ToListAsync();
             }    
         }
+        public async Task<List<ReservaCliente>> listaReservaCliente()
+        {
+            using (var _context = new DBContext())
+            {
+
+                var listaReservas = (from res in _context.reserva.Where(res=>res.eliminado == false)
+                                     join client in _context.cliente on res.id_cliente equals client.id_cliente
+                                     join habitacion in _context.habitacion on res.id_habitacion equals habitacion.numero_id
+                                     join tipoHabitacion in _context.tipo_habitacion on habitacion.id_tipo_habitacion equals tipoHabitacion.id_tipo_habitacion
+                                     orderby res.id_reserva
+                                         select new ReservaCliente
+                                         {
+                                             fecha = res.fecha,
+                                             id_reserva = res.id_reserva,
+                                             nombre = client.nombre,
+                                             apellido = client.apellido,
+                                             correo = client.correo,
+                                             tarjeta = client.tarjeta,
+                                             transaccion = res.transaccion,
+                                             fecha_entrada = res.fecha_entrada,
+                                             fecha_salida = res.fecha_salida,
+                                             tipo = tipoHabitacion.tipo
+                                         });
+
+                return await listaReservas.ToListAsync();
+            }
+        }
         public async Task<String> eliminarReserva(int id)
         {
 
