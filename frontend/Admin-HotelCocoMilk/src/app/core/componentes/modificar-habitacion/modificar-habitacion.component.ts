@@ -19,7 +19,6 @@ export class ModificarHabitacionComponent {
   modificarTipoHabitacion(tipohabitacion: TipoHabitacion) {
     this.tipoHabitacion = tipohabitacion;
     $('#modal-modificar').modal('show');
-
   }
 
   guardarModificacion() {

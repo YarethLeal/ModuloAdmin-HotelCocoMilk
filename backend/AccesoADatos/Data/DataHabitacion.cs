@@ -81,9 +81,11 @@ namespace AccesoADatos.Data
 
                         int? numero_h = reservaDisponible.numero_habitacion;
                         int? tarifa_h = reservaDisponible.tarifa;
-                        
+                        string? tipo_h = reservaDisponible.tipo;
+
                         reservaDisponible2.numero_habitacion = numero_h;
                         reservaDisponible2.id_tipo_habitacion = tipo_habitacion.id_tipo_habitacion;
+                        reservaDisponible2.tipo = habitacionDisponible.tipoHabitacion;
                         reservaDisponible2.tarifa = tarifa_h;
 
                         List<Temporadas> listaTemporadas = _context.temporadas.Where(h => h.id_tipo_habitacion == tipo_habitacion.id_tipo_habitacion).OrderBy(x => x.id_temporada).ToList();

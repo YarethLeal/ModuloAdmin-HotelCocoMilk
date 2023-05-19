@@ -1,17 +1,22 @@
 import { Component, Injectable, Input } from '@angular/core';
 import { Temporadas } from '../../modelos/temporadas.model';
+import { TemporadasService } from '../../servicios/temporadas.service';
 
 declare let $: any;
+
 @Injectable({
   providedIn: "root"
 })
+
 @Component({
   selector: 'app-modificar-temporadas',
   templateUrl: './modificar-temporadas.component.html',
   styleUrls: ['./modificar-temporadas.component.css']
 })
 export class ModificarTemporadasComponent {
-  @Input() temporadas:Temporadas = new Temporadas(0, 0, 0, null, 10);
+  @Input() temporadas:Temporadas = new Temporadas(0, 0, 0, 0, 0);
+  
+  constructor(private temporadasService: TemporadasService ) {}
 
   modificarTemporadasModal(paramTemporadas: Temporadas){
     this.temporadas = paramTemporadas;
@@ -19,10 +24,10 @@ export class ModificarTemporadasComponent {
     $('#modal-modificar').modal('show');    
   }
 
-  /*modificarTemporadas() {
+  modificarTemporadas() {
     return this.temporadasService.modificarTemporadas(this.temporadas).subscribe((respuesta:string)=>{
       console.log(respuesta);
-      //this.refrescar();
+      $('#modal-modificar').modal('hide');
     })
-  }*/
+  }
 }

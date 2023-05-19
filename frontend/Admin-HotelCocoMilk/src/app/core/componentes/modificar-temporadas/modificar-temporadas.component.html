@@ -2,62 +2,63 @@
   <div class="modal-dialog">
     <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" >Habitación  {{temporadas.id_tipo_habitacion}}</h5>
+            <h5 class="modal-title" >Actualizar oferta de habitación</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
 
           <div class="modal-body">
-            <form ngNativeValidate class="needs-validation" id="request" #contactForm="ngForm"> <!--(ngSubmit)="modificarTemporadas()-->
+            <form ngNativeValidate class="needs-validation" id="request" #contactForm="ngForm"> 
+             
               <div class="row">
-                <div class="col-md-6">
-                  <input [(ngModel)]="temporadas.oferta+' '+temporadas.oferta" type="text"
-                      class="form-control formulario" placeholder="Nombre Completo" id="nombre" name="nombre"
-                      disabled>
+                <div class="col-md-4">
+                  <label>Tipo de habitación: </label>
                 </div>
-                <div class="col-md-12">
-                  <label >Tipo de habitación: {{temporadas.oferta}}</label>
+                
+                <div class="col-md-6">
+                  <input [(ngModel)]="temporadas.id_tipo_habitacion" type="text"
+                  class="form-control formulario" placeholder="Tipo de habitación" id="tipoHabitacion" name="tipoHabitacion" disabled>
+                </div>
+              </div>
+              
+              <div class="row">
+                <div class="col-md-4">
+                  <label for="start">Fecha de llegada: </label>
+                </div>
+                
+                <div class="col-md-6">
+                  <input [(ngModel)]="temporadas.fecha_inicio" type="text"
+                  class="form-control formulario" placeholder="Fecha de llegada" id="fechaLlegada" name="fechaLlegada" disabled>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-4">
+                  <label for="end">Fecha de salida: </label>
+                </div>
+
+                <div class="col-md-6">
+                  <input [(ngModel)]="temporadas.fecha_final" type="text"
+                  class="form-control formulario" placeholder="Fecha de salida" id="fechaSalida" name="fechaSalida" disabled>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-4">
+                  <label>Oferta:</label>
+                </div>
+                
+                <div class="col-md-6">
+                  <input [(ngModel)]="temporadas.oferta" type="text"
+                      class="form-control formulario" placeholder="Oferta" id="oferta" name="oferta">
                 </div>
               </div>
               
             </form> 
-            <!--
-            <div class="row">
-
-              <div class="col-md-6">
-                <input [(ngModel)]="temporadas.oferta+' '+temporadas.oferta" type="text"
-                    class="form-control formulario" placeholder="Nombre Completo" id="nombre" name="nombre"
-                    disabled>
-            </div>
-
-              <div class="col-md-12">
-                <label >Tipo de habitación: {{temporadas.oferta}}</label>
-              </div>
-            </div>
-            
-            <div class="row">
-              <div class="col-md-12">
-                <label for="start">Fecha de llegada: {{temporadas.fecha_inicio}}</label>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-md-12 ">
-                <label for="end">Fecha de salida: {{temporadas.fecha_final}}</label>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-md-12 ">
-                <label for="oferta">Oferta: {{temporadas.oferta}}</label>
-              </div>
-            </div>
-
-          </div>-->
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-primary">Actualizar</button>
+            <button type="button" class="btn btn-primary" (click)="modificarTemporadas()">Actualizar</button>
           </div>
     </div>
   </div>

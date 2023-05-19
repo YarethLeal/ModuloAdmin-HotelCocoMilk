@@ -6,7 +6,6 @@ import { TipoHabitacionService } from 'src/app/core/servicios/tipoHabitacion.ser
 import { Temporadas } from 'src/app/core/modelos/temporadas.model';
 import { ModificarTemporadasComponent } from 'src/app/core/componentes/modificar-temporadas/modificar-temporadas.component';
 
-
 @Component({
   selector: 'app-temporadas',
   templateUrl: './temporadas.component.html',
@@ -18,6 +17,8 @@ export class TemporadasComponent implements OnInit {
   public fechaInicio: string | null;
   public fechaFinal: string | null;
   public oferta: number;
+
+  temporadasModificar:Temporadas= new Temporadas(0,0,0,0,0);
 
   constructor(private modificarTemporadas: ModificarTemporadasComponent, private temporadasService: TemporadasService, private tipoHabitacionService: TipoHabitacionService, private datePipe: DatePipe) {
     this.tipoSeleccionado = "";
@@ -64,14 +65,15 @@ export class TemporadasComponent implements OnInit {
   }
 
   abrirModificarTemporadas(id_temporada: number, tipo: string, fecha_inicio: any, fecha_final: any, oferta: number) {
-    var idTipoHabitacion = 0;
-    for (let i = 0; i < this.dataTipoHabitacion.length; i++) {
-      if(this.dataTipoHabitacion[i].tipo == tipo){
-        idTipoHabitacion = this.dataTipoHabitacion[i].id_tipo_habitacion;
-      }
-    }
-
-    this.modificarTemporadas.modificarTemporadasModal(new Temporadas(id_temporada, idTipoHabitacion, fecha_inicio, fecha_final, oferta));
+    
+    this.temporadasModificar.id_temporada = id_temporada;
+    this.temporadasModificar.id_tipo_habitacion = tipo;
+    this.temporadasModificar.fecha_inicio = this.datePipe.transform(fecha_inicio, 'dd-MM-yyyy');
+    this.temporadasModificar.fecha_final = this.datePipe.transform(fecha_final, 'dd-MM-yyyy');;
+    this.temporadasModificar.oferta = oferta;
+    
+    this.modificarTemporadas.modificarTemporadasModal(this.temporadasModificar);
+    this.refrescar();
   }
 
   eliminarTemporadas(temporada: Temporadas) {

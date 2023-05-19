@@ -1,0 +1,9 @@
+div
+{
+    margin-bottom: 5px;
+} 
+
+label {
+    display: table-cell;
+    vertical-align: middle;
+}

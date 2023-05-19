@@ -3,7 +3,6 @@
 </div>
 
 <section>
-  <app-modificar-temporadas></app-modificar-temporadas>
   <div class="col-md-12">
       <div class="row">
           <div class="col-md-2 combobox"></div>
@@ -11,11 +10,10 @@
           <div class="col-md-2 combobox"> 
               <div class="row">
                   <div class="col-md-12">
-                    <label>Escoja una opción:</label>
+                    <label>Tipo de Habitación</label>
                   </div>
                   <div class="col-md-12">
                       <select [(ngModel)]="tipoSeleccionado">
-                          <option disabled selected hidden value="">Tipo de Habitación</option>
                           <option *ngFor="let tipoHabitacion of dataTipoHabitacion">{{tipoHabitacion.tipo}}</option>
                       </select>
                   </div>
