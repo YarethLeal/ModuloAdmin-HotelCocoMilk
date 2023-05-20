@@ -1,7 +1,7 @@
 <div class="title">
   <h2 style="color: white; padding-top: 5px;"> Lista de Reservaciones</h2>
 </div>
-<div>
+<div class="table-responsive">
   <table class="table" id="dataTable">
     <thead class="thead-dark">
       <tr>
@@ -48,4 +48,6 @@
   </table>
 </div>
 <app-reserva-informacion [dataReserva]="reserva"></app-reserva-informacion>
+<app-notificacion-dialog [mensaje]="this.respuesta"></app-notificacion-dialog>
+
 

@@ -1,10 +1,31 @@
 .boton{
     width:60px;
     height:60px;
-    margin-left: 48%;
-    margin-top: 3%;
   }
-  
+
   .imagen{
     width: 100%;
   }
+  .modal-body{
+    align-content: center;
+    margin-left: 1.5rem;
+  }
+
+  .btn{
+    font-size: 17px;
+    background-color: #0f1521;
+    color: #fff;
+    padding: 8px 0px;
+    width: 100%;
+    max-width: 144px;
+    text-align: center;
+    display: inline-block;
+    transition: ease-in all 0.5s;
+    font-weight: 500;
+    border-radius: 30px;
+}
+.cancel:hover {
+  background: #fe0000;
+  color: #fff;
+  transition: ease-in all 0.5s;
+}

@@ -4,6 +4,7 @@ import { Habitacion } from 'src/app/core/modelos/habitacion.model';
 import { ReservaService } from 'src/app/core/servicios/reserva.service';
 import { HabitacionService } from 'src/app/core/servicios/habitacion.service';
 import { ReservaInformacionComponent } from 'src/app/core/componentes/reserva-informacion/reserva-informacion.component';
+import { NotificacionDialogComponent } from 'src/app/core/componentes/notificacion-dialog/notificacion-dialog.component';
 @Component({
   selector: 'app-reservacion',
   templateUrl: './reservacion.component.html',
@@ -12,9 +13,9 @@ import { ReservaInformacionComponent } from 'src/app/core/componentes/reserva-in
 export class ReservacionComponent  implements OnInit{
   dataReserva: ReservaCliente[] = [];
   reserva: ReservaCliente = new ReservaCliente();
-
+  respuesta: string="";
   constructor(private reservaService: ReservaService,private habitacionService:HabitacionService){
-    
+
   }
 
   ngOnInit(): void {
@@ -32,7 +33,8 @@ export class ReservacionComponent  implements OnInit{
 
  eliminarReserva(id_reserva:number){
   this.reservaService.eliminarReserva({id:id_reserva}).subscribe((respuesta: string) => {
-    console.log(respuesta);
+    this.respuesta=respuesta;
+    NotificacionDialogComponent.prototype.notificar(this.respuesta);
     this.listarReservaciones();
   });
 }

@@ -11,24 +11,36 @@ declare let $: any;
   styleUrls: ['./reserva-informacion.component.css']
 })
 export class ReservaInformacionComponent {
+public fecha: Date;
+public fechaActual: string;
 @Input() dataReserva:ReservaCliente= new ReservaCliente();
 
-constructor(private reservaService: ReservaService){}
+constructor(private reservaService: ReservaService){
+  this.fecha = new Date();
+  this.fechaActual = this.fecha.getDate()+"/"+(this.fecha.getMonth()+1)+"/"+this.fecha.getFullYear();
+
+}
 verReserva() {
    $('#modal-ver-reserva').modal('show');
 }
 eliminarReserva(){
   this.reservaService.eliminarReserva({id:this.dataReserva.id_reserva}).subscribe((respuesta: string) => {
     console.log(respuesta);
+    $('#modal-ver-reserva').modal('hide')
    });
 
 }
 openPDF(): void {
-
-  
-    // Utils.exportToPdf("dataHeader", "data", "Reporte Estado -" + this.fechaActual, undefined);
-  
-
+  var dataTemp= [[Object.keys(this.dataReserva)],[Object.values(this.dataReserva)]];
+  const doc = new jsPDF();
+    let dataHeader = [["Fecha","Reserva ID", "Nombre ", "Apellido", "Email", "Tarjeta",
+                      "Transacción", "Fecha Llegada", "Fecha Salida","Tipo Habitación"]];
+    let data = [[ (new Date(this.dataReserva.fecha).toUTCString()),this.dataReserva.id_reserva,
+                 this.dataReserva.nombre, this.dataReserva.apellido, this.dataReserva.correo,
+                 this.dataReserva.tarjeta.slice(-4).padStart(this.dataReserva.tarjeta.length,'*'),
+                 this.dataReserva.transaccion, (new Date(this.dataReserva.fecha_entrada).toUTCString()),
+                 (new Date(this.dataReserva.fecha_salida).toUTCString()), this.dataReserva.tipo]];
+   Utils.exportToPdf(dataHeader, data, "Reserva-"+this.dataReserva.id_reserva+ "-"+ this.fechaActual, undefined);
 }
 cerrar(){
    $('#modal-ver-reserva').modal('hide');
