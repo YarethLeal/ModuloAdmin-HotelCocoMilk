@@ -6,6 +6,7 @@ import { LoginService } from 'src/app/core/servicios/login.service';
 @Injectable({
   providedIn: 'root'
 })
+
 export class PermissionsGuard implements CanActivate {
 
   constructor(private loginService: LoginService, private route: Router){
