@@ -1,29 +1,34 @@
 <div class="title">
-  <h2 style="color: white; padding-top: 5px;"> Administrar Habitación</h2>
+  <h2 style="color: white; padding-top: 5px;">Administrar Habitación</h2>
 </div>
 <div class="ml-2 mt-4">
-  <h3>Registrar habitacion</h3>
+  <h3>Registrar habitación</h3>
   <select class="mt-1" [(ngModel)]="tipoSeleccionado">
     <option value="0">Tipo de Habitación</option>
     <option *ngFor="let tipoHabitacion of dataTipoHabitacion" value="{{tipoHabitacion.id_tipo_habitacion}}">{{tipoHabitacion.tipo}}</option>
   </select>
-  <button class="btn" type="button" (click)="registrarHabitacion()">Agregar</button>
+  <button  class="add_more" type="button" (click)="registrarHabitacion()">Agregar</button>
 </div>
 <div class="habitaciones ml-2 mt-4">
   <div class="habitacion-standard ml-1">
     <div class="tipoHabitacion">
-    <h3>Standard</h3>
+    <h3 style="margin: 0.3rem 0 0;">Standard</h3>
     <button class="btn edit" type="button" (click)="abrirModificarTipoHabitacion('Standard')">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16" color="blue">
         <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
         <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+      </svg>
+    </button>
+    <button class="btn btn" type="button" (click)="abrirVerHabitacion('Standard')">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"  fill="currentColor" viewBox="0 0 24 24" >
+        <path fill="currentColor" d="M12 9a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5a5 5 0 0 1 5-5a5 5 0 0 1 5 5a5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5Z"/>
       </svg>
     </button>
   </div>
     <table class="table" id="dataTable">
       <thead class="thead-dark">
         <tr>
-          <th scope="col">Numero de habitacion</th>
+          <th scope="col">Número de habitación</th>
           <th scope="col">Activo</th>
           <th scope="col">Estado</th>
           <th scope="col">Aciones</th>
@@ -35,10 +40,10 @@
           <td><input type="checkbox" [checked]="habitacion.activa" (change)="actualizarHabitacion(habitacion)"></td>
           <td>{{habitacion.estado}}</td>
           <td>
-             <button class="btn cancel" type="button" (click)="eliminarHabitacion(habitacion)">
+             <button class="btn btn; mdi mdi-delete deleteTabla" (click)="eliminarHabitacion(habitacion)"> <!--class="btn cancel" type="button" 
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
                   <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
-                </svg>
+                </svg>-->
              </button>
           </td>
         </tr>
@@ -48,18 +53,24 @@
   <div class="habitacion-junior ml-4">
     <div class="habitacion-standard ml-1">
       <div class="tipoHabitacion">
-        <h3>Junior</h3>
+        <h3 style="margin: 0.3rem 0 0;">Junior</h3>
         <button class="btn edit" type="button" (click)="abrirModificarTipoHabitacion('Junior')">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16" color="blue">
             <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
             <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
           </svg>
+        </button> 
+        <button class="btn btn" type="button" (click)="abrirVerHabitacion('Junior')">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"  fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 9a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5a5 5 0 0 1 5-5a5 5 0 0 1 5 5a5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5Z"/>
+          </svg>
         </button>
       </div>
+    </div>
     <table class="table" id="dataTable">
       <thead class="thead-dark">
         <tr>
-          <th scope="col">Numero de habitacion</th>
+          <th scope="col">Número de habitación</th>
           <th scope="col">Activo</th>
           <th scope="col">Estado</th>
           <th scope="col">Aciones</th>
@@ -71,11 +82,13 @@
           <td><input type="checkbox" [checked]="habitacion.activa" (change)="actualizarHabitacion(habitacion)"></td>
           <td>{{habitacion.estado}}</td>
           <td>
-            <button class="btn cancel" type="button" (click)="eliminarHabitacion(habitacion)">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+            <button class="btn btn; mdi mdi-delete deleteTabla" type="button" (click)="eliminarHabitacion(habitacion)">
+           </button>
+           <!-- <button class="btn cancel" type="button" (click)="eliminarHabitacion(habitacion)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-trash3" viewBox="0 0 16 16">
                 <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
               </svg>
-           </button>
+           </button>-->
           </td>
         </tr>
       </tbody>
@@ -84,3 +97,4 @@
 </div>
 <app-modificar-habitacion [tipoHabitacion]="tipoHabitacionModificar"></app-modificar-habitacion>
 <app-notificacion-dialog [mensaje]="this.respuesta"></app-notificacion-dialog>
+<app-ver-habitacion [tipoHabitacion]="tipoHabitacionModificar"></app-ver-habitacion>

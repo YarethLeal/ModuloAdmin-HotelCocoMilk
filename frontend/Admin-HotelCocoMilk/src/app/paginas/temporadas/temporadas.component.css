@@ -1,54 +1,55 @@
 .title{
-    background-color: #0f1521;
-    text-align: center;
-    padding-bottom: 0.1rem;
-    width: 100%;
-  }
-  
-  .table {
-    width: 75%;
-    margin-left: 10%;
-    margin-top: 3%;
-  }
+  background-color: #0f1521;
+  text-align: center;
+  padding-bottom: 0.1rem;
+  width: 100%;
+}
 
-  .combobox {
-    margin-top: 2%;
-    margin-bottom: 2%;
+.table {
+  width: 75%;
+  margin-left: 10%;
+  margin-top: 3%;
+}
+
+.combobox {
+  margin-top: 2%;
+  margin-bottom: 2%;
 }
 
 .combobox-item {
-    text-align: left;
+  text-align: left;
 }
 
 .content {
-    margin-bottom: 2%;
-    margin-top: 4%;
-    margin-left: 0%;
-    text-align: left;
+  margin-bottom: 2%;
+  margin-top: 4%;
+  margin-left: 0%;
+  text-align: left;
 }
 .row1{
   margin: 0%;
   display: inline-flex;
 }
 .read_more {
-    font-size: 17px;
-    background-color: #0f1521;
-    color: #fff;
-    padding: 8px 0px;
-    width: 100%;
-    max-width: 144px;
-    text-align: center;
-    display: inline-block;
-    transition: ease-in all 0.5s;
-    font-weight: 500;
-    border-radius: 30px;
+  font-size: 17px;
+  background-color: #0f1521;
+  color: #fff;
+  padding: 8px 0px;
+  width: 100%;
+  max-width: 144px;
+  text-align: center;
+  display: inline-block;
+  transition: ease-in all 0.5s;
+  font-weight: 500;
+  border-radius: 30px;
 }
 
 .read_more:hover {
-    background: #1ddd7d;
-    color: #fff;
-    transition: ease-in all 0.5s;
+  background: #1ddd7d;
+  color: #fff;
+  transition: ease-in all 0.5s;
 }
+
 .cancel:hover {
   background: #fe0000;
   color: #fff;
@@ -104,4 +105,9 @@
 .updateTabla{
     font-size: 24px;
     color: blue;
+}
+
+td, th {
+  text-align: center;
+  vertical-align: middle;
 }
