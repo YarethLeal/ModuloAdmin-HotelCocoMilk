@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HabitacionService } from 'src/app/core/servicios/habitacion.service';
 import { Utils } from 'src/app/core/utilidades/util';
-import { LoginComponent } from '../login/login/login.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-estado-hotel',
@@ -13,8 +13,9 @@ export class EstadoHotelComponent implements OnInit {
   
   public fecha: Date;
   public fechaActual: string;
+  error: boolean = false;
 
-  constructor(private habitacionService: HabitacionService, private verificarLogin: LoginComponent) {
+  constructor(private habitacionService: HabitacionService, private router:Router) {
     this.fecha = new Date();
     this.fechaActual = this.fecha.getDate()+"/"+(this.fecha.getMonth()+1)+"/"+this.fecha.getFullYear();
   }
@@ -45,7 +46,10 @@ export class EstadoHotelComponent implements OnInit {
   }
 
   buscarUsuario() {
-    this.verificarLogin.buscarUsuario(localStorage.getItem('id') || '', localStorage.getItem('usuario') || '');
+    if(localStorage.getItem('id')==null && localStorage.getItem('usuario')==null){
+      this.router.navigate(['']);
+      this.error = true;
+    }
   }
 
 }

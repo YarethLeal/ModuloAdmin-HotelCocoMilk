@@ -39,21 +39,19 @@ export class LoginComponent implements OnInit {
   }
 
   buscarUsuario(nombre: string, contrasenna:string) {
-    if (nombre.trim().length != 0 && contrasenna.trim().length !=0) {
-      this.loginService.buscarUsuario({ nombre, contrasenna }).subscribe((data: any) => {
-         dataLogin = new Login(data.nombre,data.contrasena,data.id_usuario)
-        if(dataLogin.id_usuario!=null){
-          localStorage.setItem('id',dataLogin.id_usuario.toString());
-          localStorage.setItem('usuario', dataLogin.nombre);
-          this.router.navigate(["home/bienvenida"]);
-          this.actualizarEstados();
-        }else{
-          this.router.navigate(['']);
-          this.error = true;
-        }
-        console.log(dataLogin);
-      });
-    }
+    this.loginService.buscarUsuario({ nombre, contrasenna }).subscribe((data: any) => {
+        dataLogin = new Login(data.nombre,data.contrasena,data.id_usuario)
+      if(dataLogin.id_usuario!=null){
+        localStorage.setItem('id',dataLogin.id_usuario.toString());
+        localStorage.setItem('usuario', dataLogin.nombre);
+        this.router.navigate(["home/bienvenida"]);
+        this.actualizarEstados();
+      }else{
+        this.router.navigate(['']);
+        this.error = true;
+      }
+      console.log(dataLogin);
+    });
   }
 
   buttonInicioSesion(): void {
