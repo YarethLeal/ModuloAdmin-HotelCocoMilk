@@ -1,10 +1,10 @@
 import { DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
-import { Habitacion, HabitacionDisponible } from 'src/app/core/modelos/habitacion.model';
-import { ReservaDisponible } from 'src/app/core/modelos/reservaDisponible';
+import { HabitacionDisponible } from 'src/app/core/modelos/habitacion.model';
 import { TipoHabitacion } from 'src/app/core/modelos/tipoHabitacion.model';
 import { HabitacionService } from 'src/app/core/servicios/habitacion.service';
 import { TipoHabitacionService } from 'src/app/core/servicios/tipoHabitacion.service';
+import { LoginComponent } from '../login/login/login.component';
 
 @Component({
   selector: 'app-disponibilidad-habitacion',
@@ -14,15 +14,16 @@ import { TipoHabitacionService } from 'src/app/core/servicios/tipoHabitacion.ser
 export class DisponibilidadHabitacionComponent {
   public tipoSeleccionado: string;
   public fechaInicio: string | null;
-  public fechaFinal: string | null;
+  public fechaFinal: string | null; 
 
-  constructor(private habitacionService: HabitacionService, private tipoHabitacionService: TipoHabitacionService, private datePipe: DatePipe) {
+  constructor(private habitacionService: HabitacionService, private tipoHabitacionService: TipoHabitacionService, private datePipe: DatePipe, private verificarLogin: LoginComponent) {
     this.tipoSeleccionado = "";
     this.fechaInicio = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
     this.fechaFinal = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
   }
 
   ngOnInit(): void {
+    this.buscarUsuario();
     this.listarTipoHabitacion();
   }
 
@@ -44,4 +45,7 @@ export class DisponibilidadHabitacionComponent {
     });
   }
 
+  buscarUsuario() {
+    this.verificarLogin.buscarUsuario(localStorage.getItem('id') || '', localStorage.getItem('usuario') || '');
+  }
 }

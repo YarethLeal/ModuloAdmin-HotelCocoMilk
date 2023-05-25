@@ -5,6 +5,7 @@ import { TemporadasService } from 'src/app/core/servicios/temporadas.service';
 import { TipoHabitacionService } from 'src/app/core/servicios/tipoHabitacion.service';
 import { Temporadas } from 'src/app/core/modelos/temporadas.model';
 import { ModificarTemporadasComponent } from 'src/app/core/componentes/modificar-temporadas/modificar-temporadas.component';
+import { LoginComponent } from '../login/login/login.component';
 
 @Component({
   selector: 'app-temporadas',
@@ -20,7 +21,7 @@ export class TemporadasComponent implements OnInit {
 
   temporadasModificar:Temporadas= new Temporadas(0,0,0,0,0);
 
-  constructor(private modificarTemporadas: ModificarTemporadasComponent, private temporadasService: TemporadasService, private tipoHabitacionService: TipoHabitacionService, private datePipe: DatePipe) {
+  constructor(private modificarTemporadas: ModificarTemporadasComponent, private temporadasService: TemporadasService, private tipoHabitacionService: TipoHabitacionService, private datePipe: DatePipe, private verificarLogin: LoginComponent) {
     this.tipoSeleccionado = "";
     this.oferta = 0; 
     this.fechaInicio = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
@@ -28,6 +29,7 @@ export class TemporadasComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.buscarUsuario(); 
     this.refrescar();
   }
 
@@ -94,4 +96,8 @@ export class TemporadasComponent implements OnInit {
     this.listarTemporadas();
     this.listarTipoHabitacion();
   };
+
+  buscarUsuario() {
+    this.verificarLogin.buscarUsuario(localStorage.getItem('id') || '', localStorage.getItem('usuario') || '');
+  }
 }

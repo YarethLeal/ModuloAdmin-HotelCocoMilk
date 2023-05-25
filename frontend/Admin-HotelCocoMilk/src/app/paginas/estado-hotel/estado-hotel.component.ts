@@ -1,22 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { Habitacion } from 'src/app/core/modelos/habitacion.model';
 import { HabitacionService } from 'src/app/core/servicios/habitacion.service';
-import jsPDF from 'jspdf';
-import html2canvas from 'html2canvas';
 import { Utils } from 'src/app/core/utilidades/util';
-
+import { LoginComponent } from '../login/login/login.component';
 
 @Component({
   selector: 'app-estado-hotel',
   templateUrl: './estado-hotel.component.html',
   styleUrls: ['./estado-hotel.component.css']
 })
-export class EstadoHotelComponent implements OnInit  {
+
+export class EstadoHotelComponent implements OnInit {
   
   public fecha: Date;
   public fechaActual: string;
 
-  constructor(private habitacionService: HabitacionService) {
+  constructor(private habitacionService: HabitacionService, private verificarLogin: LoginComponent) {
     this.fecha = new Date();
     this.fechaActual = this.fecha.getDate()+"/"+(this.fecha.getMonth()+1)+"/"+this.fecha.getFullYear();
   }
@@ -44,10 +42,10 @@ export class EstadoHotelComponent implements OnInit  {
        data[i][2] = this.dataHabitacion[i].estado;
       }
       Utils.exportToPdf(dataHeader, data, "Reporte Estado -" + this.fechaActual, undefined);
-    
-    
-
   }
 
+  buscarUsuario() {
+    this.verificarLogin.buscarUsuario(localStorage.getItem('id') || '', localStorage.getItem('usuario') || '');
+  }
 
 }

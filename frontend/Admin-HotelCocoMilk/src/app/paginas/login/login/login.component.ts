@@ -1,10 +1,14 @@
-import { Component, OnInit  } from '@angular/core';
+import { Component, Injectable, OnInit  } from '@angular/core';
 import { Router } from '@angular/router';
 import { Login } from 'src/app/core/modelos/login.model';
 import { HabitacionService } from 'src/app/core/servicios/habitacion.service';
 import { LoginService } from 'src/app/core/servicios/login.service';
 
 let dataLogin: Login;
+
+@Injectable({
+  providedIn: "root"
+})
 
 @Component({
   selector: 'app-login',
@@ -17,7 +21,7 @@ export class LoginComponent implements OnInit {
   error: boolean = false;
 
 
-  constructor(private loginService: LoginService, private habitacionService: HabitacionService,private router:Router ) {
+  constructor(private loginService: LoginService, private habitacionService: HabitacionService, private router:Router ) {
     this.nombre = '';
     this.contra = '';
     dataLogin;
@@ -35,7 +39,6 @@ export class LoginComponent implements OnInit {
   }
 
   buscarUsuario(nombre: string, contrasenna:string) {
-
     if (nombre.trim().length != 0 && contrasenna.trim().length !=0) {
       this.loginService.buscarUsuario({ nombre, contrasenna }).subscribe((data: any) => {
          dataLogin = new Login(data.nombre,data.contrasena,data.id_usuario)
@@ -45,16 +48,11 @@ export class LoginComponent implements OnInit {
           this.router.navigate(["home/bienvenida"]);
           this.actualizarEstados();
         }else{
+          this.router.navigate(['']);
           this.error = true;
         }
         console.log(dataLogin);
-
       });
-
-    }
-    else {
-      console.log("Buscar" + nombre.length);
-
     }
   }
 
@@ -62,6 +60,4 @@ export class LoginComponent implements OnInit {
     console.log("Nombre" + this.nombre.length);
     this.buscarUsuario(this.nombre, this.contra);
   }
-
-
 }
