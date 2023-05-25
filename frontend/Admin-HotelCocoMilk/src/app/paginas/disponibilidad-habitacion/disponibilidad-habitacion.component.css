@@ -105,3 +105,8 @@ padding-bottom: 20px;
   font-size: 24px;
   color: blue;
 }
+
+td, th {
+  text-align: center;
+  vertical-align: middle;
+}

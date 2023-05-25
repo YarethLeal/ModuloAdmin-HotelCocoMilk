@@ -1,21 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { ReservaCliente,Reserva,Cliente } from 'src/app/core/modelos/reservaCliente.model';
-import { Habitacion } from 'src/app/core/modelos/habitacion.model';
 import { ReservaService } from 'src/app/core/servicios/reserva.service';
-import { HabitacionService } from 'src/app/core/servicios/habitacion.service';
 import { ReservaInformacionComponent } from 'src/app/core/componentes/reserva-informacion/reserva-informacion.component';
 import { NotificacionDialogComponent } from 'src/app/core/componentes/notificacion-dialog/notificacion-dialog.component';
-import { LoginComponent } from '../login/login/login.component';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-reservacion',
   templateUrl: './reservacion.component.html',
   styleUrls: ['./reservacion.component.css']
 })
+
 export class ReservacionComponent  implements OnInit {
   dataReserva: ReservaCliente[] = [];
   reserva: ReservaCliente = new ReservaCliente();
   respuesta: string="";
-  constructor(private reservaService: ReservaService, private habitacionService:HabitacionService, private verificarLogin: LoginComponent){}
+  error: boolean = false;
+
+  constructor(private reservaService: ReservaService, private router:Router){}
 
   ngOnInit(): void {
     this.buscarUsuario(); 
@@ -42,6 +44,9 @@ export class ReservacionComponent  implements OnInit {
   }
 
   buscarUsuario() {
-    this.verificarLogin.buscarUsuario(localStorage.getItem('id') || '', localStorage.getItem('usuario') || '');
+    if(localStorage.getItem('id')==null && localStorage.getItem('usuario')==null){
+      this.router.navigate(['']);
+      this.error = true;
+    }
   }
 }

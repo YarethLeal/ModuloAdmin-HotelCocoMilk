@@ -23,6 +23,7 @@ import { ModificarHabitacionComponent } from './core/componentes/modificar-habit
 import { ModificarTemporadasComponent } from './core/componentes/modificar-temporadas/modificar-temporadas.component';
 import { NotificacionDialogComponent } from './core/componentes/notificacion-dialog/notificacion-dialog.component';
 import { ReservaInformacionComponent } from './core/componentes/reserva-informacion/reserva-informacion.component';
+import { VerHabitacionComponent } from './core/componentes/ver-habitacion/ver-habitacion.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { ReservaInformacionComponent } from './core/componentes/reserva-informac
     ModificarHabitacionComponent,
     ModificarTemporadasComponent,
     NotificacionDialogComponent,
-    ReservaInformacionComponent
+    ReservaInformacionComponent,
+    VerHabitacionComponent
   ],
   imports: [
     BrowserModule,
