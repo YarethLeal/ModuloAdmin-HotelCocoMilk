@@ -7,15 +7,11 @@ import { LoginComponent } from '../../login/login/login.component';
   styleUrls: ['./home.component.css']
 })
 
-export class HomeComponent implements OnInit {
+export class HomeComponent {
   
-  constructor(private verificarLogin: LoginComponent) {}
-
-  ngOnInit(): void {
-    this.buscarUsuario(); 
-  }
+  constructor() {}
 
   buscarUsuario() {
-    this.verificarLogin.buscarUsuario(localStorage.getItem('id') || '', localStorage.getItem('usuario') || '');
+    //this.verificarLogin.buscarUsuario(localStorage.getItem('id') || '', localStorage.getItem('usuario') || '');
   }
 }
