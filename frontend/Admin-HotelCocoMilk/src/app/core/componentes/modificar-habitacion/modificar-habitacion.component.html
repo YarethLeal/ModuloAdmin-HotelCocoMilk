@@ -1,25 +1,27 @@
 <div class="modal"  id="modal-modificar" data-backdrop="static" >
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Modificar Habitación</h5>
+                <h5 class="modal-title">Modificar Habitación {{tipoHabitacion.tipo}}</h5>
                 <button type="button" class="close" (click)="cerrar()" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
                 <div class="habitacion">
-                  <label>{{tipoHabitacion.tipo}}</label>
-                  <label class="ml-5" for="tarifa">Tarifa Diaria:</label>
-                  <input id="tarifa" type="number" [(ngModel)]="tipoHabitacion.tarifa" />
+                  <label for="tarifa">Tarifa Diaria:</label>
+                  <input class="ml-3" id="tarifa" type="number" [(ngModel)]="tipoHabitacion.tarifa" />
                 </div>
                 <div class="form-group mt-3">
                   <textarea class="form-control pb-5" [(ngModel)]="tipoHabitacion.informacion"></textarea>
                 </div>
-                <div class="d-flex flex-row">
-                  <figure><img [src]="'assets/images/' + tipoHabitacion.imagen" alt="#" width="100" height="100"/></figure>
-                  <input class="form-control form-control-lg ml-2 mt-4" id="formFileLg" (change)="obtenerNombreArchivo()"
-                  type="file" accept="image/png, .jpeg, .jpg, image/gif" />
+                <div class="imagen"> <!--d-flex flex-col-->
+                  <figure><img [src]="'assets/images/' + tipoHabitacion.imagen" alt="#"/></figure> <!-- width="100" height="100"-->
+                </div>
+                <div>
+                  <label for="tarifa">Moificar Imagen:</label>
+                  <input id="formFileLg" class="ml-3" (change)="obtenerNombreArchivo()"
+                  type="file" accept="image/png, .jpeg, .jpg, image/gif"/> <!--class="form-control form-control-lg ml-2 mt-3"-->
                </div>
                <div class="alert alert-light" role="alert">
                 {{respuesta}}

@@ -26,10 +26,12 @@
   margin-left: 0%;
   text-align: left;
 }
+
 .row1{
   margin: 0%;
   display: inline-flex;
 }
+
 .read_more {
   font-size: 17px;
   background-color: #0f1521;

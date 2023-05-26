@@ -22,3 +22,16 @@
   color: #fff;
   transition: ease-in all 0.5s;
 }
+
+img {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+}
+
+figure {
+  display: flex;
+  justify-content: center;
+}
+
+.modal-lg { max-width: 45% !important; }

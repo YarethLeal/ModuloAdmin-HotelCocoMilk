@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ReservaCliente,Reserva,Cliente } from 'src/app/core/modelos/reservaCliente.model';
+import { ReservaCliente } from 'src/app/core/modelos/reservaCliente.model';
 import { ReservaService } from 'src/app/core/servicios/reserva.service';
 import { ReservaInformacionComponent } from 'src/app/core/componentes/reserva-informacion/reserva-informacion.component';
 import { NotificacionDialogComponent } from 'src/app/core/componentes/notificacion-dialog/notificacion-dialog.component';
@@ -50,3 +50,4 @@ export class ReservacionComponent  implements OnInit {
     }
   }
 }
+
