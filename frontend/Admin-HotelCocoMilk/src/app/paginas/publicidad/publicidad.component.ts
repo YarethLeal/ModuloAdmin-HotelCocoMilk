@@ -17,10 +17,19 @@ export class PublicidadComponent implements OnInit {
     this.buscarUsuario(); 
   }
 
+  modificarImagen(){
+
+  }
+
+  eliminarImagen(){
+   
+  }
+
   buscarUsuario() {
     if(localStorage.getItem('id')==null && localStorage.getItem('usuario')==null){
       this.router.navigate(['']);
       this.error = true;
     }
   }
+
 }
