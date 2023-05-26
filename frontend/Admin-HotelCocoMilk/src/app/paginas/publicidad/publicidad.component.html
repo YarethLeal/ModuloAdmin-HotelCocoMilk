@@ -1,3 +1,139 @@
 <div class="title">
   <h2 style="color: white; padding-top: 5px;"> Publicidad</h2>
 </div>
+
+
+<section>
+  <app-modificar-temporadas></app-modificar-temporadas>
+  <div class="col-md-12">
+      <div class="row">
+          <div class="col-md-3 combobox"></div>
+
+          <div class="col-md-2 combobox"> 
+              <div class="row">
+                  <div class="col-md-12">
+                    <label for="tarifa">Moificar Imagen:</label>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="imagen"> <!--d-flex flex-col-->
+                      <figure><img [src]="'assets/images/'+this.imagen" alt="#"/></figure>
+                    </div>
+                  </div>
+                  
+                </div>
+            </div>
+
+            <div class="col-md-3 combobox"> 
+                <div class="row">
+                    <div class="col-md-12">
+                      <label for="start">Link de destino:</label>
+                    </div>
+                    <div class="col-md-12">
+                      <input type="text" id="start" [(ngModel)]="destino">
+                    </div>
+                    <div class="col-md-12" style="margin-top: 5%;">
+                      <label for="end">Subir nueva imagen:</label>
+                    </div>
+                    <div class="col-md-12 " >
+                      <input id="formFileLg" class="ml-3" (change)="obtenerNombreArchivo()"
+                  type="file" accept="image/png, .jpeg, .jpg, image/gif"/> <!--class="form-control form-control-lg ml-2 mt-3"-->
+                    </div>
+                    <div class="col-md-12 " style="margin-top: 5%;">
+                      <button class="read_more" type="button" (click)="registarPublicidad(imagen,destino)">Aceptar</button> 
+                    </div>
+                  </div>
+                  </div>
+            </div>
+
+
+            
+
+            <div class="col-md-3 combobox"> </div>  
+      </div>
+
+ 
+</section>
+
+
+<!--
+<div class="habitacion">
+  <label for="tarifa">Tarifa Diaria:</label>
+  <input class="ml-3" id="tarifa" type="number"/>
+</div>
+
+<div class="form-group mt-3">
+  <textarea class="form-control pb-5"></textarea>
+</div>
+
+<div class="imagen"> 
+  <figure><img [src]="'assets/images/celular.jpg'"/></figure> 
+</div>
+
+<div>
+  <label for="tarifa">Moificar Imagen:</label>
+  <input id="formFileLg" class="ml-3"
+  type="file" accept="image/png, .jpeg, .jpg, image/gif"/>
+</div>
+-->
+<!--
+<table class="table" id="dataTable">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Imagen</th>
+      <th scope="col">Destino</th>
+      <th scope="col">Actualizar</th>
+      <th scope="col">Eliminar</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let publicidad of dataPublicidad">
+    <tr>
+      <td style="background-color: aqua;"><img [src]="'assets/images/' + publicidad.imagen " /></td>
+      <td>{{publicidad.destino }}</td>
+      <td><button class="btn btn; mdi mdi-update updateTabla" type="button" ></button></td>
+      <td><button class="btn btn; mdi mdi-delete deleteTabla"  type="button" ></button></td>
+    </tr>
+  </tbody>
+</table>
+-->
+
+<div class="col-lg-12">
+  <div class="row">
+    <div class="col-lg-4 publicidad" *ngFor="let publicidad of dataPublicidad">
+      
+      <div class="col-lg-12 item">
+
+      <div class="row">
+        <div class="col-lg-12" style="text-align: center;">  
+            <img [src]="'assets/images/' + publicidad.imagen " />
+        </div>
+        <div class="col-lg-12">
+          <p>
+            Destino: {{publicidad.destino }}
+          </p>
+        </div>
+        <div class="col-lg-12">
+          <div class="row">
+            <div class="col-lg-6">
+              <button class="btn btn; mdi mdi-update updateTabla" type="button" ></button>
+            </div>
+            <div class="col-lg-6" style="text-align: right;">
+              <button class="btn btn; mdi mdi-delete deleteTabla"  type="button" ></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+
+    </div>
+  <div>
+
+<div>  
+
+
+
+
+
+
+
+
+

@@ -6,13 +6,44 @@ namespace AccesoADatos.Data
 {
     public class DataPublicidad
     {
+
+        public async Task<List<Publicidad>> listarPublicidad()
+        {
+            using (var _context = new DBContext())
+            {
+                return await _context.publicidad.Where(r => r.eliminado == false).OrderByDescending(r => r.id_publicidad).ToListAsync();
+            }
+        }
+
+        public async Task<String> registarPublicidad(Publicidad publicidad)
+        {
+            try
+            {
+                using (var _context = new DBContext())
+                {
+                    _context.publicidad.Add(publicidad);
+                    await _context.SaveChangesAsync();
+
+                }
+            }
+            catch (DbUpdateException /* ex */)
+            {
+
+                return "No se pueden guardar los cambios. " +
+                         "Vuelve a intentarlo y, si el problema persiste, " +
+                         "consulte con el administrador del sistema.";
+            }
+            return "Publicidad Registrada";
+
+        }
+
         public async Task<String> eliminarPublicidad(Publicidad publicidad)
         {
             try
             {
                 using (var _context = new DBContext())
                 {
-                    var publicidadEliminar = _context.publicidad.Find(publicidad.id);
+                    var publicidadEliminar = _context.publicidad.Find(publicidad.id_publicidad);
 
                     _context.publicidad.Remove(publicidadEliminar);
                     await _context.SaveChangesAsync();
@@ -34,7 +65,7 @@ namespace AccesoADatos.Data
             {
                 var publicidadModificado = new Publicidad();
 
-                publicidadModificado = _context.publicidad.Find(publicidad.id);
+                publicidadModificado = _context.publicidad.Find(publicidad.id_publicidad);
 
                 if (publicidadModificado != null)
                 {
