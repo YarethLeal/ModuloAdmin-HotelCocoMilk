@@ -24,6 +24,7 @@ import { ModificarTemporadasComponent } from './core/componentes/modificar-tempo
 import { NotificacionDialogComponent } from './core/componentes/notificacion-dialog/notificacion-dialog.component';
 import { ReservaInformacionComponent } from './core/componentes/reserva-informacion/reserva-informacion.component';
 import { VerHabitacionComponent } from './core/componentes/ver-habitacion/ver-habitacion.component';
+import { ModificarPublicidadComponent } from './core/componentes/modificar-publicidad/modificar-publicidad.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { VerHabitacionComponent } from './core/componentes/ver-habitacion/ver-ha
     ModificarTemporadasComponent,
     NotificacionDialogComponent,
     ReservaInformacionComponent,
-    VerHabitacionComponent
+    VerHabitacionComponent,
+    ModificarPublicidadComponent
   ],
   imports: [
     BrowserModule,

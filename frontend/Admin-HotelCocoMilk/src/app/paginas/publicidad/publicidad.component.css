@@ -5,27 +5,57 @@
   width: 100%;
 }
 
-.table {
-  width: 75%;
-  margin-left: 10%;
-  margin-top: 3%;
-}
-
-
 img {
-  width: 100%;
   height: 100%;
+  width: 100%;
   object-fit: contain;
 }
 
-.publicidad {
-  margin-top: 2%; 
+.titlePublicidad {
+  font-weight: 450;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 35px;
 }
 
-.item {
-  height: 100%;
-  border-style: double;
-  border-color: black;
+.linea {
+  background: #0f1521;
+  height: 5px;
+  width: 100%;
+  display: block;
+}
+
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  width: 100%;
+  margin: auto;
+  grid-gap: 10px;
+  padding: 30px 0;
+  overflow: hidden;
+}
+
+.galeria > a {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 6px rgba(0, 0, 0, .5);
+} 
+
+.galeria button {
+  border-width: 0;
+}
+
+.galeria img {
+  width: 100%;
+  vertical-align: top;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.galeria a:hover img{
+  filter: blur(2px);
 }
 
 .combobox {

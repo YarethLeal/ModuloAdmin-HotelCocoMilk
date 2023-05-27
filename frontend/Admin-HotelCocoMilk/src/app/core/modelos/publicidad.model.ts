@@ -5,6 +5,5 @@ export interface Publicidad {
     eliminado: boolean;
   }
   export class Publicidad implements Publicidad {
-    constructor(public imagen: any, public destino: string, public eliminado: boolean) {
-    };
+    constructor(public imagen: any, public destino: string, public eliminado: boolean) {};
   }

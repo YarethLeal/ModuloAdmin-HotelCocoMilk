@@ -1,3 +1,15 @@
+img {
+    width: 60%;
+    height: 60%;
+    object-fit: contain;
+}
+
+figure {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
 .btn{
     font-size: 17px;
     background-color: #0f1521;
@@ -24,15 +36,14 @@
   transition: ease-in all 0.5s;
 }
 
-img {
-  width: 70%;
-  height: 70%;
-  object-fit: contain;
+label {
+    font-weight: bold;
+    margin-bottom: 1em;
 }
 
-figure {
-  display: flex;
-  justify-content: center;
+#destino {
+    width: 70%;
 }
+
 
 .modal-lg { max-width: 45% !important; }

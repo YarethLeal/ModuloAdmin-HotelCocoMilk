@@ -19,5 +19,20 @@ namespace Admin_HotelCocoMilk.Controllers
         {
             return await (new DataPublicidad().registarPublicidad(publicidad));
         }
+
+        [HttpPost]
+        [Route("eliminarPublicidad")]
+        public async Task<String> eliminarPublicidad(Publicidad publicidad) 
+        {
+            return await (new DataPublicidad().eliminarPublicidad(publicidad));
+        }
+
+
+        [HttpPost]
+        [Route("modificarPublicidad")]
+        public async Task<String> modificarPublicidad(Publicidad publicidad)
+        {
+            return await (new DataPublicidad().modificarPublicidad(publicidad));
+        }
     }
 }

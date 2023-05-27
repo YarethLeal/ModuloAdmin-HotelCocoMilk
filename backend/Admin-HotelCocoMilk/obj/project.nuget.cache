@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "k7/idfuSDzPkJ5w1lTfQdOInJ3LgS6ycLZKDEKUAyJuTYOuVfPzglIAID/kAWP6jEQES+0EsO/XJYNKb5OBlQQ==",
+  "dgSpecHash": "4DU9nS9VEBpYQrJ2IjhsEuGBhbEPX5jloySIPuVRFDI4NuxMrxBwKABMzFSLvG+lxKCY0AIyQ+slIRATCuu24Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Usuario\\Desktop\\REPOSITORIOS\\ModuloAdmin-HotelCocoMilk\\backend\\Admin-HotelCocoMilk\\Admin-HotelCocoMilk.csproj",
+  "projectFilePath": "C:\\Users\\Usuario\\Desktop\\ModuloAdmin-HotelCocoMilk\\backend\\Admin-HotelCocoMilk\\Admin-HotelCocoMilk.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Usuario\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.3\\microsoft.entityframeworkcore.7.0.3.nupkg.sha512",

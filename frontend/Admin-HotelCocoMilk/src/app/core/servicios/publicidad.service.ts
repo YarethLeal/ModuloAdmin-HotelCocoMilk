@@ -5,7 +5,6 @@ import { Observable } from "rxjs";
 import { Utils } from "../utilidades/util";
 import { Publicidad } from "../modelos/publicidad.model";
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -16,7 +15,6 @@ export class PublicidadService {
     console.log('Servicio HTTP');
   }
 
-
   //respuesta tipo string
   httpOptions1 = {
     headers: new HttpHeaders({
@@ -26,6 +24,7 @@ export class PublicidadService {
     withCredentials: false,
     responseType: 'text' as 'json'
   };
+
   // respuesta tipo json
   httpOptions2 = {
     headers: new HttpHeaders({
@@ -43,6 +42,12 @@ export class PublicidadService {
   registarPublicidad(data: Publicidad): Observable<any> {
     return this.http.post(this.urlModulo + 'registarPublicidad', Utils.getFormData(data), this.httpOptions1);
   }
-  
 
+  modificarPublicidad(data: Publicidad): Observable<any> {
+    return this.http.post(this.urlModulo + 'modificarPublicidad', Utils.getFormData(data), this.httpOptions1);
+  }
+  
+  eliminarPublicidad(data: Publicidad): Observable<any> {
+    return this.http.post(this.urlModulo + 'eliminarPublicidad', Utils.getFormData(data), this.httpOptions1);
+  }
 }

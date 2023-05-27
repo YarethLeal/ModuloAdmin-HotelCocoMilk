@@ -2,6 +2,7 @@ import { Component, OnInit , Input} from '@angular/core';
 import { Router } from '@angular/router';
 import { PublicidadService } from 'src/app/core/servicios/publicidad.service';
 import { Publicidad } from 'src/app/core/modelos/publicidad.model';
+import { ModificarPublicidadComponent } from 'src/app/core/componentes/modificar-publicidad/modificar-publicidad.component';
 
 
 @Component({
@@ -15,12 +16,12 @@ export class PublicidadComponent implements OnInit {
   public imagen: any;
   public destino: string;
 
+  publicidadModificar:Publicidad= new Publicidad('','',false);
+
   constructor(private publicidadService: PublicidadService, private router:Router) {
     this.imagen = "cat-2.jpg";
     this.destino = "";
   }
-
- 
 
   ngOnInit(): void {
     this.buscarUsuario(); 
@@ -42,15 +43,12 @@ export class PublicidadComponent implements OnInit {
       console.log(destino)
       this.refrescar();
     });
-    
-    }
-
-  modificarImagen(){
-
   }
 
-  eliminarImagen(){
-   
+  abrirModalPublicidad(publicidad: Publicidad){
+    this.publicidadModificar = publicidad;
+    ModificarPublicidadComponent.prototype.modificarPublicidad(this.publicidadModificar);
+    console.log(this.publicidadModificar);
   }
 
   obtenerNombreArchivo() {
@@ -72,5 +70,4 @@ export class PublicidadComponent implements OnInit {
   refrescar() {
     this.listarPublicidad();
   };
-
 }
