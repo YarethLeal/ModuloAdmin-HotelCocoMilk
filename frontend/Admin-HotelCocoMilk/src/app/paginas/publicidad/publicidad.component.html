@@ -33,8 +33,7 @@
                     <label for="end">Subir nueva imagen:</label>
                   </div>
                   <div class="col-md-12">
-                    <input id="formFileLg" (change)="obtenerNombreArchivo()"
-                      type="file" accept="image/png, .jpeg, .jpg, image/gif"/> <!--class="form-control form-control-lg ml-2 mt-3"-->
+                    <input id="formFileLg" (change)="obtenerNombreArchivo($event)" type="file" accept="image/png, .jpeg, .jpg, image/gif"/>
                   </div>
                   <div class="col-md-12 " style="margin-top: 5%;">
                     <button class="read_more" type="button" (click)="registarPublicidad(imagen,destino)">Aceptar</button> 

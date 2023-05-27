@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { PublicidadService } from 'src/app/core/servicios/publicidad.service';
 import { Publicidad } from 'src/app/core/modelos/publicidad.model';
 import { ModificarPublicidadComponent } from 'src/app/core/componentes/modificar-publicidad/modificar-publicidad.component';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -17,9 +18,10 @@ export class PublicidadComponent implements OnInit {
   public destino: string;
 
   publicidadModificar:Publicidad= new Publicidad('','',false);
+  
 
-  constructor(private publicidadService: PublicidadService, private router:Router) {
-    this.imagen = "cat-2.jpg";
+  constructor(private publicidadService: PublicidadService, private router:Router, private http: HttpClient) {
+    this.imagen = "vacio.png";
     this.destino = "";
   }
 
@@ -51,13 +53,22 @@ export class PublicidadComponent implements OnInit {
     console.log(this.publicidadModificar);
   }
 
-  obtenerNombreArchivo() {
-    var file = $("input[type=file]").prop("files");
-    if (file.length > 0) {
-      this.imagen = file[0].name;
+  obtenerNombreArchivo(event: any) {
+    const file = event.target.files[0];
+    const rutaArchivo = URL.createObjectURL(file);
+    if (file) {
+      this.imagen = file.name;
+      console.log(rutaArchivo);
     } else {
-      this.imagen= ""; 
+      this.imagen = "";
     }
+    this.uploadFile(file);
+  }
+
+  uploadFile(file: File) {
+   this.publicidadService.uploadFile(file).subscribe((respuesta) => {
+      console.log(respuesta);
+    });
   }
 
   buscarUsuario() {

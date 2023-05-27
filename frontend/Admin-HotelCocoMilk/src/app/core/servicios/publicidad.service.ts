@@ -43,6 +43,12 @@ export class PublicidadService {
     return this.http.post(this.urlModulo + 'registarPublicidad', Utils.getFormData(data), this.httpOptions1);
   }
 
+  uploadFile(data: any): Observable<any> {
+    const formData = new FormData();
+    formData.append('file', data);
+    return this.http.post(this.urlModulo + 'UploadFile', formData, this.httpOptions1);
+  }
+
   modificarPublicidad(data: Publicidad): Observable<any> {
     return this.http.post(this.urlModulo + 'modificarPublicidad', Utils.getFormData(data), this.httpOptions1);
   }
