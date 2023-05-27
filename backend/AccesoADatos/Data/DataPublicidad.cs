@@ -1,6 +1,7 @@
 ﻿using AccesoADatos.Context;
 using Entidades.Entities;
 using Microsoft.EntityFrameworkCore;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Query.Expressions.Internal;
 
 namespace AccesoADatos.Data
 {
@@ -37,6 +38,8 @@ namespace AccesoADatos.Data
 
         }
 
+
+
         public async Task<String> eliminarPublicidad(Publicidad publicidad)
         {
             try
@@ -44,9 +47,20 @@ namespace AccesoADatos.Data
                 using (var _context = new DBContext())
                 {
                     var publicidadEliminar = _context.publicidad.Find(publicidad.id_publicidad);
+                    var rutaAngular = "C:/Users/Usuario/Desktop/REPOSITORIOS/ModuloAdmin-HotelCocoMilk/frontend/Admin-HotelCocoMilk/src/assets/images/" + publicidad.imagen;
+                    if (File.Exists(rutaAngular))
+                    { 
+                        File.Delete(rutaAngular);
+                        Console.WriteLine("Imagen eliminada correctamente.");
 
-                    _context.publicidad.Remove(publicidadEliminar);
-                    await _context.SaveChangesAsync();
+                        _context.publicidad.Remove(publicidadEliminar);
+                        await _context.SaveChangesAsync();
+                    } 
+                    else
+                    {
+                        Console.WriteLine("La imagen no existe en la ruta especificada.");
+                    }
+
                 }
             }
             catch (DbUpdateException /* ex */)
@@ -59,24 +73,39 @@ namespace AccesoADatos.Data
             return "Publicidad eliminada";
         }
 
-        public async Task<String> modificarTemporadas(Publicidad publicidad)
+        public async Task<String> modificarPublicidad(Publicidad publicidad)
         {
-            using (var _context = new DBContext())
+            try
             {
-                var publicidadModificado = new Publicidad();
+                using (var _context = new DBContext())
+                {   
+                    var publicidadModificado = new Publicidad();
 
-                publicidadModificado = _context.publicidad.Find(publicidad.id_publicidad);
+                    publicidadModificado = _context.publicidad.Find(publicidad.id_publicidad);
 
-                if (publicidadModificado != null)
-                {
-                    if (publicidad.imagen != null)
+                    if (publicidadModificado != null)
                     {
-                        publicidadModificado.imagen = publicidad.imagen;
-                    }
+                        if (publicidadModificado.imagen != publicidad.imagen)
+                        {
+                            publicidadModificado.imagen = publicidad.imagen;
+                        }
 
-                    _context.Entry(publicidadModificado).State = EntityState.Modified;
-                    await _context.SaveChangesAsync();
+                        if (publicidadModificado.destino != publicidad.destino)
+                        {
+                            publicidadModificado.destino = publicidad.destino;
+                        }
+
+                        _context.Entry(publicidadModificado).State = EntityState.Modified;
+                        await _context.SaveChangesAsync();
+                    }
                 }
+            }
+            catch (DbUpdateException /* ex */)
+            {
+
+                return "No se pueden guardar los cambios. " +
+                         "Vuelve a intentarlo y, si el problema persiste, " +
+                         "consulte con el administrador del sistema.";
             }
             return "Publicidad actualizada";
         }

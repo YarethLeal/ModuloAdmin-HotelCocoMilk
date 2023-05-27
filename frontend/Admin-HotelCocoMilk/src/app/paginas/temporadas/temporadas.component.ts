@@ -6,6 +6,7 @@ import { TipoHabitacionService } from 'src/app/core/servicios/tipoHabitacion.ser
 import { Temporadas } from 'src/app/core/modelos/temporadas.model';
 import { ModificarTemporadasComponent } from 'src/app/core/componentes/modificar-temporadas/modificar-temporadas.component';
 import { Router } from '@angular/router';
+import { HabitacionService } from 'src/app/core/servicios/habitacion.service';
 
 @Component({
   selector: 'app-temporadas',
@@ -22,7 +23,7 @@ export class TemporadasComponent implements OnInit {
 
   temporadasModificar:Temporadas= new Temporadas(0,0,0,0,0);
 
-  constructor(private modificarTemporadas: ModificarTemporadasComponent, private temporadasService: TemporadasService, private tipoHabitacionService: TipoHabitacionService, private datePipe: DatePipe, private router:Router) {
+  constructor(private habitacionService: HabitacionService, private modificarTemporadas: ModificarTemporadasComponent, private temporadasService: TemporadasService, private tipoHabitacionService: TipoHabitacionService, private datePipe: DatePipe, private router:Router) {
     this.tipoSeleccionado = "";
     this.oferta = 0; 
     this.fechaInicio = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
@@ -62,7 +63,9 @@ export class TemporadasComponent implements OnInit {
       console.log(respuesta);
       console.log(tipo);
       this.refrescar();
+
     });
+    this.actualizarEstados();
     this.limpiar();
     
   }
@@ -97,6 +100,12 @@ export class TemporadasComponent implements OnInit {
     this.listarTemporadas();
     this.listarTipoHabitacion();
   };
+
+  actualizarEstados(){
+    this.habitacionService.actualizarEstados().subscribe((respuesta: string) => {
+      console.log(respuesta);
+    });
+}
 
   buscarUsuario() {
     if(localStorage.getItem('id')==null && localStorage.getItem('usuario')==null){
