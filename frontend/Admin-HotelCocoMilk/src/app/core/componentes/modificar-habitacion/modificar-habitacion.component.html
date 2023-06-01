@@ -16,11 +16,13 @@
                   <textarea class="form-control pb-5" [(ngModel)]="tipoHabitacion.informacion"></textarea>
                 </div>
                 <div class="imagen"> <!--d-flex flex-col-->
-                  <figure><img [src]="'assets/images/' + tipoHabitacion.imagen" alt="#"/></figure> <!-- width="100" height="100"-->
+                  <figure>
+                   <img id="preview" src="" width="100" height="100" alt="#"/>
+                  </figure> 
                 </div>
                 <div>
-                  <label for="tarifa">Moificar Imagen:</label>
-                  <input id="formFileLg" class="ml-3" (change)="obtenerNombreArchivo()"
+                  <label for="tarifa">Modificar Imagen:</label>
+                  <input id="formFileLg" class="ml-3" (change)="obtenerImagen()"
                   type="file" accept="image/png, .jpeg, .jpg, image/gif"/> <!--class="form-control form-control-lg ml-2 mt-3"-->
                </div>
                <div class="alert alert-light" role="alert">
