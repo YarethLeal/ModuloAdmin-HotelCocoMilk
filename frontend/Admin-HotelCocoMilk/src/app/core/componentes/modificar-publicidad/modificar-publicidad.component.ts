@@ -27,6 +27,7 @@ export class ModificarPublicidadComponent {
     console.log(this.publicidad);
     this.publicidadService.modificarPublicidad(this.publicidad).subscribe((respuesta: string) => {
       this.respuesta = respuesta;
+      console.log(respuesta);
      });
   }
 
