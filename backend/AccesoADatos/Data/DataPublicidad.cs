@@ -1,7 +1,6 @@
 ﻿using AccesoADatos.Context;
 using Entidades.Entities;
 using Microsoft.EntityFrameworkCore;
-using Npgsql.EntityFrameworkCore.PostgreSQL.Query.Expressions.Internal;
 
 namespace AccesoADatos.Data
 {
@@ -38,28 +37,14 @@ namespace AccesoADatos.Data
 
         }
 
-
-
         public async Task<String> eliminarPublicidad(Publicidad publicidad)
         {
             try
             {
                 using (var _context = new DBContext())
                 {
-                    var publicidadEliminar = _context.publicidad.Find(publicidad.id_publicidad);
-                    var rutaAngular = "C:/Users/Usuario/Desktop/REPOSITORIOS/ModuloAdmin-HotelCocoMilk/frontend/Admin-HotelCocoMilk/src/assets/images/" + publicidad.imagen;
-                    if (File.Exists(rutaAngular))
-                    { 
-                        File.Delete(rutaAngular);
-                        Console.WriteLine("Imagen eliminada correctamente.");
-
-                        _context.publicidad.Remove(publicidadEliminar);
-                        await _context.SaveChangesAsync();
-                    } 
-                    else
-                    {
-                        Console.WriteLine("La imagen no existe en la ruta especificada.");
-                    }
+                    _context.publicidad.Remove(publicidad);
+                    await _context.SaveChangesAsync();
 
                 }
             }

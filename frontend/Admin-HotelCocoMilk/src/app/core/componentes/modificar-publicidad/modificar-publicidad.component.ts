@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Publicidad } from '../../modelos/publicidad.model';
 import { PublicidadService } from '../../servicios/publicidad.service';
+import { Utils } from '../../utilidades/util';
 
 declare let $: any;
 
@@ -20,24 +21,31 @@ export class ModificarPublicidadComponent {
 
    modificarPublicidad(publicidad: Publicidad) {
     this.publicidad = publicidad;
+    let image = document.getElementById("modifyPreview") as HTMLImageElement;
+    image.src = this.publicidad.imagen;
+    console.log(image.src);
     $('#modal-modificar-publicidad').modal('show');
   }
 
   guardarModificacion() {
-    console.log(this.publicidad);
+    let image = document.getElementById("modifyPreview") as HTMLImageElement;
+    this.publicidad.imagen = image.src;
+
     this.publicidadService.modificarPublicidad(this.publicidad).subscribe((respuesta: string) => {
       this.respuesta = respuesta;
       console.log(respuesta);
      });
   }
 
-  obtenerNombreArchivo() {
-    var file = $("input[type=file]");
-    this.publicidad.imagen = file[0].files[0]["name"].toString();
+  obtenerImagen() {   
+    var promiseResult = Utils.imageToByte($("input[type=file]")[0].files[0]);
+    promiseResult.then((value: any) => {
+      let image = document.getElementById("modifyPreview") as HTMLImageElement;
+      image.src = 'data:image/jpg;base64,' + value;
+    });
   }
 
   eliminar(){
-    //console.log(this.publicidad);
     this.publicidadService.eliminarPublicidad(this.publicidad).subscribe((respuesta: string) => {
       this.respuesta = respuesta;
      });

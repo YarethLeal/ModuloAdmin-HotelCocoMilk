@@ -14,10 +14,12 @@
                 </div>
                 <div>
                   <label for="tarifa">Cambiar Imagen:</label>
-                  <input id="formFileLg" class="col-md-6" (change)="obtenerNombreArchivo()" type="file" accept="image/png, .jpeg, .jpg, image/gif"/> 
+                  <input id="formFileLg" class="col-md-6" (change)="obtenerImagen()" type="file" accept="image/png, .jpeg, .jpg, image/gif"/> 
                 </div>
                 <div class="imagen">
-                  <figure><img [src]="'assets/images/' + publicidad.imagen" alt="#"/></figure> 
+                  <figure>
+                    <img id="modifyPreview" src="" alt="#"/> 
+                  </figure> 
                 </div>
                 
                <div class="alert alert-light" role="alert">
