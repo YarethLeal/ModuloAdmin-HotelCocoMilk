@@ -4,7 +4,8 @@ import { PublicidadService } from 'src/app/core/servicios/publicidad.service';
 import { Publicidad } from 'src/app/core/modelos/publicidad.model';
 import { ModificarPublicidadComponent } from 'src/app/core/componentes/modificar-publicidad/modificar-publicidad.component';
 import { HttpClient } from '@angular/common/http';
-
+import { Utils } from 'src/app/core/utilidades/util';
+declare let $: any;
 
 @Component({
   selector: 'app-publicidad',
@@ -14,14 +15,15 @@ import { HttpClient } from '@angular/common/http';
 
 export class PublicidadComponent implements OnInit {
   error: boolean = false;
-  public imagen: any;
   public destino: string;
 
   publicidadModificar:Publicidad= new Publicidad('','',false);
   
 
   constructor(private publicidadService: PublicidadService, private router:Router, private http: HttpClient) {
-    this.imagen = "vacio.png";
+
+    
+   /* this.imagen = "assets/images/vacio.png";*/
     this.destino = "";
   }
 
@@ -35,14 +37,15 @@ export class PublicidadComponent implements OnInit {
   listarPublicidad() {
     this.publicidadService.listarPublicidad().subscribe((data: any) => {
       this.dataPublicidad = data;
+      this.dataPublicidad.forEach((element: any)=>{
+        element.imagen ='data:image/jpg;base64,' + element.imagen;
+      });
     });
   }
 
   registarPublicidad(imagen:any ,destino:any){
     this.publicidadService.registarPublicidad(new Publicidad(imagen,destino,false)).subscribe((respuesta: string) => {
       console.log(respuesta);
-      console.log(imagen)
-      console.log(destino)
       this.refrescar();
     });
   }
@@ -53,21 +56,14 @@ export class PublicidadComponent implements OnInit {
     console.log(this.publicidadModificar);
   }
 
-  obtenerNombreArchivo(event: any) {
-    const file = event.target.files[0];
-    const rutaArchivo = URL.createObjectURL(file);
-    if (file) {
-      this.imagen = file.name;
-      console.log(rutaArchivo);
-    } else {
-      this.imagen = "";
-    }
-    this.uploadFile(file);
-  }
 
-  uploadFile(file: File) {
-   this.publicidadService.uploadFile(file).subscribe((respuesta) => {
-      console.log(respuesta);
+  obtenerImagen(event: any) {   
+    const file = event.target.files[0];
+    var promiseResult = Utils.imageToByte(file);
+    promiseResult.then((value: any) => {
+      this.dataPublicidad.imagen = value;
+      let image = document.getElementById("preview") as HTMLImageElement;
+      image.src = 'data:image/jpg;base64,' + this.dataPublicidad.imagen;
     });
   }
 

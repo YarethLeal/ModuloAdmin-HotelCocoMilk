@@ -12,19 +12,20 @@ declare let $: any;
 export class VerHabitacionComponent {
   @Input() tipoHabitacion: TipoHabitacion = new TipoHabitacion();
   respuesta: string;
-  
+
   constructor() {
     this.respuesta = "";
   }
 
-  verTipoHabitacion(tipoHabitacion: TipoHabitacion){
-    console.log("Llega " + tipoHabitacion);
+  verTipoHabitacion(tipoHabitacion: TipoHabitacion) {
     this.tipoHabitacion = tipoHabitacion;
+    let image = document.getElementById("previewShowImage") as HTMLImageElement;
+    image.src = 'data:image/jpg;base64,' + this.tipoHabitacion.imagen;
     $('#modal-ver').modal('show');
   }
 
-  cerrar(){
-    this.respuesta="";
+  cerrar() {
+    this.respuesta = "";
     $('#modal-ver').modal('hide');
   }
 
