@@ -14,8 +14,10 @@
                     <label for="tarifa">Imagen:</label>
                   </div>
                   <div class="col-md-12">
-                    <div class="imagen"> <!--d-flex flex-col-->
-                      <figure><img [src]="'assets/images/' + this.imagen" alt="#"/></figure>
+                    <div > 
+                     <figure>
+                      <img class="imagen" id="preview" src="assets/images/vacio.png" width="100" height="100" alt="#"/>
+                     </figure> 
                     </div>
                   </div>
               </div>
@@ -33,10 +35,10 @@
                     <label for="end">Subir nueva imagen:</label>
                   </div>
                   <div class="col-md-12">
-                    <input id="formFileLg" (change)="obtenerNombreArchivo($event)" type="file" accept="image/png, .jpeg, .jpg, image/gif"/>
+                    <input id="formFileLg" (change)="obtenerImagen($event)" type="file" accept="image/png, .jpeg, .jpg, image/gif"/>
                   </div>
                   <div class="col-md-12 " style="margin-top: 5%;">
-                    <button class="read_more" type="button" (click)="registarPublicidad(imagen,destino)">Aceptar</button> 
+                    <button class="read_more" type="button" (click)="registarPublicidad(this.dataPublicidad.imagen,destino)">Aceptar</button> 
                   </div>
               </div>
           </div>
@@ -54,42 +56,13 @@
     <div *ngFor="let publicidad of dataPublicidad">
       <div style="text-align: center;">  
         <button type="button" (click)="abrirModalPublicidad(publicidad)">
-          <a><img [src]="'assets/images/' + publicidad.imagen"/></a> 
+          <a><img [src]="publicidad.imagen"/></a> 
         </button>
       </div>
     </div>
   </section>
 </div>
-  <!--
-  <div class="row">
-    <div class="col-lg-4 publicidad" *ngFor="let publicidad of dataPublicidad">
-      
-      <div class="col-lg-12 item">
-        <div class="row">
-          <div class="col-lg-12" style="text-align: center;">  
-              <img class="imagenGallery" [src]="'assets/images/' + publicidad.imagen " />
-          </div>
-          <div class="col-lg-12">
-            <p>Destino: {{publicidad.destino}}</p>
-          </div>
-          <div class="col-lg-12">
-            <div class="row">
-              <div class="col-lg-6">
-                <button class="btn btn; mdi mdi-update updateTabla" type="button" ></button>
-              </div>
-              <div class="col-lg-6" style="text-align: right;">
-                <button class="btn btn; mdi mdi-delete deleteTabla"  type="button" ></button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  <div>
-
-<div>  -->
-
+ 
 
 
 
