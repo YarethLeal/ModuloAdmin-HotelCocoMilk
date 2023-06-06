@@ -10,7 +10,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './paginas/home/home/home.component';
 import { MenuComponent } from './core/componentes/menu/menu.component';
-import { PaginaComponent } from './paginas/pagina/pagina.component';
 import { ReservacionComponent } from './paginas/reservacion/reservacion.component';
 import { AdminHabitacionComponent } from './paginas/admin-habitacion/admin-habitacion.component';
 import { PublicidadComponent } from './paginas/publicidad/publicidad.component';
@@ -25,6 +24,10 @@ import { NotificacionDialogComponent } from './core/componentes/notificacion-dia
 import { ReservaInformacionComponent } from './core/componentes/reserva-informacion/reserva-informacion.component';
 import { VerHabitacionComponent } from './core/componentes/ver-habitacion/ver-habitacion.component';
 import { ModificarPublicidadComponent } from './core/componentes/modificar-publicidad/modificar-publicidad.component';
+import { ModificarHomeComponent } from './paginas/modificar-home/modificar-home.component';
+import { ModificarFacilidadesComponent } from './paginas/modificar-facilidades/modificar-facilidades.component';
+import { ModificarNosotrosComponent } from './paginas/modificar-nosotros/modificar-nosotros.component';
+import { ModificarComoLlegarComponent } from './paginas/modificar-como-llegar/modificar-como-llegar.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,6 @@ import { ModificarPublicidadComponent } from './core/componentes/modificar-publi
     FooterComponent,
     HomeComponent,
     MenuComponent,
-    PaginaComponent,
     ReservacionComponent,
     AdminHabitacionComponent,
     PublicidadComponent,
@@ -47,7 +49,11 @@ import { ModificarPublicidadComponent } from './core/componentes/modificar-publi
     NotificacionDialogComponent,
     ReservaInformacionComponent,
     VerHabitacionComponent,
-    ModificarPublicidadComponent
+    ModificarPublicidadComponent,
+    ModificarHomeComponent,
+    ModificarFacilidadesComponent,
+    ModificarNosotrosComponent,
+    ModificarComoLlegarComponent
   ],
   imports: [
     BrowserModule,

@@ -6,9 +6,15 @@
                <a class="nav-link" routerLink="/home/bienvenida" routerLinkActive="active"
                   ariaCurrentWhenActive="page">Home</a>
             </li>
-            <li class="nav-item">
-               <a class="nav-link" routerLink="/home/pagina" routerLinkActive="active"
-                  ariaCurrentWhenActive="page">Modificar Páginas</a>
+            <li class="nav-item dropright">
+               <a class="nav-link dropdown-toggle" href="#" routerLinkActive="active" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Modificar Páginas</a>
+               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" routerLink="/home/modificar_home">Home</a>
+                  <a class="dropdown-item" routerLink="/home/modificar_nosotros">Sobre Nosotros</a>
+                  <a class="dropdown-item" routerLink="/home/modificar_facilidades">Facilidades</a>
+                  <a class="dropdown-item" routerLink="/home/modificar_como_llegar">Como llegar</a>
+                </div>
+
             </li>
             <li class="nav-item">
                <a class="nav-link" routerLink="/home/reservacion" routerLinkActive="active"
