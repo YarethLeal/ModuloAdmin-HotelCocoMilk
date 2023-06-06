@@ -29,3 +29,7 @@
 .sidebar .nav-item .nav-link:hover{
 	color: rgb(9, 48, 244);
 }
+
+.sidebar .nav-item .dropdown-menu .dropdown-item:hover{
+	color: rgb(9, 48, 244);
+}
