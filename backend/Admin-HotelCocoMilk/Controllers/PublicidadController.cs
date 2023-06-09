@@ -21,7 +21,7 @@ namespace Admin_HotelCocoMilk.Controllers
             return await (new DataPublicidad().registarPublicidad(publicidad));
         }
 
-        [HttpPost]
+       /* [HttpPost]
         [Route("UploadFile")]
         public async Task<IActionResult> UploadFile()
         {
@@ -39,7 +39,7 @@ namespace Admin_HotelCocoMilk.Controllers
             }
 
             return BadRequest("No se ha proporcionado ningún archivo.");
-        }
+        }*/
 
         [HttpPost]
         [Route("eliminarPublicidad")]

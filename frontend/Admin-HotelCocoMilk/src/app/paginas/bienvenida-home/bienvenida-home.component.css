@@ -4,3 +4,35 @@
   padding-bottom: 0.1rem;
   width: 100%;
 }
+
+img {
+  width: 75%;
+  height: 75%;
+  margin: 5%;
+  object-fit: contain;
+  }
+  
+  figure {
+  display: flex;
+  justify-content: center;
+  }
+
+  .TextoPrincipal{
+    margin-top: 15%;
+    margin-right: 20%;
+  }
+
+  h1{
+    font-weight: bold;
+    color: #0f1521;
+    font-size: 80px;
+  }
+
+  h3{
+    color: rgb(188, 34, 34);
+  }
+
+  p{
+    margin-top: 5%;
+    text-justify: auto;
+  }
