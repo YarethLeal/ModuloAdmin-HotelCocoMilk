@@ -2,4 +2,39 @@
   background-color: #0f1521;
   text-align: center;
   padding-bottom: 0.1rem;
+  width: 100%;
+}
+
+.about {
+background-color: #fff;
+padding-top: 3rem;
+}
+.about .titlepage {
+text-align: justify;
+padding-bottom: 0;
+width: 100%;
+}
+.about .titlepage p {
+margin-top: 3rem;
+font-weight: 400;
+font-size: 17px;
+line-height: 28px;
+padding-bottom: 20px;
+}
+.about_img {
+overflow: hidden;
+margin-left: 20px;
+}
+
+.about_img figure {
+margin: 0;
+}
+
+.about_img figure img {
+width: 100%;
+transition: all .5s;
+}
+
+.about_img figure img:hover {
+transform: scale(1.2);
 }

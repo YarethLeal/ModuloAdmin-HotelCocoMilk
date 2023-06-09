@@ -14,9 +14,11 @@ declare let $: any;
 export class ModificarPublicidadComponent {
   @Input() publicidad: Publicidad = new Publicidad('', '', false);
   respuesta: string;
+  imagenModificada: string;
 
   constructor(private publicidadService: PublicidadService) {
     this.respuesta = "";
+    this.imagenModificada = "";
   }
 
    modificarPublicidad(publicidad: Publicidad) {
@@ -29,17 +31,19 @@ export class ModificarPublicidadComponent {
 
   guardarModificacion() {
     let image = document.getElementById("modifyPreview") as HTMLImageElement;
-    this.publicidad.imagen = image.src;
+    this.publicidad.imagen = this.imagenModificada;
 
     this.publicidadService.modificarPublicidad(this.publicidad).subscribe((respuesta: string) => {
       this.respuesta = respuesta;
       console.log(respuesta);
+      this.publicidad.imagen = image.src;
      });
   }
 
   obtenerImagen() {   
     var promiseResult = Utils.imageToByte($("input[type=file]")[0].files[0]);
     promiseResult.then((value: any) => {
+      this.imagenModificada = value;
       let image = document.getElementById("modifyPreview") as HTMLImageElement;
       image.src = 'data:image/jpg;base64,' + value;
     });

@@ -1,6 +1,27 @@
-<div class="title">
+<!--<div class="title">
   <h2 style="color: white; padding-top: 5px;"> Modificar Paginas</h2>
 </div>
 <div>
   <h3 class="ml-3 mt-2">Facilidades</h3>
+</div>
+
+<div class="title">
+  <h2 style="color: white; padding-top: 5px;"> Facilidades</h2>
+</div>
+-->
+<div class="about" *ngFor="let facilidad of dataPaginas">
+<div class="row">
+   <div class="col-md-5">
+      <div class="about_img">
+         <figure><img [src]="'assets/images/' + facilidad.imagen" alt="#" width="400" height="200" /></figure>
+      </div>
+   </div>
+   <div class="col-md-6">
+
+      <div class="titlepage" >
+         <p class="margin_0 informacion">{{facilidad.descripcion}}</p>
+      </div>
+   </div>
+</div>
+
 </div>

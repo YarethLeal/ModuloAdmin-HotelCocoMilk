@@ -26,9 +26,9 @@ export class ModificarHomeComponent implements OnInit{
      this.dataHome.id_pagina=data[0].id_pagina;
       this.dataHome.id_tipo_pagina =data[0].id_tipo_pagina;
       this.dataHome.descripcion=data[0].descripcion;
-      this.dataHome.imagen = 'data:image/jpg;base64,' + data[0].imagen;
+      this.dataHome.imagen = data[0].imagen;
       let image = document.getElementById("preview") as HTMLImageElement;
-      image.src = this.dataHome.imagen;
+      image.src = 'data:image/jpg;base64,' + this.dataHome.imagen;
     });
 }
 
@@ -38,14 +38,12 @@ export class ModificarHomeComponent implements OnInit{
     promiseResult.then((value: any) => {
       this.dataHome.imagen = value;
       let image = document.getElementById("preview") as HTMLImageElement;
-      image.src = 'data:image/jpg;base64,' + this.dataHome.imagen;
+      image.src = 'data:image/jpg;base64,' + value;
     });
   }
 
-
-
-
   guardarModificacion() {
+    console.log(this.dataHome);
     this.paginaService.modificarPagina(this.dataHome).subscribe((respuesta: string) => {
       this.respuesta = respuesta;
       console.log(this.dataHome.imagen);
