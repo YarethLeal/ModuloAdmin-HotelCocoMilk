@@ -45,8 +45,51 @@ namespace AccesoADatos.Data
                     "Vuelve a intentarlo y, si el problema persiste, " +
                     "consulte con el administrador del sistema.";
             }
-            return "Pagina Actualizada";
+            return "Página Actualizada";
 
         }
+
+        public async Task<String> eliminarPagina(Pagina pagina)
+        {
+            try
+            {
+                using (var _context = new DBContext())
+                {
+                    _context.pagina.Remove(pagina);
+                    await _context.SaveChangesAsync();
+                }
+            }
+            catch (DbUpdateException /* ex */)
+            {
+
+                return "No se pueden guardar los cambios. " +
+                    "Vuelve a intentarlo y, si el problema persiste, " +
+                    "consulte con el administrador del sistema.";
+            }
+            return "Página Eliminada";
+        }
+
+        public async Task<String> crearPagina(Pagina pagina)
+        {
+            try
+            {
+                using (var _context = new DBContext())
+                {
+                    _context.pagina.Add(pagina);
+                    await _context.SaveChangesAsync();
+
+                }
+            }
+            catch (DbUpdateException /* ex */)
+            {
+
+                return "No se pueden guardar los cambios. " +
+                         "Vuelve a intentarlo y, si el problema persiste, " +
+                         "consulte con el administrador del sistema.";
+            }
+            return "Página Registrada";
+        }
+
+
     }
 }

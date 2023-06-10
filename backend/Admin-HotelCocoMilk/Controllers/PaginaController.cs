@@ -11,7 +11,6 @@ namespace Admin_HotelCocoMilk.Controllers
         public async Task<List<Pagina>> mostrarPagina(string tipoPagina)
         {
             return await (new DataPagina().mostrarPagina(tipoPagina));
-
         }
 
         [HttpPost]
@@ -20,5 +19,20 @@ namespace Admin_HotelCocoMilk.Controllers
         {
             return await (new DataPagina().modificarPagina(pagina));
         }
+
+        [HttpPost]
+        [Route("eliminarPagina")]
+        public async Task<String> eliminarPagina(Pagina pagina)
+        {
+            return await (new DataPagina().eliminarPagina(pagina));
+        }
+
+        [HttpPost]
+        [Route("crearPagina")]
+        public async Task<String> crearPagina(Pagina pagina)
+        {
+            return await (new DataPagina().crearPagina(pagina));
+        }
+
     }
 }

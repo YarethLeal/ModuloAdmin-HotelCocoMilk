@@ -1,6 +1,9 @@
 import { Component, OnInit  } from '@angular/core';
+import { ModificarPaginaComponent } from 'src/app/core/componentes/modificar-pagina/modificar-pagina.component';
+import { NotificacionDialogComponent } from 'src/app/core/componentes/notificacion-dialog/notificacion-dialog.component';
 import { Pagina } from 'src/app/core/modelos/pagina.model';
 import { PaginaService } from 'src/app/core/servicios/pagina.service';
+import { Utils } from 'src/app/core/utilidades/util';
 
 @Component({
   selector: 'app-modificar-facilidades',
@@ -10,18 +13,66 @@ import { PaginaService } from 'src/app/core/servicios/pagina.service';
 export class ModificarFacilidadesComponent implements OnInit{
 
  dataPaginas: Pagina[] =[];
-  constructor(private paginaService: PaginaService) {
+ facilidadModificar: Pagina = new Pagina(0);
+ respuesta:string;
 
+  constructor(private paginaService: PaginaService) {
+    this.respuesta = "";
   }
 
+  dataFacilidad: Pagina = new Pagina(0); 
+
   ngOnInit(): void {
+    this.dataFacilidad.descripcion = "Escriba aquí la descripción de la nueva facilidad";
     this.mostrarPagina("Facilidades");
   }
 
   mostrarPagina(buscar: string) {
     this.paginaService.mostrarPagina({ tipoPagina: buscar }).subscribe((data: Pagina[]) => {
+      //this.dataPaginas = data;
       this.dataPaginas = data;
+      this.dataPaginas.forEach((element: any)=>{
+        element.imagen = 'data:image/jpg;base64,' + element.imagen;
+      });
 
+      console.log(this.dataPaginas);
+    });
+  }
+
+  registrarFacilidad() {
+    //this.dataFacilidad.imagen = this.dataFacilidad.imagen;
+    this.dataFacilidad.id_tipo_pagina = this.dataPaginas[0].id_tipo_pagina;
+    return this.paginaService.crearPagina(this.dataFacilidad).subscribe((data: any) => {
+      this.respuesta = data;
+      console.log(data);
+      console.log(this.dataFacilidad);
+      this.mostrarPagina("Facilidades");
+    });
+  }
+
+  actualizarFacilidad(facilidad: Pagina) {
+    this.facilidadModificar = facilidad;
+    ModificarPaginaComponent.prototype.modificarFacilidad(this.facilidadModificar);
+    console.log(this.facilidadModificar);
+  }
+
+  eliminarFacilidad(facilidad: Pagina) {
+    console.log(facilidad);
+    return this.paginaService.eliminarPagina(facilidad).subscribe((respuesta:string)=>{
+     console.log(respuesta)
+      this.respuesta=respuesta;
+      NotificacionDialogComponent.prototype.notificar(this.respuesta);
+      this.mostrarPagina("Facilidades");
+    })
+  }
+
+  obtenerImagen(event: any) {   
+    const file = event.target.files[0];
+    var promiseResult = Utils.imageToByte(file);
+    promiseResult.then((value: any) => {
+      this.dataFacilidad.imagen = value;
+      let image = document.getElementById("preview") as HTMLImageElement;
+      image.src = 'data:image/jpg;base64,' + value;
     });
   }
 }

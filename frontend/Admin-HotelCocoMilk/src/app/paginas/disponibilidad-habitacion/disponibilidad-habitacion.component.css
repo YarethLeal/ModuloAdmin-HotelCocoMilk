@@ -26,10 +26,12 @@
   margin-left: 0%;
   text-align: left;
 }
+
 .row1{
 margin: 0%;
 display: inline-flex;
 }
+
 .read_more {
   font-size: 17px;
   background-color: #0f1521;
@@ -49,6 +51,7 @@ display: inline-flex;
   color: #fff;
   transition: ease-in all 0.5s;
 }
+
 .cancel:hover {
 background: #fe0000;
 color: #fff;

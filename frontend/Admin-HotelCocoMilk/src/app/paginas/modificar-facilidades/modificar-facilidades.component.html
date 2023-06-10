@@ -1,27 +1,82 @@
-<!--<div class="title">
-  <h2 style="color: white; padding-top: 5px;"> Modificar Paginas</h2>
+<div class="title">
+  <h2 style="color: white; padding-top: 5px;">Modificar Páginas</h2>
 </div>
 <div>
   <h3 class="ml-3 mt-2">Facilidades</h3>
 </div>
 
-<div class="title">
-  <h2 style="color: white; padding-top: 5px;"> Facilidades</h2>
+<div>
+  <h4 class="ml-3 mt-2">Nueva Facilidad</h4>
 </div>
--->
-<div class="about" *ngFor="let facilidad of dataPaginas">
+
 <div class="row">
-   <div class="col-md-5">
-      <div class="about_img">
-         <figure><img [src]="'assets/images/' + facilidad.imagen" alt="#" width="400" height="200" /></figure>
-      </div>
-   </div>
-   <div class="col-md-6">
+  <div class="col-md-12 form-group mt-3 test2">
+    <textarea class="form-control pb-5" [(ngModel)]="dataFacilidad.descripcion"></textarea>
+  </div>
 
-      <div class="titlepage" >
-         <p class="margin_0 informacion">{{facilidad.descripcion}}</p>
+  <div class="col-md-12">
+    <div class="row">
+
+      <div class="col-md-2">
       </div>
-   </div>
+
+      <div class="col-md-4">
+        <div class="row"> 
+          
+          <div class="col-md-12">
+            <div class="col-md-12">
+              <input id="formFileLg" class="col-md-12" (change)="obtenerImagen($event)" 
+              type="file" accept="image/png, .jpeg, .jpg, image/gif" style="color: transparent;"/> <!--class="form-control form-control-lg ml-2 mt-3"-->
+            </div>
+            <div class="col-md-12 alert alert-light" role="alert">
+              {{respuesta}}
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-4 imagen">
+        <figure>
+          <img id="preview" src="" width="100" height="100" alt="Ninguna imagen seleccionada"/>
+        </figure> 
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-12" style="display: flex; justify-content: center;">
+    <button type="button" class="add_more" (click)="registrarFacilidad()">Guardar</button>
+  </div>
 </div>
 
+<div>
+<table class="table" id="dataTable">
+   <thead class="thead-dark">
+     <tr>
+       <th scope="col">Facilidad</th>
+       <th scope="col">Descripción</th>
+       <th scope="col">Modificar</th>
+       <th scope="col">Eliminar</th>
+     </tr>
+   </thead>
+   <tbody *ngFor="let facilidad of dataPaginas">
+     <tr id="datos-tabla">
+       <td> 
+        <figure>
+          <img [src]="facilidad.imagen"/>
+        </figure> 
+
+        <!--<figure><img [src]="'assets/images/' + facilidad.imagen" alt="#" width="400" height="200" /></figure>-->
+       </td>
+       <td>{{facilidad.descripcion}}</td>
+       <td>
+        <button class="btn btn; mdi mdi-update updateTabla" (click)="actualizarFacilidad(facilidad)"></button>
+      </td>
+       <td>
+          <button class="btn btn; mdi mdi-delete deleteTabla" (click)="eliminarFacilidad(facilidad)"> 
+          </button>
+       </td>
+     </tr>
+   </tbody>
+ </table>
 </div>
+<app-modificar-pagina [facilidad]="facilidadModificar"></app-modificar-pagina>

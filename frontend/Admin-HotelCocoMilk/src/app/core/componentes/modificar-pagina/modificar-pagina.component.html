@@ -1,20 +1,20 @@
-<div class="modal"  id="modal-modificar-publicidad" data-backdrop="static" >
+<div class="modal"  id="modal-modificar-pagina" data-backdrop="static" >
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Publicidad</h4>
+                <h4 class="modal-title">Facilidad</h4>
                 <button type="button" class="close" (click)="cerrar()" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
                 <div class="habitacion">
-                  <label for="destino">Link de Destino:</label>
-                  <input class="ml-3" id="destino" type="text" [(ngModel)]="publicidad.destino"/>
+                  <label for="destino">Descripción:</label>
+                  <input class="ml-3" id="destino" type="text" [(ngModel)]="facilidad.descripcion"/>
                 </div>
                 <div>
                   <label for="tarifa">Cambiar Imagen:</label>
-                  <input id="formFileLg" class="col-md-6" (change)="obtenerImagen()" type="file" accept="image/png, .jpeg, .jpg, image/gif"/> 
+                  <input id="formFileLg" type="file" class="col-md-6" (change)="obtenerImagen($event)" style="color: transparent;" accept="image/png, .jpeg, .jpg, image/gif"/> 
                 </div>
                 <div class="imagen">
                   <figure>
@@ -28,7 +28,6 @@
               </div>
               <div class="modal-footer">
                  <button type="button" class="btn" (click)="guardarModificacion()">Modificar</button>
-                 <button type="button" class="btn cancel" (click)="eliminar()">Eliminar</button>
               </div>
         </div>
     </div>

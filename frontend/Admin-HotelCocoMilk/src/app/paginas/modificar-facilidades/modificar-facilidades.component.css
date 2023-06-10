@@ -5,15 +5,18 @@
   width: 100%;
 }
 
+/*
 .about {
 background-color: #fff;
 padding-top: 3rem;
 }
+
 .about .titlepage {
 text-align: justify;
 padding-bottom: 0;
 width: 100%;
 }
+
 .about .titlepage p {
 margin-top: 3rem;
 font-weight: 400;
@@ -21,6 +24,7 @@ font-size: 17px;
 line-height: 28px;
 padding-bottom: 20px;
 }
+
 .about_img {
 overflow: hidden;
 margin-left: 20px;
@@ -37,4 +41,76 @@ transition: all .5s;
 
 .about_img figure img:hover {
 transform: scale(1.2);
+}*/
+
+td, th {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.deleteTabla{
+  font-size: 24px;
+  color: #fe0000;
+  background-color: #fff;
+  fill: none;
+}
+
+.updateTabla{
+  font-size: 24px;
+  color: blue;
+}
+
+.add_more {
+  /*margin-left: 1rem;*/
+  font-size: 17px;
+  background-color: #0f1521;
+  color: #fff;
+  padding: 8px 0px;
+  width: 100%;
+  max-width: 150px;
+  text-align: center;
+  display: inline-block;
+  transition: ease-in all 0.5s;
+  font-weight: 500;
+  border-radius: 30px;
+  margin-bottom: 1rem;
+}
+
+.add_more:hover {
+  background: #1ddd7d;
+  color: #fff;
+  transition: ease-in all 0.5s;
+}
+
+.table {
+  width: 90%;
+  margin-left: 2%;
+  margin-top: 2%;
+}
+
+img {
+  width: 85%;
+  height: 85%;
+  object-fit: contain;
+}
+  
+figure {
+  /*display: flex;*/
+  justify-content: center;
+}
+  
+.test2{
+  display: flex;
+  justify-content: center;
+}
+  
+textarea {
+  width: 75%;
+}
+
+.linea {
+  background: #0f1521;
+  height: 5px;
+  width: 100%;
+  display: block;
 }

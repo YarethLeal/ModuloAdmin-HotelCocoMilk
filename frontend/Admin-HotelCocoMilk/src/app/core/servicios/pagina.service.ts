@@ -41,6 +41,15 @@ export class PaginaService {
 
   modificarPagina(data: any): Observable<any> {
     return this.http.post(this.urlAPI + 'modificarPagina', Utils.getFormData(data), this.httpOptions1);
-}
+  }
+
+  eliminarPagina(data: any): Observable<any> {
+    return this.http.post(this.urlAPI + 'eliminarPagina', Utils.getFormData(data), this.httpOptions1);
+  }
+
+  crearPagina(data: any): Observable<any> {
+    return this.http.post(this.urlAPI + 'crearPagina', Utils.getFormData(data), this.httpOptions1);
+  }
+  
 
 }

@@ -28,6 +28,7 @@ import { ModificarHomeComponent } from './paginas/modificar-home/modificar-home.
 import { ModificarFacilidadesComponent } from './paginas/modificar-facilidades/modificar-facilidades.component';
 import { ModificarNosotrosComponent } from './paginas/modificar-nosotros/modificar-nosotros.component';
 import { ModificarComoLlegarComponent } from './paginas/modificar-como-llegar/modificar-como-llegar.component';
+import { ModificarPaginaComponent } from './core/componentes/modificar-pagina/modificar-pagina.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { ModificarComoLlegarComponent } from './paginas/modificar-como-llegar/mo
     ModificarHomeComponent,
     ModificarFacilidadesComponent,
     ModificarNosotrosComponent,
-    ModificarComoLlegarComponent
+    ModificarComoLlegarComponent,
+    ModificarPaginaComponent
   ],
   imports: [
     BrowserModule,

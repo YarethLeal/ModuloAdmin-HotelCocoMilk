@@ -1,0 +1,48 @@
+img {
+    width: 60%;
+    height: 60%;
+    object-fit: contain;
+}
+
+figure {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btn{
+    font-size: 17px;
+    background-color: #0f1521;
+    color: #fff;
+    padding: 8px 0px;
+    width: 100%;
+    max-width: 144px;
+    text-align: center;
+    display: inline-block;
+    transition: ease-in all 0.5s;
+    font-weight: 500;
+    border-radius: 30px;
+}
+
+.btn:hover {
+    background: #1ddd7d;
+    color: #fff;
+    transition: ease-in all 0.5s;
+}
+
+.cancel:hover {
+  background: #fe0000;
+  color: #fff;
+  transition: ease-in all 0.5s;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 1em;
+}
+
+#destino {
+    width: 70%;
+}
+
+.modal-lg { max-width: 45% !important; }
