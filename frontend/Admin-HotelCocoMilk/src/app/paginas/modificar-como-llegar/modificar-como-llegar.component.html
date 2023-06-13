@@ -4,3 +4,14 @@
 <div>
   <h3 class="ml-3 mt-2">Como Llegar</h3>
 </div>
+<div class="row">
+  <div class="col-md-12 form-group mt-3 text">
+    <textarea class="form-control pb-5" [(ngModel)]="dataComoLlegar.descripcion"></textarea>
+  </div>
+
+  <div class="col-md-12" style="display: flex; justify-content: center;">
+    <button type="button" class="btn" (click)="guardarModificacion()">Guardar</button>
+  </div>
+
+</div>
+<app-notificacion-dialog [mensaje]="this.respuesta"></app-notificacion-dialog>
