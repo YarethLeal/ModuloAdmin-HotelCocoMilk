@@ -3,3 +3,31 @@
   text-align: center;
   padding-bottom: 0.1rem;
 }
+.btn{
+  font-size: 17px;
+  background-color: #0f1521;
+  color: #fff;
+  padding: 8px 0px;
+  width: 100%;
+  max-width: 144px;
+  text-align: center;
+  display: inline-block;
+  transition: ease-in all 0.5s;
+  font-weight: 500;
+  border-radius: 30px;
+}
+
+.btn:hover {
+  background: #1ddd7d;
+  color: #fff;
+  transition: ease-in all 0.5s;
+}
+
+.text{
+  display: flex;
+  justify-content: center;
+}
+
+textarea {
+  width: 75%;
+}
