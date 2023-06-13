@@ -4,3 +4,11 @@
 <div>
   <h3 class="ml-3 mt-2">Sobre Nosotros</h3>
 </div>
+<div>
+  <div class="col-md-12 form-group mt-3 test2">
+    <textarea class="form-control pb-5" [(ngModel)]="dataAboutUs.descripcion"></textarea>
+  </div>
+  <div class="row justify-content-end mr-3">
+    <button type="button" class="btn" (click)="modificarDescripcion()">Guardar</button>
+  </div>
+</div>
