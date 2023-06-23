@@ -2,6 +2,8 @@ import { Component, Input } from '@angular/core';
 import { Publicidad } from '../../modelos/publicidad.model';
 import { PublicidadService } from '../../servicios/publicidad.service';
 import { Utils } from '../../utilidades/util';
+import { NotificacionDialogComponent } from '../notificacion-dialog/notificacion-dialog.component';
+import { Router } from '@angular/router';
 
 declare let $: any;
 
@@ -15,10 +17,12 @@ export class ModificarPublicidadComponent {
   @Input() publicidad: Publicidad = new Publicidad('', '', false);
   respuesta: string;
   imagenModificada: string;
+  message: string;
 
-  constructor(private publicidadService: PublicidadService) {
+  constructor(private publicidadService: PublicidadService, private router:Router) {
     this.respuesta = "";
     this.imagenModificada = "";
+    this.message = "";
   }
 
    modificarPublicidad(publicidad: Publicidad) {
@@ -37,7 +41,7 @@ export class ModificarPublicidadComponent {
       this.respuesta = respuesta;
       console.log(respuesta);
       this.publicidad.imagen = image.src;
-     });
+    });
   }
 
   obtenerImagen() {   
@@ -52,6 +56,7 @@ export class ModificarPublicidadComponent {
   eliminar(){
     this.publicidadService.eliminarPublicidad(this.publicidad).subscribe((respuesta: string) => {
       this.respuesta = respuesta;
+      this.router.navigate(["publicidad"]);
      });
   }
   

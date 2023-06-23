@@ -5,6 +5,7 @@ import { Publicidad } from 'src/app/core/modelos/publicidad.model';
 import { ModificarPublicidadComponent } from 'src/app/core/componentes/modificar-publicidad/modificar-publicidad.component';
 import { HttpClient } from '@angular/common/http';
 import { Utils } from 'src/app/core/utilidades/util';
+import { NotificacionDialogComponent } from 'src/app/core/componentes/notificacion-dialog/notificacion-dialog.component';
 declare let $: any;
 
 @Component({
@@ -16,12 +17,13 @@ declare let $: any;
 export class PublicidadComponent implements OnInit {
   error: boolean = false;
   public destino: string;
+  message: string;
 
   publicidadModificar:Publicidad= new Publicidad('','',false);
   
 
   constructor(private publicidadService: PublicidadService, private router:Router, private http: HttpClient) {
-
+    this.message = "Por favor, asegúrese de completar todos los campos con la información solicitada.";
     
    /* this.imagen = "assets/images/vacio.png";*/
     this.destino = "";
@@ -43,11 +45,19 @@ export class PublicidadComponent implements OnInit {
     });
   }
 
-  registarPublicidad(imagen:any ,destino:any){
-    this.publicidadService.registarPublicidad(new Publicidad(imagen,destino,false)).subscribe((respuesta: string) => {
-      console.log(respuesta);
-      this.refrescar();
-    });
+  registarPublicidad(imagen:any, destino:any){
+
+    if(imagen == null || imagen == '' || destino == null || destino == ''){
+      this.message = "Por favor, asegúrese de completar los campos de imagen y enlace con la información solicitada.";
+      NotificacionDialogComponent.prototype.notificar(this.message);
+    } else {
+      this.publicidadService.registarPublicidad(new Publicidad(imagen,destino,false)).subscribe((respuesta: string) => {
+        console.log(respuesta);
+        this.message = "¡Publicidad creada éxitosamente!"
+        NotificacionDialogComponent.prototype.notificar(this.message);
+        this.refrescar();
+      });
+    }
   }
 
   abrirModalPublicidad(publicidad: Publicidad){
