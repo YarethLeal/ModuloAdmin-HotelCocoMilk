@@ -20,6 +20,7 @@ export class ModificarNosotrosComponent {
   constructor(private paginaService: PaginaService, private galeriaService: GaleriaService) {
     this.dataAboutUs = new Pagina(0);
   }
+
   ngOnInit(): void {
     this.descripcionPagina("Sobre Nosotros");
     this.mostrarGaleria();
@@ -30,10 +31,12 @@ export class ModificarNosotrosComponent {
       this.dataAboutUs = data[0];
     });
   }
+
   modificarDescripcion() {
     console.log(this.dataAboutUs);
     this.paginaService.modificarPagina(this.dataAboutUs).subscribe((respuesta: string) => {
-      NotificacionDialogComponent.prototype.notificar(respuesta);
+      this.respuesta = respuesta;
+      NotificacionDialogComponent.prototype.notificar(this.respuesta);
     });
   }
 
@@ -45,6 +48,7 @@ export class ModificarNosotrosComponent {
       // });
     });
   }
+
   registrarImagenGaleria() {
     if (this.nombreImagen != null && this.nombreImagen != "" && this.imagen != "") {
       let galeriaImagen = new Galeria(this.nombreImagen, this.imagen);
@@ -55,9 +59,13 @@ export class ModificarNosotrosComponent {
         console.log(data);
         this.mostrarGaleria();
       });
+    } else {
+      this.respuesta = "Datos incompletos o invalidos";
+      NotificacionDialogComponent.prototype.notificar(this.respuesta);
     }
-    return "Datos incompletos o invalidos";
+    return this.respuesta;
   }
+
   eliminarImagenGaleria(imagen: Galeria) {
     return this.galeriaService.eliminarImagenGaleria(imagen).subscribe((respuesta: string) => {
       this.respuesta = respuesta;
