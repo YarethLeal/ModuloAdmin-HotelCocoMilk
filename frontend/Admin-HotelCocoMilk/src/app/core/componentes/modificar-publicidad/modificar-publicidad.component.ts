@@ -1,9 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Publicidad } from '../../modelos/publicidad.model';
 import { PublicidadService } from '../../servicios/publicidad.service';
 import { Utils } from '../../utilidades/util';
 import { NotificacionDialogComponent } from '../notificacion-dialog/notificacion-dialog.component';
 import { Router } from '@angular/router';
+import { PublicidadComponent } from 'src/app/paginas/publicidad/publicidad.component';
 
 declare let $: any;
 
@@ -15,6 +16,7 @@ declare let $: any;
 
 export class ModificarPublicidadComponent {
   @Input() publicidad: Publicidad = new Publicidad('', '', false);
+  @Output() private eventoHijo = new EventEmitter<string>();
   respuesta: string;
   imagenModificada: string;
   message: string;
@@ -41,6 +43,7 @@ export class ModificarPublicidadComponent {
       this.respuesta = respuesta;
       console.log(respuesta);
       this.publicidad.imagen = image.src;
+      this.eventoHijo.emit("refrescar");
     });
   }
 
@@ -56,7 +59,7 @@ export class ModificarPublicidadComponent {
   eliminar(){
     this.publicidadService.eliminarPublicidad(this.publicidad).subscribe((respuesta: string) => {
       this.respuesta = respuesta;
-      this.router.navigate(["publicidad"]);
+      this.eventoHijo.emit("refrescar");
      });
   }
   

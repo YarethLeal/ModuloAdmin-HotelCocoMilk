@@ -6,6 +6,7 @@ import { ModificarPublicidadComponent } from 'src/app/core/componentes/modificar
 import { HttpClient } from '@angular/common/http';
 import { Utils } from 'src/app/core/utilidades/util';
 import { NotificacionDialogComponent } from 'src/app/core/componentes/notificacion-dialog/notificacion-dialog.component';
+
 declare let $: any;
 
 @Component({
@@ -18,15 +19,14 @@ export class PublicidadComponent implements OnInit {
   error: boolean = false;
   public destino: string;
   message: string;
-
+  mensajeHijo:string;
   publicidadModificar:Publicidad= new Publicidad('','',false);
   
 
   constructor(private publicidadService: PublicidadService, private router:Router, private http: HttpClient) {
     this.message = "Por favor, asegúrese de completar todos los campos con la información solicitada.";
-    
-   /* this.imagen = "assets/images/vacio.png";*/
     this.destino = "";
+    this.mensajeHijo = "";
   }
 
   ngOnInit(): void {
@@ -63,7 +63,8 @@ export class PublicidadComponent implements OnInit {
   abrirModalPublicidad(publicidad: Publicidad){
     this.publicidadModificar = publicidad;
     ModificarPublicidadComponent.prototype.modificarPublicidad(this.publicidadModificar);
-    console.log(this.publicidadModificar);
+    this.refrescar();
+    console.log(this.publicidadModificar + "\nYa refresco");
   }
 
 
@@ -87,4 +88,8 @@ export class PublicidadComponent implements OnInit {
   refrescar() {
     this.listarPublicidad();
   };
+
+  onMensajeHijo(mensaje: any) {
+    this.refrescar();
+   }
 }
