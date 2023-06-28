@@ -770,11 +770,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\ModuloAdmin-HotelCocoMilk\\backend\\AccesoADatos\\AccesoADatos.csproj",
+      "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\REPOSITORIOS\\ModuloAdmin-HotelCocoMilk\\backend\\AccesoADatos\\AccesoADatos.csproj",
       "projectName": "AccesoADatos",
-      "projectPath": "C:\\Users\\Usuario\\Desktop\\ModuloAdmin-HotelCocoMilk\\backend\\AccesoADatos\\AccesoADatos.csproj",
+      "projectPath": "C:\\Users\\Usuario\\Desktop\\REPOSITORIOS\\ModuloAdmin-HotelCocoMilk\\backend\\AccesoADatos\\AccesoADatos.csproj",
       "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Usuario\\Desktop\\ModuloAdmin-HotelCocoMilk\\backend\\AccesoADatos\\obj\\",
+      "outputPath": "C:\\Users\\Usuario\\Desktop\\REPOSITORIOS\\ModuloAdmin-HotelCocoMilk\\backend\\AccesoADatos\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -791,8 +791,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Usuario\\Desktop\\ModuloAdmin-HotelCocoMilk\\backend\\Entidades\\Entidades.csproj": {
-              "projectPath": "C:\\Users\\Usuario\\Desktop\\ModuloAdmin-HotelCocoMilk\\backend\\Entidades\\Entidades.csproj"
+            "C:\\Users\\Usuario\\Desktop\\REPOSITORIOS\\ModuloAdmin-HotelCocoMilk\\backend\\Entidades\\Entidades.csproj": {
+              "projectPath": "C:\\Users\\Usuario\\Desktop\\REPOSITORIOS\\ModuloAdmin-HotelCocoMilk\\backend\\Entidades\\Entidades.csproj"
             }
           }
         }
@@ -832,7 +832,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }
