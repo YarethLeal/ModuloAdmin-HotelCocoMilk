@@ -27,9 +27,14 @@ export class ModificarHabitacionComponent {
   }
 
   guardarModificacion() {
-    this.tipoHabitacionService.modificarTipoHabitacion(this.tipoHabitacion).subscribe((respuesta: string) => {
-      this.respuesta = respuesta;
-    });
+    if(this.tipoHabitacion.informacion!=""){
+      this.tipoHabitacionService.modificarTipoHabitacion(this.tipoHabitacion).subscribe((respuesta: string) => {
+        this.respuesta = respuesta;
+      });
+    }else{
+      this.respuesta = "Descripción incompleta, por favor complete el espacio.";
+    }
+    
   }
 
   obtenerImagen() {   
