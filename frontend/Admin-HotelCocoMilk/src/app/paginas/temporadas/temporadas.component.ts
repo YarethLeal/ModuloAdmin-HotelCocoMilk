@@ -7,6 +7,7 @@ import { Temporadas } from 'src/app/core/modelos/temporadas.model';
 import { ModificarTemporadasComponent } from 'src/app/core/componentes/modificar-temporadas/modificar-temporadas.component';
 import { Router } from '@angular/router';
 import { HabitacionService } from 'src/app/core/servicios/habitacion.service';
+import { NotificacionDialogComponent } from 'src/app/core/componentes/notificacion-dialog/notificacion-dialog.component';
 
 @Component({
   selector: 'app-temporadas',
@@ -20,22 +21,23 @@ export class TemporadasComponent implements OnInit {
   public fechaFinal: string | null;
   public oferta: number;
   error: boolean = false;
+  respuesta: string= "";
 
   temporadasModificar:Temporadas= new Temporadas(0,0,0,0,0);
 
   constructor(private habitacionService: HabitacionService, private modificarTemporadas: ModificarTemporadasComponent, private temporadasService: TemporadasService, private tipoHabitacionService: TipoHabitacionService, private datePipe: DatePipe, private router:Router) {
     this.tipoSeleccionado = "";
-    this.oferta = 0; 
+    this.oferta = 0;
     this.fechaInicio = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
     this.fechaFinal = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
   }
 
   ngOnInit(): void {
-    this.buscarUsuario(); 
+    this.buscarUsuario();
     this.refrescar();
   }
 
-  dataTemporadas: any = []; 
+  dataTemporadas: any = [];
   dataTipoHabitacion: any = [];
 
   listarTemporadas() {
@@ -61,23 +63,25 @@ export class TemporadasComponent implements OnInit {
 
     this.temporadasService.registartemporadas(new Temporadas(0, idTipoHabitacion,fechaInicio,fechaFinal,oferta)).subscribe((respuesta: string) => {
       console.log(respuesta);
+      this.respuesta = respuesta;
+      NotificacionDialogComponent.prototype.notificar(respuesta);
       console.log(tipo);
       this.refrescar();
 
     });
     this.actualizarEstados();
     this.limpiar();
-    
+
   }
 
   abrirModificarTemporadas(id_temporada: number, tipo: string, fecha_inicio: any, fecha_final: any, oferta: number) {
-    
+
     this.temporadasModificar.id_temporada = id_temporada;
     this.temporadasModificar.id_tipo_habitacion = tipo;
     this.temporadasModificar.fecha_inicio = this.datePipe.transform(fecha_inicio, 'dd-MM-yyyy');
     this.temporadasModificar.fecha_final = this.datePipe.transform(fecha_final, 'dd-MM-yyyy');;
     this.temporadasModificar.oferta = oferta;
-    
+
     this.modificarTemporadas.modificarTemporadasModal(this.temporadasModificar);
     this.refrescar();
   }
@@ -86,6 +90,8 @@ export class TemporadasComponent implements OnInit {
     console.log(temporada);
     return this.temporadasService.eliminarTemporadas(temporada).subscribe((respuesta:string)=>{
       console.log(respuesta);
+      this.respuesta = respuesta;
+      NotificacionDialogComponent.prototype.notificar(this.respuesta);
       this.refrescar();
     })
   }

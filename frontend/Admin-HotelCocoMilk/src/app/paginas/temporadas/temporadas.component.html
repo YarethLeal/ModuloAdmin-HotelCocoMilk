@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-md-2 combobox"></div>
 
-            <div class="col-md-2 combobox"> 
+            <div class="col-md-2 combobox">
                 <div class="row">
                     <div class="col-md-12">
                       <label>Escoja una opción:</label>
@@ -22,10 +22,10 @@
                   </div>
               </div>
 
-              <div class="col-md-2 combobox"> 
+              <div class="col-md-2 combobox">
                   <div class="row">
                       <div class="col-md-12">
-                        <label for="start">Fecha de llegada:</label>
+                        <label for="start">Fecha de inicio:</label>
                       </div>
                       <div class="col-md-12">
                         <input type="date" id="start" [(ngModel)]="fechaInicio">
@@ -33,10 +33,10 @@
                     </div>
               </div>
 
-              <div class="col-md-2 combobox"> 
+              <div class="col-md-2 combobox">
                   <div class="row">
                       <div class="col-md-12 ">
-                        <label for="end">Fecha de salida:</label>
+                        <label for="end">Fecha de fin:</label>
                       </div>
                       <div class="col-md-12 ">
                         <input type="date" id="end" [(ngModel)]="fechaFinal" min="{{fechaInicio}}">
@@ -44,7 +44,7 @@
                   </div>
               </div>
 
-              <div class="col-md-2 combobox"> 
+              <div class="col-md-2 combobox">
                   <div class="row">
                       <div class="col-md-12 ">
                         <label for="oferta">Oferta:</label>
@@ -55,11 +55,11 @@
                     </div>
               </div>
 
-              <div class="col-md-2 combobox"> </div>  
+              <div class="col-md-2 combobox"> </div>
         </div>
 
         <div class="col-md-12" style="text-align: center;">
-          <button class="read_more" type="button" (click)="registartemporadas(tipoSeleccionado,fechaInicio,fechaFinal,oferta)">Aceptar</button> 
+          <button class="read_more" type="button" (click)="registartemporadas(tipoSeleccionado,fechaInicio,fechaFinal,oferta)">Aceptar</button>
         </div>
     </div>
   </section>
@@ -69,8 +69,8 @@
       <tr>
         <th scope="col">#</th>
         <th scope="col">Tipo de habitación</th>
-        <th scope="col">Fecha de llegada</th>
-        <th scope="col">Fecha de salida</th>
+        <th scope="col">Fecha de inicio</th>
+        <th scope="col">Fecha de fin</th>
         <th scope="col">Oferta</th>
         <th scope="col">Actualizar</th>
         <th scope="col">Eliminar</th>
@@ -88,4 +88,4 @@
       </tr>
     </tbody>
   </table>
-  
+  <app-notificacion-dialog [mensaje]="this.respuesta"></app-notificacion-dialog>
