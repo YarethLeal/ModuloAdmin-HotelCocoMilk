@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Pagina } from 'src/app/core/modelos/pagina.model';
 import { PaginaService } from 'src/app/core/servicios/pagina.service';
 import { Utils } from 'src/app/core/utilidades/util';
@@ -10,11 +11,14 @@ import { Utils } from 'src/app/core/utilidades/util';
 })
 export class ModificarHomeComponent implements OnInit{
   respuesta: string;  
-  constructor (private paginaService: PaginaService) {
+  error: boolean = false;
+  
+  constructor (private paginaService: PaginaService, private router:Router) {
     this.respuesta = "";
   }
 
   ngOnInit(): void {
+    this.buscarUsuario();
     this.mostrarPagina("Home");
   }
 
@@ -50,4 +54,10 @@ export class ModificarHomeComponent implements OnInit{
     });
   }
 
+  buscarUsuario() {
+    if(localStorage.getItem('id')==null && localStorage.getItem('usuario')==null){
+      this.router.navigate(['']);
+      this.error = true;
+    }
+  }
 }

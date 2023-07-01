@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { NotificacionDialogComponent } from 'src/app/core/componentes/notificacion-dialog/notificacion-dialog.component';
 import { Galeria } from 'src/app/core/modelos/galeria.model';
 import { Pagina } from 'src/app/core/modelos/pagina.model';
@@ -15,13 +16,16 @@ export class ModificarNosotrosComponent {
   public dataAboutUs: Pagina;
   public dataGaleria: Galeria[] = [];
   imagen: any = "";
-  nombreImagen: string = "HolaMundo";
+  nombreImagen: string = "Nuevo nombre...";
   respuesta: string = "";
-  constructor(private paginaService: PaginaService, private galeriaService: GaleriaService) {
+  error: boolean = false;
+
+  constructor(private paginaService: PaginaService, private galeriaService: GaleriaService, private router:Router) {
     this.dataAboutUs = new Pagina(0);
   }
 
   ngOnInit(): void {
+    this.buscarUsuario();
     this.descripcionPagina("Sobre Nosotros");
     this.mostrarGaleria();
   }
@@ -79,5 +83,12 @@ export class ModificarNosotrosComponent {
       let image = document.getElementById("preview") as HTMLImageElement;
       image.src = 'data:image/jpg;base64,' + value;
     });
+  }
+
+  buscarUsuario() {
+    if(localStorage.getItem('id')==null && localStorage.getItem('usuario')==null){
+      this.router.navigate(['']);
+      this.error = true;
+    }
   }
 }

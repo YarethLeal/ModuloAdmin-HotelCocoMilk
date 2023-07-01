@@ -21,6 +21,7 @@ export class EstadoHotelComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.buscarUsuario();
     this.listarEstadoHabitaciones();
   }
 

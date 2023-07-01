@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Pagina } from 'src/app/core/modelos/pagina.model';
 import { PaginaService } from 'src/app/core/servicios/pagina.service';
 import { NotificacionDialogComponent } from 'src/app/core/componentes/notificacion-dialog/notificacion-dialog.component';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,10 +13,12 @@ import { NotificacionDialogComponent } from 'src/app/core/componentes/notificaci
 export class ModificarComoLlegarComponent implements OnInit{
   dataComoLlegar: any = [];
   respuesta: string;
-  constructor (private paginaService: PaginaService) {
+  error: boolean = false;
+  constructor (private paginaService: PaginaService, private router:Router) {
     this.respuesta = "";
   }
   ngOnInit(): void {
+    this.buscarUsuario();
     this.mostrarPagina("Como llegar");
   }
 
@@ -31,5 +34,12 @@ export class ModificarComoLlegarComponent implements OnInit{
       this.respuesta = respuesta;
       NotificacionDialogComponent.prototype.notificar(this.respuesta);
     });
+  }
+
+  buscarUsuario() {
+    if(localStorage.getItem('id')==null && localStorage.getItem('usuario')==null){
+      this.router.navigate(['']);
+      this.error = true;
+    }
   }
 }

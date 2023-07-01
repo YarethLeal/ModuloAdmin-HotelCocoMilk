@@ -1,4 +1,5 @@
 import { Component, OnInit  } from '@angular/core';
+import { Router } from '@angular/router';
 import { ModificarPaginaComponent } from 'src/app/core/componentes/modificar-pagina/modificar-pagina.component';
 import { NotificacionDialogComponent } from 'src/app/core/componentes/notificacion-dialog/notificacion-dialog.component';
 import { Pagina } from 'src/app/core/modelos/pagina.model';
@@ -15,14 +16,16 @@ export class ModificarFacilidadesComponent implements OnInit{
  dataPaginas: Pagina[] =[];
  facilidadModificar: Pagina = new Pagina(0);
  respuesta:string;
+ error: boolean = false;
 
-  constructor(private paginaService: PaginaService) {
+  constructor(private paginaService: PaginaService, private router:Router) {
     this.respuesta = "";
   }
 
   dataFacilidad: Pagina = new Pagina(0); 
 
   ngOnInit(): void {
+    this.buscarUsuario();
     this.dataFacilidad.descripcion = "Escriba aquí la descripción de la nueva facilidad";
     this.mostrarPagina("Facilidades");
   }
@@ -72,5 +75,12 @@ export class ModificarFacilidadesComponent implements OnInit{
       let image = document.getElementById("preview") as HTMLImageElement;
       image.src = 'data:image/jpg;base64,' + value;
     });
+  }
+
+  buscarUsuario() {
+    if(localStorage.getItem('id')==null && localStorage.getItem('usuario')==null){
+      this.router.navigate(['']);
+      this.error = true;
+    }
   }
 }
