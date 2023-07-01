@@ -43,9 +43,6 @@ export class ModificarNosotrosComponent {
   mostrarGaleria() {
     this.galeriaService.listarGaleria().subscribe((data: Galeria[]) => {
       this.dataGaleria = data;
-      // this.dataGaleria.forEach((element: any)=>{
-      //   element.imagen = 'data:image/jpg;base64,' + element.imagen;
-      // });
     });
   }
 
@@ -71,7 +68,7 @@ export class ModificarNosotrosComponent {
       this.respuesta = respuesta;
       NotificacionDialogComponent.prototype.notificar(this.respuesta);
       this.mostrarGaleria();
-    })
+    });
   }
 
   obtenerImagen(event: any) {

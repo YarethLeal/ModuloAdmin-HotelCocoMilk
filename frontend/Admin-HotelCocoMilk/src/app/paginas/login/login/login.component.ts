@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit {
   }
 
   buttonInicioSesion(): void {
-    console.log("Nombre" + this.nombre.length);
+    //console.log("Nombre" + this.nombre.length);
     this.buscarUsuario(this.nombre, this.contra);
   }
 }
